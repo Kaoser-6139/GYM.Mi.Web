@@ -1,0 +1,53 @@
+2025-10-27 09:01:28.993 +06:00 [INF] Application Starting
+2025-10-27 09:06:17.396 +06:00 [INF] Application Starting
+2025-10-27 09:07:58.799 +06:00 [INF] Application Starting
+2025-10-27 10:09:56.885 +06:00 [INF] Application Starting
+2025-10-27 10:12:52.651 +06:00 [INF] Application Starting
+2025-10-27 10:13:37.432 +06:00 [ERR] Failed to delete User
+System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.DbContext.Entry[TEntity](TEntity entity)
+   at GYM.Infrastructure.Repositories.Repository`2.Remove(TEntity entityToDelete) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\Repositories\Repository.cs:line 296
+   at GYM.Infrastructure.Repositories.Repository`2.Remove(TKey id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\Repositories\Repository.cs:line 287
+   at GYM.Application.Services.UserService.DeleteUser(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\Services\UserService.cs:line 28
+   at GYM.Mi.Areas.Admin.Controllers.UsersController.Delete(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\Areas\Admin\Controllers\UsersController.cs:line 122
+2025-10-27 10:13:37.432 +06:00 [ERR] Failed to delete User
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: The database operation was expected to affect 1 row(s), but actually affected 0 row(s); data may have been modified or deleted since entities were loaded. See https://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(RelationalDataReader reader, Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnly(Int32 commandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at GYM.Infrastructure.UnitOfWork.Save() in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\UnitOfWork.cs:line 20
+   at GYM.Application.Services.UserService.DeleteUser(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\Services\UserService.cs:line 29
+   at GYM.Mi.Areas.Admin.Controllers.UsersController.Delete(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\Areas\Admin\Controllers\UsersController.cs:line 122
+2025-10-27 10:13:38.089 +06:00 [ERR] Failed to delete User
+System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.DbContext.Entry[TEntity](TEntity entity)
+   at GYM.Infrastructure.Repositories.Repository`2.Remove(TEntity entityToDelete) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\Repositories\Repository.cs:line 296
+   at GYM.Infrastructure.Repositories.Repository`2.Remove(TKey id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\Repositories\Repository.cs:line 287
+   at GYM.Application.Services.UserService.DeleteUser(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\Services\UserService.cs:line 28
+   at GYM.Mi.Areas.Admin.Controllers.UsersController.Delete(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\Areas\Admin\Controllers\UsersController.cs:line 122
+2025-10-27 10:13:38.276 +06:00 [ERR] Failed to delete User
+System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.DbContext.Entry[TEntity](TEntity entity)
+   at GYM.Infrastructure.Repositories.Repository`2.Remove(TEntity entityToDelete) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\Repositories\Repository.cs:line 296
+   at GYM.Infrastructure.Repositories.Repository`2.Remove(TKey id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\Repositories\Repository.cs:line 287
+   at GYM.Application.Services.UserService.DeleteUser(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\Services\UserService.cs:line 28
+   at GYM.Mi.Areas.Admin.Controllers.UsersController.Delete(Guid id) in E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\Areas\Admin\Controllers\UsersController.cs:line 122
+2025-10-27 10:16:34.187 +06:00 [INF] Application Starting
+2025-10-27 10:25:50.020 +06:00 [INF] Application Starting
+2025-10-27 10:39:30.026 +06:00 [INF] Application Starting
+2025-10-27 11:00:56.427 +06:00 [INF] Application Starting
+2025-10-27 11:03:37.016 +06:00 [INF] Application Starting

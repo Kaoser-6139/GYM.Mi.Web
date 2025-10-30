@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<!--begin::App Content Header-->
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Welcome</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Welcome</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::App Content Header-->
+<!--begin::App Content-->
+<div class="app-content">
+    <div class="container-fluid">
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-xl-10">
+
+                <!-- Welcome Card -->
+                <div class="card shadow-lg border-0" style="border-radius: 12px; margin-top: 20px;">
+                    <div class="card-body text-center" style="padding: 80px 60px;">
+
+                        <!-- Icon -->
+                        <div class="mb-4">
+                            <div style="width: 90px; height: 90px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="white" viewBox="0 0 16 16">
+                                    <path d="M8.5 5.034v1.1l.953-.55.5.867L9 7l.953.55-.5.866-.953-.55v1.1h-1v-1.1l-.953.55-.5-.866L7 7l-.953-.55.5-.866.953.55v-1.1h1ZM13.25 9a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM13 11.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Zm.25 1.75a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5Zm-11-4a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 9.75v-.5A.25.25 0 0 0 2.75 9h-.5Zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5ZM2 13.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5Z" />
+                                    <path d="M5 1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 1 1v4h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h3V3a1 1 0 0 1 1-1V1Zm2 14h2v-3H7v3Zm3 0h1V3H5v12h1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3Zm0-14H6v1h4V1Zm2 7v7h3V8h-3Zm-8 7V8H1v7h3Z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Welcome Heading -->
+                        <h1 class="mb-3" style="font-weight: 700; color: #1a2332; font-size: 2.8rem;">
+                            Welcome to Fitness Hub!
+                        </h1>
+
+                        <!-- Welcome Message -->
+                        <p class="mb-5 mx-auto" style="font-size: 1.15rem; color: #6c757d; line-height: 1.8; max-width: 700px;">
+                            Start your fitness journey with us. Track your progress, get personalized workout plans,
+                            and achieve your goals with AI-powered fitness coaching tailored just for you.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+
+                            <!-- Get Started Button -->
+                            <a href="/Admin/Users/Add"
+                               class="btn btn-lg"
+                               style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                      color: #fff;
+                                      border: none;
+                                      padding: 16px 50px;
+                                      border-radius: 10px;
+                                      font-weight: 600;
+                                      font-size: 1.15rem;
+                                      text-decoration: none;
+                                      display: inline-block;
+                                      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+                                      transition: all 0.3s ease;">
+                                Get Started
+                            </a>
+
+                            <!-- Go to Profile Button -->
+                            <a href="/Admin/Users/Profile"
+                               class="btn btn-lg btn-outline-secondary"
+                               style="border: 2px solid #667eea;
+                                      color: #667eea;
+                                      padding: 16px 50px;
+                                      border-radius: 10px;
+                                      font-weight: 600;
+                                      font-size: 1.15rem;
+                                      text-decoration: none;
+                                      display: inline-block;
+                                      background: transparent;
+                                      transition: all 0.3s ease;">
+                                Go to Profile
+                            </a>
+
+                        </div>
+
+                        <!-- Additional Info -->
+                        <div class="mt-5 pt-5" style="border-top: 1px solid #e0e0e0;">
+                            <p class="mb-0" style="font-size: 0.95rem; color: #999;">
+                                Already have an account? Your profile is just one click away!
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::App Content-->
+<!-- Button Hover Effects -->
+<style>
+    a.btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.18) !important;
+    }
+
+    a.btn-outline-secondary:hover {
+        background: #667eea !important;
+        color: #fff !important;
+        border-color: #667eea !important;
+    }
+</style>

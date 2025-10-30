@@ -1,0 +1,8 @@
+2025-10-24 23:11:51.591 +06:00 [INF] Application Starting
+2025-10-24 23:12:28.608 +06:00 [ERR] Abc
+2025-10-24 23:16:12.243 +06:00 [INF] Application Starting
+2025-10-24 23:16:38.163 +06:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+AddUserModel -> User
+GYM.Mi.Areas.Admin.Models.AddUserModel -> GYM.Domain.Entities.User

@@ -1,0 +1,163 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@model UpdateUserMode
+@{
+    ViewData["Title"] = "Update User";
+}
+
+<div class="app-content-header" style="background: #f8f9fa; padding: 20px 0; border-bottom: 1px solid #e0e0e0;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6"><h3 class="mb-0" style="color: #1a2332;">Update User</h3></div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end" style="background: transparent;">
+                    <li class="breadcrumb-item"><a href="/Admin/Users" style="color: #4a90e2;">Users</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" style="color: #6c757d;">Edit User</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ App Content -->
+<div class="app-content" style="background: #ffffff; padding: 40px 0;">
+    <div class="container-fluid">
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="card shadow-sm" style="border-radius: 12px; border: 1px solid #e0e0e0;">
+                    <div class="card-header text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 24px; border-radius: 12px 12px 0 0;">
+                        <h4 class="mb-1" style="font-weight: 600;">Update User Information</h4>
+                        <p class="mb-0" style="font-size: 14px; opacity: 0.9;">Modify the user details below and click Save.</p>
+                    </div>
+
+                    <!-- ✅ Edit Form -->
+                    <form asp-antiforgery="true" asp-area="Admin" asp-controller="Users" asp-action="Update" method="post" style="padding: 0;">
+                        @* Hidden ID field *@
+                        <input type="hidden" asp-for="Id" />
+
+                        <div asp-validation-summary="All" class="text-danger mx-4 mt-3"></div>
+
+                        <div class="card-body" style="padding: 40px;">
+
+                            <!-- Row 1: Full Name & Phone -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label asp-for="FullName" class="form-label" style="font-weight: 500; color: #333;">Full Name</label>
+                                    <input type="text" class="form-control" asp-for="FullName" placeholder="Enter full name" style="border-radius: 8px; border: 1px solid #ddd; padding: 12px;" />
+                                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="PhoneNumber" class="form-label" style="font-weight: 500; color: #333;">Phone</label>
+                                    <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="01XXXXXXXXX" style="border-radius: 8px; border: 1px solid #ddd; padding: 12px;" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Age & Gender -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label asp-for="Age" class="form-label" style="font-weight: 500; color: #333;">Age</label>
+                                    <input type="number" class="form-control" asp-for="Age" style="border-radius: 8px; border: 1px solid #ddd; padding: 12px;" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Gender" class="form-label" style="font-weight: 500; color: #333;">Gender</label>
+                                    <select class="form-select" asp-for="Gender" style="border-radius: 8px; border: 1px solid #ddd; padding: 12px;">
+                                        <option value="">Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Row 3: Height & Weight -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label asp-for="HeightCm" class="form-label">Height (cm)</label>
+                                    <input type="number" step="0.1" class="form-control" asp-for="HeightCm" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="WeightKg" class="form-label">Weight (kg)</label>
+                                    <input type="number" step="0.1" class="form-control" asp-for="WeightKg" />
+                                </div>
+                            </div>
+
+                            <!-- Row 4: Goal & Workout Preference -->
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label asp-for="PrimaryGoal" class="form-label">Goal</label>
+                                    <select asp-for="PrimaryGoal" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Weight Loss">Weight Loss</option>
+                                        <option value="Muscle Gain">Muscle Gain</option>
+                                        <option value="General Fitness">General Fitness</option>
+                                        <option value="Endurance">Endurance</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="WorkoutPreference" class="form-label">Workout Preference</label>
+                                    <select asp-for="WorkoutPreference" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Home">Home</option>
+                                        <option value="Gym">Gym</option>
+                                        <option value="Outdoor">Outdoor</option>
+                                        <option value="Hybrid">Hybrid (Mix)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Row 5: BMI -->
+                            <div class="mb-4">
+                                <label asp-for="BMI" class="form-label">BMI (Body Mass Index)</label>
+                                <input type="range" class="form-range" asp-for="BMI" min="10" max="50" step="0.1"
+                                       value="@Model.BMI"
+                                       oninput="document.getElementById('bmiValue').innerText=this.value"
+                                       style="accent-color:#667eea;" />
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small>Underweight (10)</small>
+                                    <span id="bmiValue" style="font-weight:600;color:#667eea;">@Model.BMI</span>
+                                    <small>Obese (50)</small>
+                                </div>
+                            </div>
+
+                            <!-- Optional: Medical Conditions -->
+                            <div class="mb-4">
+                                <label asp-for="MedicalConditions" class="form-label">Medical Conditions</label>
+                                <input type="text" class="form-control" asp-for="MedicalConditions" />
+                            </div>
+
+                            <!-- Entry Date -->
+                            <div class="mb-4">
+                                <label asp-for="EntryDate" class="form-label">Entry Date</label>
+                                <input type="date" class="form-control" asp-for="EntryDate" />
+                            </div>
+
+                        </div>
+
+                        <!-- ✅ Footer -->
+                        <div class="card-footer text-center" style="background: #f8f9fa; padding: 20px; border-radius: 0 0 12px 12px;">
+                            <button type="submit" class="btn btn-lg me-3"
+                                    style="background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+                                           color:#fff;border:none;padding:12px 48px;border-radius:8px;font-weight:600;">
+                                Save Changes
+                            </button>
+                            <a href="@Url.Action("Index","Users",new{area="Admin"})"
+                               class="btn btn-lg btn-outline-secondary"
+                               style="padding:12px 48px;border-radius:8px;font-weight:600;">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
+<h1>Update</h1>
+

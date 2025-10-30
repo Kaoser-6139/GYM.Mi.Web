@@ -1,0 +1,11 @@
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\bin\Debug\net9.0\GYM.Domain.deps.json
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\bin\Debug\net9.0\GYM.Domain.dll
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\bin\Debug\net9.0\GYM.Domain.pdb
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\GYM.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\GYM.Domain.AssemblyInfoInputs.cache
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\GYM.Domain.AssemblyInfo.cs
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\GYM.Domain.csproj.CoreCompileInputs.cache
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\GYM.Domain.dll
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\refint\GYM.Domain.dll
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\GYM.Domain.pdb
+E:\Abbu\AspnetProject\GYM.Mi\GYM.Domain\obj\Debug\net9.0\ref\GYM.Domain.dll
