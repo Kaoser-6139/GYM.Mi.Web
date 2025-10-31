@@ -1,13 +1,14 @@
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using GYM.Mi.Data;
-using Microsoft.AspNetCore.Identity;
+//using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
 using GYM.Mi;
 using GYM.Infrastructure;
 using System.Reflection;
+using GYM.Mi.Infrastructure.Extensions;
 
 
 var configuration = new ConfigurationBuilder()
@@ -45,12 +46,15 @@ try
     #region Automapper Configuration
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     #endregion
+    #region Identity Configuration
+    builder.Services.AddIdentity();
+    #endregion
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(connectionString, (x) => x.MigrationsAssembly(migrationAssembly)));
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+    builder.Services.AddRazorPages();
 
-    builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        .AddEntityFrameworkStores<ApplicationDbContext>();
+    
     builder.Services.AddControllersWithViews();
 
     var app = builder.Build();

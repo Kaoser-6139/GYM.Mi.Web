@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj": {}
+    "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj": {}
   },
   "projects": {
-    "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj": {
+    "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj",
+        "projectUniqueName": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj",
         "projectName": "GYM.Domain",
-        "projectPath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj",
+        "projectPath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\obj\\",
+        "outputPath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -60,6 +60,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.305, 9.0.305]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -69,14 +75,14 @@
         }
       }
     },
-    "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj": {
+    "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj",
+        "projectUniqueName": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj",
         "projectName": "GYM.Infrastructure",
-        "projectPath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj",
+        "projectPath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\GYM.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\obj\\",
+        "outputPath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +103,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj": {
-                "projectPath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj"
+              "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj": {
+                "projectPath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj"
               }
             }
           }
@@ -120,6 +126,10 @@
           "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
@@ -147,6 +157,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Net.Sdk.Compilers.Toolset",
+              "version": "[9.0.305, 9.0.305]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

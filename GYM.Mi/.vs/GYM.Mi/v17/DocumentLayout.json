@@ -1,98 +1,126 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\",
+  "WorkspaceRootPath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\identity\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\identity\\pages\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|solutionrelative:gym.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\users\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\users\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\shared\\_responsepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\shared\\_responsepartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.infrastructure\\tempdataextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\tempdataextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.domain\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|solutionrelative:gym.domain\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\applicationunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\applicationunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\gym.mi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\gym.mi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.domain\\iapplicationunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|solutionrelative:gym.domain\\iapplicationunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\logs\\web-log-20251027.log||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\logs\\web-log-20251027.log||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\shared\\_modalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\shared\\_modalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDDFFD73-336B-484B-B31A-7AA885C3591F}|GYM.Application\\GYM.Application.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FDDFFD73-336B-484B-B31A-7AA885C3591F}|GYM.Application\\GYM.Application.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDDFFD73-336B-484B-B31A-7AA885C3591F}|GYM.Application\\GYM.Application.csproj|solutionrelative:gym.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.domain\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|solutionrelative:gym.domain\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\logs\\web-log-20251026.log||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\logs\\web-log-20251026.log||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\users\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.domain\\entities\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|solutionrelative:gym.domain\\entities\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EBE153F-71CB-44B0-A10C-CECD6FF1382F}|GYM.Domain\\GYM.Domain.csproj|solutionrelative:gym.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\areas\\admin\\views\\users\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\users\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\users\\welcome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\users\\welcome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\areas\\admin\\views\\roles\\addrole.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\roles\\addrole.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\webprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\webprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\models\\updateusermode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\models\\updateusermode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\areas\\admin\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\models\\addusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\models\\addusermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\data\\migrations\\20251030165805_updateseedroledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\data\\migrations\\20251030165805_updateseedroledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\data\\migrations\\20251031035144_updatuserseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\data\\migrations\\20251031035144_updatuserseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\logs\\web-log-20251031.log||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\logs\\web-log-20251031.log||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\identity\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\identity\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\seeds\\roleseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\seeds\\roleseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\data\\migrations\\20251030161702_addroleseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\data\\migrations\\20251030161702_addroleseeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.infrastructure\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DB37CAE-F71A-4EB4-91B8-A25DAF0B9015}|GYM.Infrastructure\\GYM.Infrastructure.csproj|solutionrelative:gym.infrastructure\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\areas\\admin\\models\\addrolemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\areas\\admin\\models\\addrolemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gym.mi\\gym.mi\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|e:\\abbu\\aspnetproject\\gymmanagement system\\gym.mi.web\\gym.mi\\gym.mi\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C291791E-0541-45E6-845D-A7DBB18A7939}|GYM.Mi\\GYM.Mi.csproj|solutionrelative:gym.mi\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -102,297 +130,382 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\UnitOfWork.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\UnitOfWork.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:46:40.597Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-29T17:47:59.768Z",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAuwC4AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:44:18.661Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "GYM.Domain\\Entities\\User.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "GYM.Domain\\Entities\\User.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAuwB4AAAA6AAAAAAAAAA==",
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "GYM.Domain\\IUnitOfWork.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\IUnitOfWork.cs",
+              "RelativeToolTip": "GYM.Domain\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:28:51.317Z"
+              "WhenOpened": "2025-10-31T16:46:28.146Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAiwIwAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-26T15:37:59.212Z",
+              "DocumentIndex": 3,
+              "Title": "ApplicationUnitOfWork.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\ApplicationUnitOfWork.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\ApplicationUnitOfWork.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\ApplicationUnitOfWork.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\ApplicationUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:46:20.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAowHQAAAArAAAAAAAAAA==",
+              "Title": "IApplicationUnitOfWork.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\IApplicationUnitOfWork.cs",
+              "RelativeDocumentMoniker": "GYM.Domain\\IApplicationUnitOfWork.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\IApplicationUnitOfWork.cs",
+              "RelativeToolTip": "GYM.Domain\\IApplicationUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T16:45:35.768Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TempDataExtensions.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\TempDataExtensions.cs",
-              "RelativeDocumentMoniker": "GYM.Infrastructure\\TempDataExtensions.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Infrastructure\\TempDataExtensions.cs",
-              "RelativeToolTip": "GYM.Infrastructure\\TempDataExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T04:53:56.12Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ResponseModel.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\ResponseModel.cs",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Models\\ResponseModel.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\ResponseModel.cs",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Models\\ResponseModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T03:47:19.407Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GYM.Mi.csproj",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\GYM.Mi.csproj",
-              "RelativeDocumentMoniker": "GYM.Mi\\GYM.Mi.csproj",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\GYM.Mi.csproj",
-              "RelativeToolTip": "GYM.Mi\\GYM.Mi.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-27T04:45:27.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Update.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Update.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Update.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Update.cshtml",
-              "ViewState": "AgIAAIIAAAAAAAAAAADwv5cAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-26T17:05:01.168Z"
+              "WhenOpened": "2025-10-31T16:46:10.297Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_ResponsePartial.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ResponsePartial.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ResponsePartial.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ResponsePartial.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ResponsePartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-27T03:45:42.443Z"
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "GYM.Application\\Services\\UserService.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Application\\Services\\UserService.cs",
+              "RelativeToolTip": "GYM.Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:45:45.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:45:35.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\Repositories\\Repository.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Repositories\\Repository.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\Repositories\\Repository.cs",
+              "ViewState": "AgIAANMBAAAAAAAAAAAgwAQCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:45:26.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IEntity.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\Entities\\IEntity.cs",
+              "RelativeDocumentMoniker": "GYM.Domain\\Entities\\IEntity.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\Entities\\IEntity.cs",
+              "RelativeToolTip": "GYM.Domain\\Entities\\IEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T16:45:12.981Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "web-log-20251027.log",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Logs\\web-log-20251027.log",
-              "RelativeDocumentMoniker": "GYM.Mi\\Logs\\web-log-20251027.log",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Logs\\web-log-20251027.log",
-              "RelativeToolTip": "GYM.Mi\\Logs\\web-log-20251027.log",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-27T04:28:06.211Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "_ModalPartial.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ModalPartial.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ModalPartial.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ModalPartial.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Shared\\_ModalPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-27T03:56:57.563Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "GYM.Domain\\Services\\IUserService.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\Services\\IUserService.cs",
-              "RelativeToolTip": "GYM.Domain\\Services\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "GYM.Domain\\Entities\\User.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "GYM.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T16:48:41.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "GYM.Application\\Services\\UserService.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "GYM.Application\\Services\\UserService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T16:49:16.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "web-log-20251026.log",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Logs\\web-log-20251026.log",
-              "RelativeDocumentMoniker": "GYM.Mi\\Logs\\web-log-20251026.log",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Logs\\web-log-20251026.log",
-              "RelativeToolTip": "GYM.Mi\\Logs\\web-log-20251026.log",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACAAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-27T03:01:02.459Z"
+              "WhenOpened": "2025-10-31T16:45:05.338Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Welcome.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Welcome.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Welcome.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Welcome.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Welcome.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAFYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-27T02:58:43.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AddUserModel.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\AddUserModel.cs",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Models\\AddUserModel.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\AddUserModel.cs",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Models\\AddUserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Title": "20251030165805_UpdateSeedRoleData.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Data\\Migrations\\20251030165805_UpdateSeedRoleData.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Data\\Migrations\\20251030165805_UpdateSeedRoleData.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Data\\Migrations\\20251030165805_UpdateSeedRoleData.cs",
+              "RelativeToolTip": "GYM.Mi\\Data\\Migrations\\20251030165805_UpdateSeedRoleData.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBYAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T16:45:01.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Add.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAAwAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-26T17:05:09.992Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "WebProfile.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\WebProfile.cs",
-              "RelativeDocumentMoniker": "GYM.Mi\\WebProfile.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\WebProfile.cs",
-              "RelativeToolTip": "GYM.Mi\\WebProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T17:02:27.661Z"
+              "WhenOpened": "2025-10-30T16:58:11.747Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "UpdateUserMode.cs",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\UpdateUserMode.cs",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Models\\UpdateUserMode.cs",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\UpdateUserMode.cs",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Models\\UpdateUserMode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T16:44:57.903Z"
+              "Title": "web-log-20251031.log",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Logs\\web-log-20251031.log",
+              "RelativeDocumentMoniker": "GYM.Mi\\Logs\\web-log-20251031.log",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Logs\\web-log-20251031.log",
+              "RelativeToolTip": "GYM.Mi\\Logs\\web-log-20251031.log",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-31T04:26:00.632Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "AddRole.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Roles\\AddRole.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Roles\\AddRole.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Roles\\AddRole.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Roles\\AddRole.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-26T15:32:39.139Z"
+              "WhenOpened": "2025-10-30T15:41:56.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Account\\Login.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T10:46:08.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Add.cshtml",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAowHcAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T10:47:26.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABYAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T10:47:24.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Controllers\\RolesController.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAowJ0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:36:26.853Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAL4CAAAAAAAAAAAgwPICAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-26T15:23:31.867Z"
+              "Title": "RoleSeed.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Seeds\\RoleSeed.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\Seeds\\RoleSeed.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Seeds\\RoleSeed.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\Seeds\\RoleSeed.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCMAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:46:34.843Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "DocumentIndex": 16,
+              "Title": "20251031035144_UpdatUserSeedData.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Data\\Migrations\\20251031035144_UpdatUserSeedData.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Data\\Migrations\\20251031035144_UpdatUserSeedData.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Data\\Migrations\\20251031035144_UpdatUserSeedData.cs",
+              "RelativeToolTip": "GYM.Mi\\Data\\Migrations\\20251031035144_UpdatUserSeedData.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T03:51:54.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApplicationRole.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Identity\\ApplicationRole.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\Identity\\ApplicationRole.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\Identity\\ApplicationRole.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\Identity\\ApplicationRole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T03:53:43.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AddRoleModel.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\AddRoleModel.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Areas\\Admin\\Models\\AddRoleModel.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Areas\\Admin\\Models\\AddRoleModel.cs",
+              "RelativeToolTip": "GYM.Mi\\Areas\\Admin\\Models\\AddRoleModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:43:58.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "GYM.Mi\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAkwEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T10:41:11.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Account\\Register.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAACEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-26T15:22:58.893Z"
+              "WhenOpened": "2025-10-30T10:51:08.924Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 21,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "GYM.Mi\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAIkDAAAAAAAAAAAgwKwDAABlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-18T07:03:18.113Z"
+              "Title": "20251030161702_AddRoleSeedData.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Data\\Migrations\\20251030161702_AddRoleSeedData.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Data\\Migrations\\20251030161702_AddRoleSeedData.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Data\\Migrations\\20251030161702_AddRoleSeedData.cs",
+              "RelativeToolTip": "GYM.Mi\\Data\\Migrations\\20251030161702_AddRoleSeedData.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T16:17:24.428Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "GYM.Infrastructure\\ApplicationDbContext.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Infrastructure\\ApplicationDbContext.cs",
+              "RelativeToolTip": "GYM.Infrastructure\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAACIAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T15:50:34.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Account\\AccessDenied.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Account\\AccessDenied.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Views\\Account\\AccessDenied.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T10:42:51.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T10:24:57.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T09:55:17.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "GYM.Mi\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "GYM.Mi\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-30T10:06:25.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "LoginModel.cs",
+              "DocumentMoniker": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Models\\LoginModel.cs",
+              "RelativeDocumentMoniker": "GYM.Mi\\Models\\LoginModel.cs",
+              "ToolTip": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Mi\\Models\\LoginModel.cs",
+              "RelativeToolTip": "GYM.Mi\\Models\\LoginModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T10:48:25.613Z"
             }
           ]
         }

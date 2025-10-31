@@ -13,3 +13,19 @@ E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.dl
 E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\obj\Debug\net9.0\refint\GYM.Application.dll
 E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.pdb
 E:\Abbu\AspnetProject\GYM.Mi\GYM.Application\obj\Debug\net9.0\ref\GYM.Application.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\bin\Debug\net9.0\GYM.Application.deps.json
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\bin\Debug\net9.0\GYM.Application.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\bin\Debug\net9.0\GYM.Application.pdb
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\bin\Debug\net9.0\GYM.Domain.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\bin\Debug\net9.0\GYM.Domain.pdb
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.csproj.AssemblyReference.cache
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.AssemblyInfoInputs.cache
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.AssemblyInfo.cs
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.csproj.CoreCompileInputs.cache
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.sourcelink.json
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Appl.E67B62D6.Up2Date
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\refint\GYM.Application.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\GYM.Application.pdb
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Application\obj\Debug\net9.0\ref\GYM.Application.dll

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GYM.Mi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3efbbe742aa2421bd0ad16c5175900ecf8d7fa9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GYM.Mi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GYM.Mi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

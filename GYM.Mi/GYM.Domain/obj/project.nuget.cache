@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "i8AZSvEkrKQ=",
+  "dgSpecHash": "FPzdCK8bJlU=",
   "success": true,
-  "projectFilePath": "E:\\Abbu\\AspnetProject\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\Abbu\\AspnetProject\\GymManagement System\\GYM.Mi.Web\\GYM.Mi\\GYM.Domain\\GYM.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.305\\microsoft.net.sdk.compilers.toolset.9.0.305.nupkg.sha512"
+  ],
   "logs": []
 }

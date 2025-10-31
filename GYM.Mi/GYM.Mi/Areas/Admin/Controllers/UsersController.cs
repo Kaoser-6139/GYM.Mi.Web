@@ -47,6 +47,7 @@ namespace GYM.Mi.Areas.Admin.Controllers
                 try
                 {
                     var user = _mapper.Map<User>(model);
+                    user.Id=GYM.Mi.Domain.IdentityGenerator.NewSequentialGuid();
 
                     _userService.AddUser(user);
 

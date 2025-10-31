@@ -1,77 +1,77 @@
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.slim.min.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.min.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.slim.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\js\site.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\LICENSE.md
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\LICENSE.txt
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\favicon.ico
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.slim.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\css\site.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.min.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.min.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\additional-methods.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.min.css.map
-E:\Abbu\AspnetProject\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.slim.min.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.min.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.slim.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\js\site.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\LICENSE.md
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\LICENSE.txt
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\favicon.ico
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.slim.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\css\site.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.min.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\js\adminlte.min.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\additional-methods.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery\dist\jquery.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.rtl.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\admin-lte-4\css\adminlte.min.css.map
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Mi\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 wwwroot\admin-lte-4\assets\img\AdminLTEFullLogo.png
 wwwroot\admin-lte-4\assets\img\AdminLTELogo.png
 wwwroot\admin-lte-4\assets\img\avatar.png

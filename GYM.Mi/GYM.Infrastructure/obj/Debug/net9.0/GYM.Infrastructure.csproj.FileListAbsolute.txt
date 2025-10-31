@@ -13,3 +13,19 @@ E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastruct
 E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\refint\GYM.Infrastructure.dll
 E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.pdb
 E:\Abbu\AspnetProject\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\ref\GYM.Infrastructure.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\bin\Debug\net9.0\GYM.Infrastructure.deps.json
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\bin\Debug\net9.0\GYM.Infrastructure.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\bin\Debug\net9.0\GYM.Infrastructure.pdb
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\bin\Debug\net9.0\GYM.Domain.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\bin\Debug\net9.0\GYM.Domain.pdb
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.csproj.AssemblyReference.cache
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.AssemblyInfoInputs.cache
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.AssemblyInfo.cs
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.csproj.CoreCompileInputs.cache
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.sourcelink.json
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infr.723CF563.Up2Date
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\refint\GYM.Infrastructure.dll
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\GYM.Infrastructure.pdb
+E:\Abbu\AspnetProject\GymManagement System\GYM.Mi.Web\GYM.Mi\GYM.Infrastructure\obj\Debug\net9.0\ref\GYM.Infrastructure.dll
