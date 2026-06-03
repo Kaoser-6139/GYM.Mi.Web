@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Privacy";
+    Layout = "_LandingLayout";
+}
+
+<main>
+    <section class="hero" style="min-height: 70vh;" id="privacy">
+        <div class="container hero-content">
+            <div>
+                <div class="hero-badge">
+                    <span class="dot"></span> Privacy Policy
+                </div>
+
+                <h1>Your Data Security Matters.</h1>
+
+                <p>
+                    GymFlow is designed to keep member information, payment records,
+                    attendance history, and fitness progress data organized and protected.
+                </p>
+
+                <div class="hero-buttons">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to Home</a>
+                    <a href="/#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <div class="dashboard-card">
+                    <div class="dashboard-top">
+                        <div>
+                            <p class="mini-title">Privacy Summary</p>
+                            <h3>What We Protect</h3>
+                        </div>
+
+                        <span class="status">Secure</span>
+                    </div>
+
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div>
+                                <strong>Member Information</strong>
+                                <small>Name, contact, membership and profile data</small>
+                            </div>
+                            <span class="tag">Private</span>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <strong>Payment Records</strong>
+                                <small>Plan history, renewal and due status</small>
+                            </div>
+                            <span class="tag">Protected</span>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <strong>Fitness Progress</strong>
+                                <small>Attendance, progress and workout information</small>
+                            </div>
+                            <span class="tag">Safe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

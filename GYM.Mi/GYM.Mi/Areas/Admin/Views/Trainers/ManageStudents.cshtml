@@ -1,0 +1,779 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@model ManageStudentsForTrainerModel
+
+@{
+    ViewData["Title"] = "Manage Students";
+}
+
+<style>
+    .trainer-page-card {
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .trainer-page-header {
+        background: linear-gradient(135deg,#667eea,#764ba2);
+        color: white;
+        padding: 22px 24px;
+    }
+
+        .trainer-page-header h5 {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+    .trainer-summary-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        background: #ffffff;
+        padding: 20px 22px;
+        margin-bottom: 24px;
+    }
+
+    .trainer-summary-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .trainer-summary-meta {
+        color: #6b7280;
+        font-size: 15px;
+    }
+
+        .trainer-summary-meta span {
+            margin-right: 18px;
+        }
+
+    .table-section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+    }
+
+        .table-section-title h5 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+    .student-count-badge {
+        background-color: #eef2ff;
+        color: #4f46e5;
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .student-membership-badge {
+        padding: 7px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        min-width: 120px;
+        display: inline-block;
+    }
+
+    .assigned-table th,
+    .available-table th {
+        font-size: 16px;
+        font-weight: 700;
+        vertical-align: middle;
+        color: #111;
+    }
+
+    .assigned-table td,
+    .available-table td {
+        vertical-align: middle;
+        font-size: 15px;
+        color: #222;
+    }
+
+    .student-name-text {
+        font-weight: 700;
+        color: #111827;
+    }
+
+    .student-profile-btn,
+    .student-action-btn {
+        border-radius: 6px;
+        font-weight: 600;
+        padding: 7px 14px;
+    }
+
+    .empty-student-box {
+        padding: 35px 20px;
+        text-align: center;
+        color: #6c757d;
+        font-size: 16px;
+        border: 1px dashed #d1d5db;
+        border-radius: 8px;
+        background: #fafafa;
+    }
+
+    .trainer-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .add-student-modal .modal-content {
+        border: none;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .add-student-modal .modal-header {
+        background: linear-gradient(135deg,#667eea,#764ba2);
+        color: white;
+        padding: 20px 24px;
+        border-bottom: none;
+    }
+
+    .add-student-modal .modal-title {
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .add-student-modal .modal-body {
+        padding: 24px;
+    }
+
+    .add-student-modal .modal-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        padding: 16px 24px;
+    }
+
+    .modal-search-box {
+        margin-bottom: 18px;
+    }
+
+        .modal-search-box input {
+            border-radius: 8px;
+            padding: 10px 14px;
+        }
+
+    .available-table-wrapper {
+        max-height: 430px;
+        overflow-y: auto;
+    }
+
+    #ajaxTrainerMessage,
+    #ajaxTrainerModalMessage {
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    @@media (max-width: 768px) {
+        .table-section-title {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .trainer-page-header .d-flex {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 14px;
+        }
+
+        .trainer-footer {
+            flex-direction: column;
+        }
+
+            .trainer-footer .btn {
+                width: 100%;
+            }
+    }
+</style>
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Manage Students</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Trainers" asp-action="Index">Trainers</a>
+                    </li>
+                    <li class="breadcrumb-item active">Manage Students</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card trainer-page-card">
+
+            <div class="trainer-page-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>
+                        <i class="bi bi-people me-2"></i>
+                        Assign Students to Trainer
+                    </h5>
+
+                    <button type="button"
+                            class="btn btn-light btn-sm"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addStudentModal">
+                        <i class="bi bi-plus-circle me-1"></i>
+                        Add Student
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <partial name="_ResponsePartial" />
+
+                <div id="ajaxTrainerMessage" class="alert d-none mb-3"></div>
+
+                <div class="trainer-summary-card">
+                    <div class="trainer-summary-name">
+                        @Model.FirstName @Model.LastName
+                    </div>
+
+                    <div class="trainer-summary-meta">
+                        <span>
+                            <i class="bi bi-person-badge me-1"></i>
+                            Trainer
+                        </span>
+
+                        <span>
+                            <i class="bi bi-telephone me-1"></i>
+                            @(Model.PhoneNumber ?? "N/A")
+                        </span>
+                    </div>
+                </div>
+
+                <div class="table-section-title">
+                    <h5>
+                        <i class="bi bi-person-check me-1"></i>
+                        Assigned Students
+                    </h5>
+
+                    <span id="assignedStudentCount" class="student-count-badge">
+                        @(Model.AssignedStudents?.Count ?? 0) Student(s)
+                    </span>
+                </div>
+
+                <div id="assignedStudentsTableWrapper" class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle assigned-table mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Student Name</th>
+                                <th class="text-center" style="width: 190px;">Membership</th>
+                                <th class="text-center" style="width: 180px;">Profile</th>
+                                <th class="text-center" style="width: 180px;">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="assignedStudentsBody">
+                            @if (Model.AssignedStudents != null && Model.AssignedStudents.Any())
+                            {
+                                foreach (var student in Model.AssignedStudents)
+                                {
+                                    <tr data-student-id="@student.Id"
+                                        data-membership-text="@student.MembershipText"
+                                        data-membership-class="@student.MembershipBadgeClass">
+                                        <td>
+                                            <span class="student-name-text">
+                                                @student.Name
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span class="badge @student.MembershipBadgeClass student-membership-badge">
+                                                @student.MembershipText
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a asp-area="Admin"
+                                               asp-controller="Users"
+                                               asp-action="Profile"
+                                               asp-route-id="@student.Id"
+                                               target="_blank"
+                                               class="btn btn-info btn-sm student-profile-btn">
+                                                <i class="bi bi-eye me-1"></i>
+                                                Profile
+                                            </a>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <form asp-area="Admin"
+                                                  asp-controller="Trainers"
+                                                  asp-action="RemoveStudentFromTrainer"
+                                                  method="post"
+                                                  class="d-inline js-remove-student-form">
+                                                @Html.AntiForgeryToken()
+
+                                                <input type="hidden" name="trainerId" value="@Model.Id" />
+                                                <input type="hidden" name="userId" value="@student.Id" />
+
+                                                <button type="submit"
+                                                        class="btn btn-danger btn-sm student-action-btn">
+                                                    <i class="bi bi-x-circle me-1"></i>
+                                                    Remove
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="assignedStudentsEmptyBox"
+                     class="empty-student-box mt-3 @(Model.AssignedStudents != null && Model.AssignedStudents.Any() ? "d-none" : "")">
+                    <i class="bi bi-info-circle me-1"></i>
+                    No students assigned to this trainer yet.
+                </div>
+
+            </div>
+
+            <div class="trainer-footer">
+                <a asp-area="Admin"
+                   asp-controller="Trainers"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Back to Trainers
+                </a>
+
+                <a asp-area="Admin"
+                   asp-controller="Trainers"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    Done
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade add-student-modal"
+     id="addStudentModal"
+     tabindex="-1"
+     aria-labelledby="addStudentModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="addStudentModalLabel">
+                    <i class="bi bi-person-plus me-2"></i>
+                    Add Student to @Model.FirstName @Model.LastName
+                </h5>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div id="ajaxTrainerModalMessage" class="alert d-none mb-3"></div>
+
+                <div class="modal-search-box">
+                    <input type="text"
+                           id="availableStudentModalSearch"
+                           class="form-control"
+                           placeholder="Search available students..." />
+                </div>
+
+                <div id="availableStudentsTableWrapper" class="table-responsive available-table-wrapper">
+                    <table class="table table-bordered table-hover align-middle available-table mb-0"
+                           id="availableStudentModalTable">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Student Name</th>
+                                <th class="text-center" style="width: 190px;">Membership</th>
+                                <th class="text-center" style="width: 160px;">Profile</th>
+                                <th class="text-center" style="width: 160px;">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="availableStudentsBody">
+                            @if (Model.AvailableStudents != null && Model.AvailableStudents.Any())
+                            {
+                                foreach (var student in Model.AvailableStudents)
+                                {
+                                    <tr data-student-id="@student.Id"
+                                        data-membership-text="@student.MembershipText"
+                                        data-membership-class="@student.MembershipBadgeClass">
+                                        <td>
+                                            <span class="student-name-text">
+                                                @student.Name
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span class="badge @student.MembershipBadgeClass student-membership-badge">
+                                                @student.MembershipText
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a asp-area="Admin"
+                                               asp-controller="Users"
+                                               asp-action="Profile"
+                                               asp-route-id="@student.Id"
+                                               target="_blank"
+                                               class="btn btn-info btn-sm">
+                                                <i class="bi bi-eye me-1"></i>
+                                                Profile
+                                            </a>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <form asp-area="Admin"
+                                                  asp-controller="Trainers"
+                                                  asp-action="AddStudentToTrainer"
+                                                  method="post"
+                                                  class="d-inline js-add-student-form">
+                                                @Html.AntiForgeryToken()
+
+                                                <input type="hidden" name="trainerId" value="@Model.Id" />
+                                                <input type="hidden" name="userId" value="@student.Id" />
+
+                                                <button type="submit"
+                                                        class="btn btn-success btn-sm">
+                                                    <i class="bi bi-plus-circle me-1"></i>
+                                                    Assign
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div id="availableStudentsEmptyBox"
+                     class="alert alert-info mt-3 @(Model.AvailableStudents != null && Model.AvailableStudents.Any() ? "d-none" : "")">
+                    <i class="bi bi-info-circle me-1"></i>
+                    No available students found.
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const trainerId = "@Model.Id";
+
+            const assignedBody = document.getElementById("assignedStudentsBody");
+            const availableBody = document.getElementById("availableStudentsBody");
+
+            const assignedCount = document.getElementById("assignedStudentCount");
+            const assignedEmptyBox = document.getElementById("assignedStudentsEmptyBox");
+
+            const availableEmptyBox = document.getElementById("availableStudentsEmptyBox");
+            const availableSearch = document.getElementById("availableStudentModalSearch");
+            const availableTable = document.getElementById("availableStudentModalTable");
+
+            const ajaxMessage = document.getElementById("ajaxTrainerMessage");
+            const ajaxModalMessage = document.getElementById("ajaxTrainerModalMessage");
+
+            function showMessage(success, message) {
+                const boxes = [ajaxMessage, ajaxModalMessage];
+
+                boxes.forEach(function (box) {
+                    if (!box) return;
+
+                    box.classList.remove("d-none", "alert-success", "alert-danger");
+                    box.classList.add(success ? "alert-success" : "alert-danger");
+                    box.textContent = message;
+
+                    setTimeout(function () {
+                        box.classList.add("d-none");
+                    }, 2500);
+                });
+            }
+
+            function getAssignedCount() {
+                return assignedBody.querySelectorAll("tr").length;
+            }
+
+            function getAvailableCount() {
+                return availableBody.querySelectorAll("tr").length;
+            }
+
+            function refreshUiState() {
+                const assignedTotal = getAssignedCount();
+                const availableTotal = getAvailableCount();
+
+                assignedCount.textContent = assignedTotal + " Student(s)";
+
+                if (assignedTotal === 0) {
+                    assignedEmptyBox.classList.remove("d-none");
+                } else {
+                    assignedEmptyBox.classList.add("d-none");
+                }
+
+                if (availableTotal === 0) {
+                    availableEmptyBox.classList.remove("d-none");
+                } else {
+                    availableEmptyBox.classList.add("d-none");
+                }
+            }
+
+            function getToken() {
+                const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                return tokenInput ? tokenInput.value : "";
+            }
+
+            function escapeHtml(value) {
+                return String(value)
+                    .replaceAll("&", "&amp;")
+                    .replaceAll("<", "&lt;")
+                    .replaceAll(">", "&gt;")
+                    .replaceAll('"', "&quot;")
+                    .replaceAll("'", "&#039;");
+            }
+
+            function buildAssignedRow(studentId, studentName, membershipText, membershipClass) {
+                const safeName = escapeHtml(studentName);
+                const safeMembershipText = escapeHtml(membershipText || "No Membership");
+                const safeMembershipClass = escapeHtml(membershipClass || "bg-secondary");
+                const token = getToken();
+
+                const tr = document.createElement("tr");
+                tr.setAttribute("data-student-id", studentId);
+                tr.setAttribute("data-membership-text", safeMembershipText);
+                tr.setAttribute("data-membership-class", safeMembershipClass);
+
+                tr.innerHTML = `
+                    <td>
+                        <span class="student-name-text">${safeName}</span>
+                    </td>
+
+                    <td class="text-center">
+                        <span class="badge ${safeMembershipClass} student-membership-badge">
+                            ${safeMembershipText}
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+                        <a href="/Admin/Users/Profile/${studentId}"
+                           target="_blank"
+                           class="btn btn-info btn-sm student-profile-btn">
+                            <i class="bi bi-eye me-1"></i>
+                            Profile
+                        </a>
+                    </td>
+
+                    <td class="text-center">
+                        <form action="/Admin/Trainers/RemoveStudentFromTrainer"
+                              method="post"
+                              class="d-inline js-remove-student-form">
+
+                            <input name="__RequestVerificationToken" type="hidden" value="${token}" />
+                            <input type="hidden" name="trainerId" value="${trainerId}" />
+                            <input type="hidden" name="userId" value="${studentId}" />
+
+                            <button type="submit"
+                                    class="btn btn-danger btn-sm student-action-btn">
+                                <i class="bi bi-x-circle me-1"></i>
+                                Remove
+                            </button>
+                        </form>
+                    </td>
+                `;
+
+                return tr;
+            }
+
+            function buildAvailableRow(studentId, studentName, membershipText, membershipClass) {
+                const safeName = escapeHtml(studentName);
+                const safeMembershipText = escapeHtml(membershipText || "No Membership");
+                const safeMembershipClass = escapeHtml(membershipClass || "bg-secondary");
+                const token = getToken();
+
+                const tr = document.createElement("tr");
+                tr.setAttribute("data-student-id", studentId);
+                tr.setAttribute("data-membership-text", safeMembershipText);
+                tr.setAttribute("data-membership-class", safeMembershipClass);
+
+                tr.innerHTML = `
+                    <td>
+                        <span class="student-name-text">${safeName}</span>
+                    </td>
+
+                    <td class="text-center">
+                        <span class="badge ${safeMembershipClass} student-membership-badge">
+                            ${safeMembershipText}
+                        </span>
+                    </td>
+
+                    <td class="text-center">
+                        <a href="/Admin/Users/Profile/${studentId}"
+                           target="_blank"
+                           class="btn btn-info btn-sm">
+                            <i class="bi bi-eye me-1"></i>
+                            Profile
+                        </a>
+                    </td>
+
+                    <td class="text-center">
+                        <form action="/Admin/Trainers/AddStudentToTrainer"
+                              method="post"
+                              class="d-inline js-add-student-form">
+
+                            <input name="__RequestVerificationToken" type="hidden" value="${token}" />
+                            <input type="hidden" name="trainerId" value="${trainerId}" />
+                            <input type="hidden" name="userId" value="${studentId}" />
+
+                            <button type="submit"
+                                    class="btn btn-success btn-sm">
+                                <i class="bi bi-plus-circle me-1"></i>
+                                Assign
+                            </button>
+                        </form>
+                    </td>
+                `;
+
+                return tr;
+            }
+
+            async function submitStudentForm(form, sourceBody, targetBody, buildTargetRow) {
+                const button = form.querySelector('button[type="submit"]');
+                const row = form.closest("tr");
+
+                const userId = form.querySelector('input[name="userId"]').value;
+                const studentName = row.querySelector(".student-name-text").textContent.trim();
+                const membershipText = row.getAttribute("data-membership-text") || "No Membership";
+                const membershipClass = row.getAttribute("data-membership-class") || "bg-secondary";
+
+                button.disabled = true;
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "X-Requested-With": "XMLHttpRequest"
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        row.remove();
+
+                        const newRow = buildTargetRow(
+                            userId,
+                            studentName,
+                            membershipText,
+                            membershipClass
+                        );
+
+                        targetBody.appendChild(newRow);
+
+                        refreshUiState();
+                        showMessage(true, result.message || "Updated successfully.");
+                    } else {
+                        button.disabled = false;
+                        showMessage(false, result.message || "Operation failed.");
+                    }
+                } catch (error) {
+                    button.disabled = false;
+                    showMessage(false, "Something went wrong. Please try again.");
+                }
+            }
+
+            document.addEventListener("submit", function (e) {
+                const addForm = e.target.closest(".js-add-student-form");
+                const removeForm = e.target.closest(".js-remove-student-form");
+
+                if (addForm) {
+                    e.preventDefault();
+
+                    submitStudentForm(
+                        addForm,
+                        availableBody,
+                        assignedBody,
+                        buildAssignedRow
+                    );
+                }
+
+                if (removeForm) {
+                    e.preventDefault();
+
+                    submitStudentForm(
+                        removeForm,
+                        assignedBody,
+                        availableBody,
+                        buildAvailableRow
+                    );
+                }
+            });
+
+            if (availableSearch && availableTable) {
+                availableSearch.addEventListener("input", function () {
+                    const searchText = this.value.toLowerCase();
+                    const rows = availableTable.querySelectorAll("tbody tr");
+
+                    rows.forEach(function (row) {
+                        const rowText = row.innerText.toLowerCase();
+
+                        if (rowText.includes(searchText)) {
+                            row.style.display = "";
+                        } else {
+                            row.style.display = "none";
+                        }
+                    });
+                });
+            }
+
+            refreshUiState();
+        });
+    </script>
+}

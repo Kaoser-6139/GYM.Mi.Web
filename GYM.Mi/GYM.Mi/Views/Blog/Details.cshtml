@@ -1,0 +1,175 @@
+﻿@model GYM.Mi.Models.PublicBlogDetailsModel
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "_LandingLayout";
+}
+
+@section Styles {
+    <style>
+        .public-blog-wrapper {
+            padding: 130px 0 80px;
+            background: radial-gradient(circle at 80% 10%, rgba(255, 77, 46, 0.12), transparent 30%), radial-gradient(circle at 20% 80%, rgba(215, 255, 63, 0.08), transparent 25%), var(--bg-main);
+            min-height: 100vh;
+        }
+
+        .public-blog-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .public-blog-card {
+            background: rgba(36, 16, 51, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        .public-blog-image {
+            width: 100%;
+            height: 390px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .public-blog-content {
+            padding: 46px;
+        }
+
+        .public-blog-meta {
+            color: var(--accent-2);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .public-blog-title {
+            color: #ffffff;
+            font-size: 44px;
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .public-blog-author {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .public-blog-short {
+            background: rgba(255, 255, 255, 0.06);
+            border-left: 4px solid var(--accent);
+            border-radius: 16px;
+            padding: 20px 22px;
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .public-blog-body {
+            color: var(--text-muted);
+            font-size: 18px;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .public-blog-actions {
+            margin-top: 42px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .public-blog-placeholder {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 77, 46, 0.22), rgba(215, 255, 63, 0.10));
+            color: #ffffff;
+            font-size: 34px;
+            font-weight: 800;
+        }
+
+        @@media (max-width: 768px) {
+            .public-blog-wrapper {
+                padding: 110px 16px 60px;
+            }
+
+            .public-blog-content {
+                padding: 30px 24px;
+            }
+
+            .public-blog-title {
+                font-size: 32px;
+            }
+
+            .public-blog-image {
+                height: 260px;
+            }
+        }
+    </style>
+}
+
+<main class="public-blog-wrapper">
+    <div class="container public-blog-container">
+
+        <article class="public-blog-card">
+
+            @if (!string.IsNullOrWhiteSpace(Model.FeaturedImageUrl))
+            {
+                <div class="public-blog-image"
+                     style="background-image: url('@Model.FeaturedImageUrl');">
+                </div>
+            }
+            else
+            {
+                <div class="public-blog-placeholder">
+                    GymMi Blog
+                </div>
+            }
+
+            <div class="public-blog-content">
+
+                <div class="public-blog-meta">
+                    @(Model.PublishedAt.HasValue
+                        ? Model.PublishedAt.Value.ToString("dd MMM yyyy")
+                        : "Fitness Blog")
+                </div>
+
+                <h1 class="public-blog-title">
+                    @Model.Title
+                </h1>
+
+                <div class="public-blog-author">
+                    By @Model.AuthorName
+                </div>
+
+                <div class="public-blog-short">
+                    @Model.ShortDescription
+                </div>
+
+                <div class="public-blog-body">
+                    @Model.FullContent
+                </div>
+
+                <div class="public-blog-actions">
+                    <a href="/#blog" class="btn btn-outline">
+                        Back to Blogs
+                    </a>
+
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                        Go Home
+                    </a>
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+</main>

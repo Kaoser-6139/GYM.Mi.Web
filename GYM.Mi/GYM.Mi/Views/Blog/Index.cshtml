@@ -1,0 +1,219 @@
+﻿@model IList<GYM.Mi.Models.LandingBlogModel>
+
+@{
+    ViewData["Title"] = "Blogs";
+    Layout = "_LandingLayout";
+}
+
+@section Styles {
+    <style>
+        .public-blogs-wrapper {
+            padding: 130px 0 90px;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(255, 77, 46, 0.12), transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(215, 255, 63, 0.08), transparent 25%),
+                var(--bg-main);
+            min-height: 100vh;
+        }
+
+        .public-blogs-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 52px;
+        }
+
+        .public-blogs-header .eyebrow {
+            margin-bottom: 12px;
+        }
+
+        .public-blogs-header h1 {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .public-blogs-header p {
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .public-blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px;
+        }
+
+        .public-blog-card {
+            background: rgba(36, 16, 51, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
+            transition: 0.25s ease;
+        }
+
+        .public-blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+            border-color: rgba(255, 77, 46, 0.28);
+        }
+
+        .public-blog-image {
+            height: 215px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .public-blog-placeholder {
+            height: 215px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 77, 46, 0.24), rgba(215, 255, 63, 0.10));
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .public-blog-content {
+            padding: 24px;
+        }
+
+        .public-blog-date {
+            color: var(--accent-2);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .public-blog-content h3 {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .public-blog-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .public-blogs-empty {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 45px 28px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .public-blogs-actions {
+            margin-top: 46px;
+            text-align: center;
+        }
+
+        @@media (max-width: 992px) {
+            .public-blog-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .public-blogs-header h1 {
+                font-size: 40px;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .public-blogs-wrapper {
+                padding: 110px 16px 70px;
+            }
+
+            .public-blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .public-blogs-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+}
+
+<main class="public-blogs-wrapper">
+    <div class="container">
+
+        <div class="public-blogs-header">
+            <p class="eyebrow">Fitness Blog</p>
+            <h1>Fitness tips, workout guides, and healthy lifestyle articles.</h1>
+            <p>
+                Explore helpful blog posts from GYM.Mi about training, nutrition,
+                gym habits, and smart fitness progress.
+            </p>
+        </div>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="public-blog-grid">
+                @foreach (var blog in Model)
+                {
+                    <article class="public-blog-card">
+
+                        @if (!string.IsNullOrWhiteSpace(blog.FeaturedImageUrl))
+                        {
+                            <div class="public-blog-image"
+                                 style="background-image:url('@blog.FeaturedImageUrl');">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="public-blog-placeholder">
+                                GymMi
+                            </div>
+                        }
+
+                        <div class="public-blog-content">
+                            <div class="public-blog-date">
+                                @(blog.PublishedAt.HasValue
+                                    ? blog.PublishedAt.Value.ToString("dd MMM yyyy")
+                                    : "Fitness Blog")
+                            </div>
+
+                            <h3>@blog.Title</h3>
+
+                            <p>@blog.ShortDescription</p>
+
+                            <a href="/blog/@blog.Slug" class="btn btn-outline">
+                                Read More
+                            </a>
+                        </div>
+
+                    </article>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="public-blogs-empty">
+                <h3>No blog posts available right now.</h3>
+                <p>
+                    New fitness tips, workout guides, and health articles will appear here soon.
+                </p>
+            </div>
+        }
+
+        <div class="public-blogs-actions">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                Back to Home
+            </a>
+        </div>
+
+    </div>
+</main>

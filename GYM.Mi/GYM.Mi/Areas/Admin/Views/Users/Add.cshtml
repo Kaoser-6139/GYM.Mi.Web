@@ -1,0 +1,547 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@model AddUserModel
+
+@{
+    ViewData["Title"] = "Add User";
+
+    var entryDateValue = Model.EntryDate == default
+        ? DateTime.Today.ToString("yyyy-MM-dd")
+        : Model.EntryDate.ToString("yyyy-MM-dd");
+}
+
+@section Styles
+{
+    <style>
+        .user-form-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .user-form-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 24px;
+        }
+
+            .user-form-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        .user-form-subtitle {
+            color: rgba(255, 255, 255, 0.88);
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .user-section-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .user-section-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 18px;
+        }
+
+            .user-section-header h6 {
+                margin: 0;
+                font-size: 17px;
+                font-weight: 800;
+                color: #111827;
+            }
+
+        .user-section-body {
+            padding: 22px;
+        }
+
+        .user-form-card .form-label {
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        .user-form-card .form-control,
+        .user-form-card .form-select {
+            border-radius: 7px;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+
+            .user-form-card .form-control:focus,
+            .user-form-card .form-select:focus {
+                border-color: #667eea;
+                box-shadow: 0 0 0 0.15rem rgba(102, 126, 234, 0.18);
+            }
+
+        .required-star {
+            color: #dc3545;
+            font-weight: 800;
+        }
+
+        .bmi-preview-box {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 18px;
+            background: #f9fafb;
+            height: 100%;
+        }
+
+        .bmi-preview-label {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .bmi-preview-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .bmi-preview-note {
+            color: #6b7280;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .user-form-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+            .user-form-footer .btn {
+                border-radius: 6px;
+                font-weight: 700;
+                padding: 9px 18px;
+            }
+
+        .validation-summary-errors {
+            border: 1px solid #f5c2c7;
+            background: #f8d7da;
+            color: #842029;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+            .validation-summary-errors ul {
+                margin-bottom: 0;
+            }
+
+        @@media (max-width: 768px) {
+            .user-form-header .d-flex,
+            .user-form-footer {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+                .user-form-footer .btn {
+                    width: 100%;
+                }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Add User</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Add User</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card user-form-card">
+
+            <div class="user-form-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>
+                            <i class="bi bi-person-plus me-2"></i>
+                            User Registration Form
+                        </h5>
+
+                        <div class="user-form-subtitle">
+                            Fill in the member information below. Important fields are marked with <strong>*</strong>.
+                        </div>
+                    </div>
+
+                    <a asp-area="Admin"
+                       asp-controller="Users"
+                       asp-action="Index"
+                       class="btn btn-light btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Back to Users
+                    </a>
+                </div>
+            </div>
+
+            <form asp-area="Admin"
+                  asp-controller="Users"
+                  asp-action="Add"
+                  method="post"
+                  asp-antiforgery="true">
+
+                <div class="card-body">
+
+                    <partial name="_ResponsePartial" />
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-person me-2"></i>
+                                Personal Information
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="FullName" class="form-label">
+                                        Full Name <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="FullName"
+                                           class="form-control"
+                                           placeholder="Enter full name" />
+                                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="PhoneNumber" class="form-label">
+                                        Phone Number <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="PhoneNumber"
+                                           class="form-control"
+                                           placeholder="01XXXXXXXXX" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="Age" class="form-label">
+                                        Age
+                                    </label>
+                                    <input asp-for="Age"
+                                           type="number"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="Enter age" />
+                                    <span asp-validation-for="Age" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="Gender" class="form-label">
+                                        Gender
+                                    </label>
+                                    <select asp-for="Gender" class="form-select">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span asp-validation-for="Gender" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="EntryDate" class="form-label">
+                                        Entry Date
+                                    </label>
+                                    <input asp-for="EntryDate"
+                                           type="date"
+                                           class="form-control"
+                                           value="@entryDateValue" />
+                                    <span asp-validation-for="EntryDate" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-activity me-2"></i>
+                                Body / Fitness Information
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label asp-for="HeightCm" class="form-label">
+                                        Height (cm)
+                                    </label>
+                                    <input asp-for="HeightCm"
+                                           type="number"
+                                           step="0.1"
+                                           min="0"
+                                           class="form-control"
+                                           id="HeightCm"
+                                           placeholder="e.g., 175.0" />
+                                    <span asp-validation-for="HeightCm" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="WeightKg" class="form-label">
+                                        Weight (kg)
+                                    </label>
+                                    <input asp-for="WeightKg"
+                                           type="number"
+                                           step="0.1"
+                                           min="0"
+                                           class="form-control"
+                                           id="WeightKg"
+                                           placeholder="e.g., 68.5" />
+                                    <span asp-validation-for="WeightKg" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="BodyFatPercent" class="form-label">
+                                        Body Fat (%)
+                                    </label>
+                                    <input asp-for="BodyFatPercent"
+                                           type="number"
+                                           step="0.1"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="Optional" />
+                                    <span asp-validation-for="BodyFatPercent" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="BMI" class="form-label">
+                                        BMI
+                                    </label>
+                                    <input asp-for="BMI"
+                                           type="number"
+                                           step="0.1"
+                                           min="0"
+                                           class="form-control"
+                                           id="BMI"
+                                           placeholder="Auto calculated" />
+                                    <span asp-validation-for="BMI" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="bmi-preview-box">
+                                        <div class="bmi-preview-label">
+                                            BMI Preview
+                                        </div>
+
+                                        <div class="bmi-preview-value" id="bmiPreviewValue">
+                                            N/A
+                                        </div>
+
+                                        <div class="bmi-preview-note" id="bmiPreviewNote">
+                                            Enter height and weight to calculate BMI automatically.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-heart-pulse me-2"></i>
+                                Health Information
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="MedicalConditions" class="form-label">
+                                        Medical Conditions
+                                    </label>
+                                    <textarea asp-for="MedicalConditions"
+                                              class="form-control"
+                                              rows="3"
+                                              placeholder="e.g., Diabetes, Asthma, High blood pressure"></textarea>
+                                    <span asp-validation-for="MedicalConditions" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="InjuryNotes" class="form-label">
+                                        Injury Notes
+                                    </label>
+                                    <textarea asp-for="InjuryNotes"
+                                              class="form-control"
+                                              rows="3"
+                                              placeholder="Mention any injury or physical limitation"></textarea>
+                                    <span asp-validation-for="InjuryNotes" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-bullseye me-2"></i>
+                                Workout Preference
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label asp-for="PrimaryGoal" class="form-label">
+                                        Primary Goal
+                                    </label>
+                                    <select asp-for="PrimaryGoal" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Weight Loss">Weight Loss</option>
+                                        <option value="Muscle Gain">Muscle Gain</option>
+                                        <option value="General Fitness">General Fitness</option>
+                                        <option value="Endurance">Endurance</option>
+                                        <option value="Strength">Strength</option>
+                                        <option value="Flexibility">Flexibility</option>
+                                    </select>
+                                    <span asp-validation-for="PrimaryGoal" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="WorkoutPreference" class="form-label">
+                                        Workout Preference
+                                    </label>
+                                    <select asp-for="WorkoutPreference" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Gym">Gym</option>
+                                        <option value="Home">Home</option>
+                                        <option value="Outdoor">Outdoor</option>
+                                        <option value="Hybrid">Hybrid</option>
+                                    </select>
+                                    <span asp-validation-for="WorkoutPreference" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="WorkoutTimePreference" class="form-label">
+                                        Time Preference
+                                    </label>
+                                    <select asp-for="WorkoutTimePreference" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Morning">Morning</option>
+                                        <option value="Afternoon">Afternoon</option>
+                                        <option value="Evening">Evening</option>
+                                        <option value="Night">Night</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
+                                    <span asp-validation-for="WorkoutTimePreference" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="user-form-footer">
+                    <a asp-area="Admin"
+                       asp-controller="Users"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        <i class="bi bi-x-circle me-1"></i>
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle me-1"></i>
+                        Save User
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+
+            function getBmiCategory(bmi) {
+                if (isNaN(bmi) || bmi <= 0) {
+                    return "Enter height and weight to calculate BMI automatically.";
+                }
+
+                if (bmi < 18.5) {
+                    return "Underweight";
+                }
+
+                if (bmi >= 18.5 && bmi < 25) {
+                    return "Normal weight";
+                }
+
+                if (bmi >= 25 && bmi < 30) {
+                    return "Overweight";
+                }
+
+                return "Obese";
+            }
+
+            function calculateBmi() {
+                const heightCm = Number($('#HeightCm').val());
+                const weightKg = Number($('#WeightKg').val());
+
+                if (heightCm > 0 && weightKg > 0) {
+                    const heightMeter = heightCm / 100;
+                    const bmi = weightKg / (heightMeter * heightMeter);
+                    const roundedBmi = bmi.toFixed(1);
+
+                    $('#BMI').val(roundedBmi);
+                    $('#bmiPreviewValue').text(roundedBmi);
+                    $('#bmiPreviewNote').text(getBmiCategory(bmi));
+                } else {
+                    $('#bmiPreviewValue').text('N/A');
+                    $('#bmiPreviewNote').text('Enter height and weight to calculate BMI automatically.');
+                }
+            }
+
+            $('#HeightCm, #WeightKg').on('input change', function () {
+                calculateBmi();
+            });
+
+            calculateBmi();
+        });
+    </script>
+}

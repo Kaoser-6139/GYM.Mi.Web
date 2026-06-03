@@ -1,0 +1,139 @@
+﻿<style>
+    .delete-confirm-modal .modal-content {
+        border: none;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .delete-confirm-modal .modal-header {
+        background: linear-gradient(135deg, #dc3545, #b02a37);
+        color: white;
+        border-bottom: none;
+        padding: 20px 24px;
+    }
+
+    .delete-confirm-modal .modal-title {
+        color: white;
+        font-size: 22px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .delete-confirm-modal .btn-close {
+        filter: brightness(0) invert(1);
+        opacity: 0.9;
+    }
+
+    .delete-confirm-modal .modal-body {
+        padding: 28px 24px;
+        text-align: center;
+    }
+
+    .delete-warning-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: #fff1f2;
+        color: #dc3545;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+        margin: 0 auto 18px auto;
+    }
+
+    .delete-confirm-modal .modal-body p {
+        font-size: 17px;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .delete-confirm-note {
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 0;
+    }
+
+    .delete-confirm-modal .modal-footer {
+        background: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        padding: 16px 24px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .delete-confirm-modal .btn {
+        border-radius: 6px;
+        font-weight: 700;
+        padding: 8px 16px;
+    }
+</style>
+
+<div class="modal fade delete-confirm-modal"
+     id="modal-delete"
+     tabindex="-1"
+     aria-labelledby="deleteModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">
+                    <i class="bi bi-trash3"></i>
+                    Delete Confirmation
+                </h1>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="delete-warning-icon">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+
+                <p>Are you sure you want to delete this item?</p>
+
+                <div class="delete-confirm-note">
+                    This action cannot be undone.
+                </div>
+
+                <form id="delete-form"
+                      action=""
+                      method="post"
+                      asp-antiforgery="true">
+                    <input type="hidden"
+                           id="delete-id"
+                           value=""
+                           name="id" />
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i>
+                    Cancel
+                </button>
+
+                <button type="button"
+                        id="delete-button"
+                        class="btn btn-danger">
+                    <i class="bi bi-trash me-1"></i>
+                    Yes, Delete
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

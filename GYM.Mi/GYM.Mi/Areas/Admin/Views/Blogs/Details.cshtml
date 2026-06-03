@@ -1,0 +1,382 @@
+﻿@model GYM.Mi.Areas.Admin.Models.BlogDetailsModel
+
+@{
+    ViewData["Title"] = "Blog Details";
+}
+
+<style>
+    .blog-page-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .blog-preview-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .blog-preview-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        background: linear-gradient(90deg, #5b86e5, #7f4bb2);
+        color: white;
+        padding: 22px 28px;
+    }
+
+    .blog-preview-header-title {
+        margin: 0 !important;
+        color: white !important;
+        font-size: 24px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+
+    .blog-header-status {
+        margin-left: auto !important;
+    }
+
+    .blog-main-area {
+        padding: 34px 36px;
+        background-color: #ffffff;
+    }
+
+    .blog-article-title {
+        font-size: 34px;
+        font-weight: 700;
+        color: #222;
+        line-height: 1.25;
+        margin-bottom: 14px;
+    }
+
+    .blog-article-meta {
+        color: #6c757d;
+        font-size: 15px;
+        margin-bottom: 28px;
+    }
+
+    .blog-feature-image {
+        width: 100%;
+        max-height: 330px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        margin-bottom: 28px;
+        box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+    }
+
+    .blog-short-box {
+        background: #f3fbff;
+        border-left: 5px solid #5b86e5;
+        border-radius: 10px;
+        padding: 20px 22px;
+        margin-bottom: 32px;
+    }
+
+    .blog-short-box-title {
+        font-weight: 700;
+        font-size: 17px;
+        margin-bottom: 8px;
+        color: #222;
+    }
+
+    .blog-short-box-text {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #333;
+        margin: 0;
+    }
+
+    .blog-section-title {
+        font-size: 23px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .blog-content-box {
+        font-size: 17px;
+        line-height: 2;
+        color: #2b2b2b;
+        white-space: pre-line;
+    }
+
+    .blog-info-panel {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 20px;
+    }
+
+    .blog-info-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .blog-info-item {
+        margin-bottom: 20px;
+    }
+
+    .blog-info-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 6px;
+    }
+
+    .blog-info-value {
+        display: block;
+        font-size: 15px;
+        color: #555;
+        word-break: break-word;
+        line-height: 1.6;
+    }
+
+    .blog-status-public {
+        background-color: #28a745 !important;
+        color: #ffffff !important;
+        padding: 9px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .blog-status-draft {
+        background-color: #ffc107 !important;
+        color: #000000 !important;
+        padding: 9px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .blog-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        padding: 18px 28px;
+    }
+
+        .blog-footer .btn {
+            padding: 9px 18px;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+
+    @@media (max-width: 991px) {
+        .blog-info-panel {
+            margin-top: 25px;
+            position: static;
+        }
+
+        .blog-main-area {
+            padding: 24px;
+        }
+
+        .blog-article-title {
+            font-size: 28px;
+        }
+    }
+</style>
+
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="blog-page-header">
+                <h1 class="mb-0">Blog Details</h1>
+
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Index">Blogs</a>
+                    </li>
+                    <li class="breadcrumb-item active">Details</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+
+            <div class="card blog-preview-card">
+
+                <div class="blog-preview-header">
+                    <h3 class="blog-preview-header-title">
+                        <i class="fas fa-newspaper mr-2"></i>
+                        Blog Preview
+                    </h3>
+
+                    <div class="blog-header-status">
+                        @if (Model.IsPublished)
+                        {
+                            <span class="badge blog-status-public">Public</span>
+                        }
+                        else
+                        {
+                            <span class="badge blog-status-draft">Draft</span>
+                        }
+                    </div>
+                </div>
+
+                <div class="blog-main-area">
+
+                    <div class="row">
+
+                        <div class="col-lg-8">
+
+                            @if (!string.IsNullOrWhiteSpace(Model.FeaturedImageUrl))
+                            {
+                                <img src="@Model.FeaturedImageUrl"
+                                     alt="@Model.Title"
+                                     class="blog-feature-image" />
+                            }
+
+                            <h2 class="blog-article-title">@Model.Title</h2>
+
+                            <div class="blog-article-meta">
+                                <i class="fas fa-user mr-1"></i> @Model.AuthorName
+                                <span class="mx-2">|</span>
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                @(Model.PublishedAt.HasValue
+                                    ? Model.PublishedAt.Value.ToString("dd MMM yyyy")
+                                    : Model.CreatedAt.ToString("dd MMM yyyy"))
+                            </div>
+
+                            <div class="blog-short-box">
+                                <div class="blog-short-box-title">Short Description</div>
+                                <p class="blog-short-box-text">
+                                    @Model.ShortDescription
+                                </p>
+                            </div>
+
+                            <h4 class="blog-section-title">Full Content</h4>
+
+                            <div class="blog-content-box">
+                                @Model.FullContent
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4">
+
+                            <div class="blog-info-panel">
+
+                                <div class="blog-info-title">
+                                    <i class="fas fa-circle-info mr-1"></i>
+                                    Blog Information
+                                </div>
+
+                                <div class="blog-info-item">
+                                    <span class="blog-info-label">Slug</span>
+                                    <span class="blog-info-value">@Model.Slug</span>
+                                </div>
+
+                                <div class="blog-info-item">
+                                    <span class="blog-info-label">Author</span>
+                                    <span class="blog-info-value">@Model.AuthorName</span>
+                                </div>
+
+                                <div class="blog-info-item">
+                                    <span class="blog-info-label">Status</span>
+                                    @if (Model.IsPublished)
+                                    {
+                                        <span class="badge blog-status-public">Public</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge blog-status-draft">Draft</span>
+                                    }
+                                </div>
+
+                                <div class="blog-info-item">
+                                    <span class="blog-info-label">Created At</span>
+                                    <span class="blog-info-value">
+                                        @Model.CreatedAt.ToString("dd MMM yyyy hh:mm tt")
+                                    </span>
+                                </div>
+
+                                <div class="blog-info-item">
+                                    <span class="blog-info-label">Updated At</span>
+                                    <span class="blog-info-value">
+                                        @(Model.UpdatedAt.HasValue
+                                            ? Model.UpdatedAt.Value.ToString("dd MMM yyyy hh:mm tt")
+                                            : "Not updated")
+                                    </span>
+                                </div>
+
+                                <div class="blog-info-item">
+                                    <span class="blog-info-label">Published At</span>
+                                    <span class="blog-info-value">
+                                        @(Model.PublishedAt.HasValue
+                                            ? Model.PublishedAt.Value.ToString("dd MMM yyyy hh:mm tt")
+                                            : "Not published")
+                                    </span>
+                                </div>
+
+                                <div class="blog-info-item mb-0">
+                                    <span class="blog-info-label">Featured Image</span>
+                                    <span class="blog-info-value">
+                                        @if (!string.IsNullOrWhiteSpace(Model.FeaturedImageUrl))
+                                        {
+                                            @Model.FeaturedImageUrl
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">No image added</span>
+                                        }
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="blog-footer">
+                    <a asp-area="Admin"
+                       asp-controller="Blogs"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+
+                    <a asp-area="Admin"
+                       asp-controller="Blogs"
+                       asp-action="Update"
+                       asp-route-id="@Model.Id"
+                       class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Edit Blog
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>

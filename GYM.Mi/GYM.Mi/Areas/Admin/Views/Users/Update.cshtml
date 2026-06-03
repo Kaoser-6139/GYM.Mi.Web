@@ -1,0 +1,620 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@model UpdateUserModel
+
+@{
+    ViewData["Title"] = "Complete User Information";
+
+    var canManageUsers = User.IsInRole("Admin") || User.IsInRole("Manager");
+}
+
+@section Styles
+{
+    <style>
+        .user-form-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .user-form-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 24px;
+        }
+
+            .user-form-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        .user-form-subtitle {
+            color: rgba(255, 255, 255, 0.88);
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .user-section-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .user-section-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 18px;
+        }
+
+            .user-section-header h6 {
+                margin: 0;
+                font-size: 17px;
+                font-weight: 800;
+                color: #111827;
+            }
+
+        .user-section-body {
+            padding: 22px;
+        }
+
+        .user-form-card .form-label {
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        .user-form-card .form-control,
+        .user-form-card .form-select {
+            border-radius: 7px;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+
+            .user-form-card .form-control:focus,
+            .user-form-card .form-select:focus {
+                border-color: #667eea;
+                box-shadow: 0 0 0 0.15rem rgba(102, 126, 234, 0.18);
+            }
+
+        .required-star {
+            color: #dc3545;
+            font-weight: 800;
+        }
+
+        .membership-plan-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            background: #ffffff;
+        }
+
+            .membership-plan-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+            }
+
+            .membership-plan-card.selected {
+                background: #f0f4ff;
+                border-color: #667eea;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.20);
+            }
+
+        .plan-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .plan-duration {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .plan-feature-list {
+            text-align: left;
+            color: #6b7280;
+            font-size: 14px;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+            .plan-feature-list li {
+                margin-bottom: 7px;
+            }
+
+        .selected-plan-alert {
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .user-form-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+            .user-form-footer .btn {
+                border-radius: 6px;
+                font-weight: 700;
+                padding: 9px 18px;
+            }
+
+        .validation-summary-errors {
+            border: 1px solid #f5c2c7;
+            background: #f8d7da;
+            color: #842029;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+            .validation-summary-errors ul {
+                margin-bottom: 0;
+            }
+
+        @@media (max-width: 768px) {
+            .user-form-header .d-flex,
+            .user-form-footer {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+                .user-form-footer .btn {
+                    width: 100%;
+                }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Complete Information</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+
+                    @if (canManageUsers)
+                    {
+                        <li class="breadcrumb-item">
+                            <a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>
+                    }
+
+                    <li class="breadcrumb-item active" aria-current="page">Complete Information</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card user-form-card">
+
+            <div class="user-form-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>
+                            <i class="bi bi-pencil-square me-2"></i>
+                            Complete User Information
+                        </h5>
+
+                        <div class="user-form-subtitle">
+                            Please complete body metrics, health information and workout preference. After saving, you will be taken to the profile page.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form asp-area="Admin"
+                  asp-controller="Users"
+                  asp-action="Update"
+                  method="post"
+                  asp-antiforgery="true">
+
+                <input asp-for="Id" type="hidden" />
+
+                <div class="card-body">
+
+                    <partial name="_ResponsePartial" />
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-person me-2"></i>
+                                Personal Information
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="FullName" class="form-label">
+                                        Full Name
+                                    </label>
+                                    <input asp-for="FullName"
+                                           class="form-control"
+                                           placeholder="Enter full name" />
+                                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="PhoneNumber" class="form-label">
+                                        Phone Number <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="PhoneNumber"
+                                           class="form-control"
+                                           placeholder="01XXXXXXXXX" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="Age" class="form-label">
+                                        Age <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Age"
+                                           type="number"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="Enter age" />
+                                    <span asp-validation-for="Age" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="Gender" class="form-label">
+                                        Gender <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="Gender" class="form-select">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span asp-validation-for="Gender" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="EntryDate" class="form-label">
+                                        Entry Date <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="EntryDate"
+                                           type="date"
+                                           class="form-control" />
+                                    <span asp-validation-for="EntryDate" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-rulers me-2"></i>
+                                Body Metrics
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="HeightCm" class="form-label">
+                                        Height (cm) <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="HeightCm"
+                                           type="number"
+                                           step="0.1"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="e.g., 175.0" />
+                                    <span asp-validation-for="HeightCm" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="WeightKg" class="form-label">
+                                        Weight (kg) <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="WeightKg"
+                                           type="number"
+                                           step="0.1"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="e.g., 68.5" />
+                                    <span asp-validation-for="WeightKg" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="alert alert-info mb-0">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        BMI will be calculated automatically from height and weight after saving.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-heart-pulse me-2"></i>
+                                Health Information
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="MedicalConditions" class="form-label">
+                                        Medical Conditions
+                                    </label>
+                                    <textarea asp-for="MedicalConditions"
+                                              class="form-control"
+                                              rows="3"
+                                              placeholder="e.g., Diabetes, Asthma, High blood pressure"></textarea>
+                                    <span asp-validation-for="MedicalConditions" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="InjuryNotes" class="form-label">
+                                        Injury Notes
+                                    </label>
+                                    <textarea asp-for="InjuryNotes"
+                                              class="form-control"
+                                              rows="3"
+                                              placeholder="Mention any injury or physical limitation"></textarea>
+                                    <span asp-validation-for="InjuryNotes" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-bullseye me-2"></i>
+                                Workout Preference
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label asp-for="PrimaryGoal" class="form-label">
+                                        Primary Goal <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="PrimaryGoal" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Weight Loss">Weight Loss</option>
+                                        <option value="Muscle Gain">Muscle Gain</option>
+                                        <option value="General Fitness">General Fitness</option>
+                                        <option value="Endurance">Endurance</option>
+                                        <option value="Strength">Strength</option>
+                                        <option value="Flexibility">Flexibility</option>
+                                    </select>
+                                    <span asp-validation-for="PrimaryGoal" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="WorkoutPreference" class="form-label">
+                                        Workout Preference <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="WorkoutPreference" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Gym">Gym</option>
+                                        <option value="Home">Home</option>
+                                        <option value="Outdoor">Outdoor</option>
+                                        <option value="Hybrid">Hybrid</option>
+                                    </select>
+                                    <span asp-validation-for="WorkoutPreference" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="WorkoutTimePreference" class="form-label">
+                                        Time Preference <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="WorkoutTimePreference" class="form-select">
+                                        <option value="">Choose one</option>
+                                        <option value="Morning">Morning</option>
+                                        <option value="Afternoon">Afternoon</option>
+                                        <option value="Evening">Evening</option>
+                                        <option value="Night">Night</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
+                                    <span asp-validation-for="WorkoutTimePreference" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-section-card">
+                        <div class="user-section-header">
+                            <h6>
+                                <i class="bi bi-credit-card me-2"></i>
+                                Membership Plan
+                            </h6>
+                        </div>
+
+                        <div class="user-section-body">
+                            <div class="alert alert-info mb-4">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Select a plan only if the user wants to request a new membership payment. The payment will remain pending until admin approval.
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="membership-plan-card js-plan-card"
+                                         data-plan="Basic"
+                                         data-amount="1500"
+                                         data-duration="1">
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-secondary">Basic</span>
+                                        </div>
+
+                                        <div class="plan-price text-center">৳1,500</div>
+                                        <div class="plan-duration text-center">1 Month</div>
+
+                                        <ul class="plan-feature-list">
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Gym access</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Profile access</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Payment history</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Membership tracking</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="membership-plan-card js-plan-card"
+                                         data-plan="Standard"
+                                         data-amount="4000"
+                                         data-duration="3">
+                                        <div class="text-center mb-2">
+                                            <span class="badge" style="background:#667eea;">Standard</span>
+                                            <span class="badge bg-warning text-dark ms-1">Popular</span>
+                                        </div>
+
+                                        <div class="plan-price text-center" style="color:#667eea;">৳4,000</div>
+                                        <div class="plan-duration text-center">3 Months</div>
+
+                                        <ul class="plan-feature-list">
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Everything in Basic</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> AI fitness coach</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Workout guidance</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="membership-plan-card js-plan-card"
+                                         data-plan="Premium"
+                                         data-amount="7500"
+                                         data-duration="6">
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-dark">Premium</span>
+                                        </div>
+
+                                        <div class="plan-price text-center">৳7,500</div>
+                                        <div class="plan-duration text-center">6 Months</div>
+
+                                        <ul class="plan-feature-list">
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Everything in Standard</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Personal trainer support</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Priority support</li>
+                                            <li><i class="bi bi-check-circle-fill text-success me-1"></i> Advanced guidance</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="selectedPlanInfo" class="alert alert-success selected-plan-alert mt-3 d-none">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                <strong id="selectedPlanText"></strong> selected —
+                                Pay <strong id="selectedAmountText"></strong> at the gym counter.
+
+                                <button type="button"
+                                        id="clearSelectedPlan"
+                                        class="btn btn-sm btn-outline-secondary ms-2">
+                                    Clear
+                                </button>
+                            </div>
+
+                            <input type="hidden" asp-for="PlanName" id="PlanName" value="" />
+                            <input type="hidden" asp-for="Amount" id="Amount" value="0" />
+                            <input type="hidden" asp-for="DurationMonths" id="DurationMonths" value="0" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="user-form-footer">
+                    @if (canManageUsers)
+                    {
+                        <a asp-area="Admin"
+                           asp-controller="Users"
+                           asp-action="Index"
+                           class="btn btn-secondary">
+                            <i class="bi bi-x-circle me-1"></i>
+                            Cancel
+                        </a>
+                    }
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle me-1"></i>
+                        Save & Continue
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+
+            function clearPlanSelection() {
+                $('.js-plan-card').removeClass('selected');
+
+                $('#PlanName').val('');
+                $('#Amount').val(0);
+                $('#DurationMonths').val(0);
+
+                $('#selectedPlanInfo').addClass('d-none');
+                $('#selectedPlanText').text('');
+                $('#selectedAmountText').text('');
+            }
+
+            $('.js-plan-card').on('click', function () {
+                const plan = $(this).data('plan');
+                const amount = Number($(this).data('amount'));
+                const duration = Number($(this).data('duration'));
+
+                $('.js-plan-card').removeClass('selected');
+                $(this).addClass('selected');
+
+                $('#PlanName').val(plan);
+                $('#Amount').val(amount);
+                $('#DurationMonths').val(duration);
+
+                $('#selectedPlanText').text(plan + ' Plan');
+                $('#selectedAmountText').text('৳' + amount.toLocaleString());
+                $('#selectedPlanInfo').removeClass('d-none');
+            });
+
+            $('#clearSelectedPlan').on('click', function () {
+                clearPlanSelection();
+            });
+
+            clearPlanSelection();
+        });
+    </script>
+}

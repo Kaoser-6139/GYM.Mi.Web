@@ -1,0 +1,269 @@
+﻿@model GYM.Mi.Areas.Admin.Models.UpdateBlogModel
+
+@{
+    ViewData["Title"] = "Update Blog";
+}
+
+<style>
+    .blog-page-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .blog-card-header {
+        background: linear-gradient(90deg, #5b86e5, #7f4bb2);
+        color: white;
+        padding: 18px 24px;
+        border-radius: 6px 6px 0 0;
+    }
+
+        .blog-card-header h3 {
+            margin: 0 !important;
+            color: white !important;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+    .blog-form-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 6px;
+    }
+
+    .blog-help-text {
+        font-size: 13px;
+        color: #6c757d;
+        margin-top: 5px;
+    }
+
+    .blog-side-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 18px;
+        background-color: #fafafa;
+    }
+
+    .blog-publish-box {
+        border: 1px solid #d9edf7;
+        background-color: #f4fbff;
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .blog-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        padding: 16px 22px;
+    }
+
+    .blog-input {
+        border-radius: 6px;
+    }
+
+    .blog-current-image {
+        width: 100%;
+        max-height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+</style>
+
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="blog-page-header">
+                <h1 class="mb-0">Update Blog</h1>
+
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Index">Blogs</a>
+                    </li>
+                    <li class="breadcrumb-item active">Update</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header blog-card-header">
+                    <h3>
+                        <i class="fas fa-edit mr-2"></i>
+                        Update Blog Post
+                    </h3>
+                </div>
+
+                <form asp-area="Admin" asp-controller="Blogs" asp-action="Update" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+
+                    <input asp-for="Id" type="hidden" />
+
+                    <div class="card-body">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="row">
+
+                            <div class="col-lg-8">
+
+                                <div class="form-group">
+                                    <label asp-for="Title" class="blog-form-label">Title</label>
+                                    <input asp-for="Title"
+                                           class="form-control blog-input"
+                                           placeholder="Enter blog title" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Slug" class="blog-form-label">Slug</label>
+                                    <input asp-for="Slug"
+                                           class="form-control blog-input"
+                                           placeholder="example: best-workout-plan" />
+                                    <div class="blog-help-text">
+                                        Keep it clean and URL friendly. Example: best-workout-plan
+                                    </div>
+                                    <span asp-validation-for="Slug" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="ShortDescription" class="blog-form-label">Short Description</label>
+                                    <textarea asp-for="ShortDescription"
+                                              class="form-control blog-input"
+                                              rows="3"
+                                              placeholder="Write a short description for the landing page card"></textarea>
+                                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group mb-0">
+                                    <label asp-for="FullContent" class="blog-form-label">Full Content</label>
+                                    <textarea asp-for="FullContent"
+                                              class="form-control blog-input"
+                                              rows="7"
+                                              placeholder="Write full blog content"></textarea>
+                                    <span asp-validation-for="FullContent" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-4">
+
+                                <div class="blog-side-card">
+
+                                    <div class="form-group">
+                                        <label asp-for="FeaturedImageUrl" class="blog-form-label">
+                                            Featured Image URL / Path
+                                        </label>
+                                        <input asp-for="FeaturedImageUrl"
+                                               class="form-control blog-input"
+                                               placeholder="/uploads/blogs/workout.jpg" />
+                                        <div class="blog-help-text">
+                                            You can use an image URL or local image path.
+                                        </div>
+                                        <span asp-validation-for="FeaturedImageUrl" class="text-danger"></span>
+                                    </div>
+
+                                    @if (!string.IsNullOrWhiteSpace(Model.FeaturedImageUrl))
+                                    {
+                                        <div class="form-group">
+                                            <label class="blog-form-label">Current Image</label>
+
+                                            <div>
+                                                <img src="@Model.FeaturedImageUrl"
+                                                     alt="Current Blog Image"
+                                                     class="blog-current-image" />
+                                            </div>
+
+                                            <div class="blog-help-text">
+                                                This is the current featured image. Upload a new image below if you want to replace it.
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="form-group">
+                                        <label asp-for="FeaturedImage" class="blog-form-label">
+                                            Upload New Featured Image
+                                        </label>
+
+                                        <input asp-for="FeaturedImage"
+                                               type="file"
+                                               class="form-control blog-input"
+                                               accept=".jpg,.jpeg,.png,.webp" />
+
+                                        <div class="blog-help-text">
+                                            Allowed formats: JPG, JPEG, PNG, WEBP. Upload only if you want to replace the current image.
+                                        </div>
+
+                                        <span asp-validation-for="FeaturedImage" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="AuthorName" class="blog-form-label">Author Name</label>
+                                        <input asp-for="AuthorName"
+                                               class="form-control blog-input"
+                                               placeholder="GYM.Mi Team" />
+                                        <span asp-validation-for="AuthorName" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="blog-publish-box">
+                                        <div class="form-check">
+                                            <input asp-for="IsPublished"
+                                                   class="form-check-input"
+                                                   type="checkbox"
+                                                   id="IsPublished" />
+                                            <label class="form-check-label font-weight-bold" for="IsPublished">
+                                                Public / Published
+                                            </label>
+                                        </div>
+
+                                        <div class="blog-help-text">
+                                            If checked, this blog will be visible to public users.
+                                            If unchecked, it will remain as draft.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="blog-footer">
+                        <a asp-area="Admin"
+                           asp-controller="Blogs"
+                           asp-action="Index"
+                           class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to List
+                        </a>
+
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Update Blog
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

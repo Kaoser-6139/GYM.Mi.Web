@@ -1,0 +1,623 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@model UpdateEmployeeModel
+
+@{
+    ViewData["Title"] = "Update Employee";
+}
+
+@section Styles
+{
+    <style>
+        .employee-form-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .employee-form-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 24px;
+        }
+
+            .employee-form-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        .employee-form-subtitle {
+            color: rgba(255, 255, 255, 0.88);
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .employee-section-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .employee-section-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 18px;
+        }
+
+            .employee-section-header h6 {
+                margin: 0;
+                font-size: 17px;
+                font-weight: 800;
+                color: #111827;
+            }
+
+        .employee-section-body {
+            padding: 22px;
+        }
+
+        .employee-form-card .form-label {
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        .employee-form-card .form-control,
+        .employee-form-card .form-select {
+            border-radius: 7px;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+
+            .employee-form-card .form-control:focus,
+            .employee-form-card .form-select:focus {
+                border-color: #667eea;
+                box-shadow: 0 0 0 0.15rem rgba(102, 126, 234, 0.18);
+            }
+
+        .required-star {
+            color: #dc3545;
+            font-weight: 800;
+        }
+
+        .employee-photo-note,
+        .trainer-profile-note {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .employee-image-preview {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            background: #f8f9fa;
+        }
+
+        .employee-image-empty {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            border: 1px dashed #d1d5db;
+            background: #f8f9fa;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .employee-form-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+            .employee-form-footer .btn {
+                border-radius: 6px;
+                font-weight: 700;
+                padding: 9px 18px;
+            }
+
+        .validation-summary-errors {
+            border: 1px solid #f5c2c7;
+            background: #f8d7da;
+            color: #842029;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+            .validation-summary-errors ul {
+                margin-bottom: 0;
+            }
+
+        @@media (max-width: 768px) {
+            .employee-form-header .d-flex,
+            .employee-form-footer {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+                .employee-form-footer .btn {
+                    width: 100%;
+                }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Update Employee</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Employees" asp-action="Index">Employees</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Employee</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card employee-form-card">
+
+            <div class="employee-form-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>
+                            <i class="bi bi-pencil-square me-2"></i>
+                            Employee Update Form
+                        </h5>
+
+                        <div class="employee-form-subtitle">
+                            Update employee information below. Fields marked with <strong>*</strong> are required.
+                        </div>
+                    </div>
+
+                    <a asp-area="Admin"
+                       asp-controller="Employees"
+                       asp-action="Index"
+                       class="btn btn-light btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Back to Employees
+                    </a>
+                </div>
+            </div>
+
+            <form asp-area="Admin"
+                  asp-controller="Employees"
+                  asp-action="Update"
+                  method="post"
+                  enctype="multipart/form-data"
+                  asp-antiforgery="true">
+
+                <input asp-for="Id" type="hidden" />
+                <input asp-for="ImageUrl" type="hidden" />
+
+                <div class="card-body">
+
+                    <partial name="_ResponsePartial" />
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-person me-2"></i>
+                                Personal Information
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="FirstName" class="form-label">
+                                        First Name <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="FirstName" class="form-control" placeholder="Enter first name" required />
+                                    <span asp-validation-for="FirstName" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="LastName" class="form-label">
+                                        Last Name <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="LastName" class="form-control" placeholder="Enter last name" required />
+                                    <span asp-validation-for="LastName" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="DateOfBirth" class="form-label">
+                                        Date of Birth <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="DateOfBirth" type="date" class="form-control" required />
+                                    <span asp-validation-for="DateOfBirth" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Gender" class="form-label">
+                                        Gender <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="Gender" class="form-select" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span asp-validation-for="Gender" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="PhoneNumber" class="form-label">
+                                        Phone Number <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="01XXXXXXXXX" required />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Email" class="form-label">
+                                        Email <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Email" type="email" class="form-control" placeholder="employee@example.com" required />
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label asp-for="Address" class="form-label">
+                                        Address <span class="required-star">*</span>
+                                    </label>
+                                    <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter full address" required></textarea>
+                                    <span asp-validation-for="Address" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Religion" class="form-label">Religion</label>
+                                    <input asp-for="Religion" class="form-control" placeholder="Enter religion" />
+                                    <span asp-validation-for="Religion" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-image me-2"></i>
+                                Employee Photo
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="employee-photo-note">
+                                This image will be used as the employee profile photo. For trainers, it can also appear on the public trainer card.
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Current Employee Image</label>
+
+                                    @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+                                    {
+                                        <div>
+                                            <img src="@Model.ImageUrl"
+                                                 alt="Employee Image"
+                                                 class="employee-image-preview" />
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="employee-image-empty">
+                                            No Image
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="ImageFile" class="form-label">Upload New Employee Image</label>
+                                    <input asp-for="ImageFile"
+                                           type="file"
+                                           accept="image/*"
+                                           class="form-control" />
+                                    <span asp-validation-for="ImageFile" class="text-danger small"></span>
+
+                                    <div class="form-text">
+                                        Leave this empty if you want to keep the current image.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-briefcase me-2"></i>
+                                Employment Information
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="HireDate" class="form-label">
+                                        Hire Date <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="HireDate" type="date" class="form-control" required />
+                                    <span asp-validation-for="HireDate" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Department" class="form-label">
+                                        Department <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="Department" class="form-select" required>
+                                        <option value="">Select Department</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Trainer">Trainer</option>
+                                        <option value="Cleaner">Cleaner</option>
+                                        <option value="Electrician">Electrician</option>
+                                    </select>
+                                    <span asp-validation-for="Department" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="WorkShift" class="form-label">
+                                        Work Shift <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="WorkShift" class="form-select" required>
+                                        <option value="">Select Work Shift</option>
+                                        <option value="Morning">Morning</option>
+                                        <option value="Afternoon">Afternoon</option>
+                                        <option value="Evening">Evening</option>
+                                        <option value="Night">Night</option>
+                                        <option value="FullTime">FullTime</option>
+                                    </select>
+                                    <span asp-validation-for="WorkShift" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Salary" class="form-label">
+                                        Salary <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Salary" type="number" step="0.01" min="0" class="form-control" placeholder="Enter salary" required />
+                                    <span asp-validation-for="Salary" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="IsActive" class="form-label">
+                                        Status <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="IsActive" class="form-select" required>
+                                        <option value="true">Active</option>
+                                        <option value="false">Inactive</option>
+                                    </select>
+                                    <span asp-validation-for="IsActive" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-heart-pulse me-2"></i>
+                                Emergency / Medical Information
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="EmergencyContact" class="form-label">Emergency Contact</label>
+                                    <input asp-for="EmergencyContact" class="form-control" placeholder="Enter emergency contact number" />
+                                    <span asp-validation-for="EmergencyContact" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="BloodGroup" class="form-label">Blood Group</label>
+                                    <select asp-for="BloodGroup" class="form-select">
+                                        <option value="">Select Blood Group</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                    </select>
+                                    <span asp-validation-for="BloodGroup" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="CPRCertified" class="form-label">CPR Certified</label>
+                                    <select asp-for="CPRCertified" class="form-select">
+                                        <option value="">Select CPR Status</option>
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                    <span asp-validation-for="CPRCertified" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-award me-2"></i>
+                                Professional Information
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Qualification" class="form-label">Qualification</label>
+                                    <input asp-for="Qualification" class="form-control" placeholder="Enter qualification" />
+                                    <span asp-validation-for="Qualification" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Specialization" class="form-label">Specialization</label>
+                                    <select asp-for="Specialization" class="form-select">
+                                        <option value="">Select Specialization</option>
+                                        <option value="Cardio">Cardio</option>
+                                        <option value="Strength">Strength</option>
+                                        <option value="Endurance">Endurance</option>
+                                        <option value="Flexibility">Flexibility</option>
+                                        <option value="Balance">Balance</option>
+                                    </select>
+                                    <span asp-validation-for="Specialization" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="ExperienceYears" class="form-label">Experience Years</label>
+                                    <input asp-for="ExperienceYears" type="number" min="0" max="100" class="form-control" placeholder="Enter experience years" />
+                                    <span asp-validation-for="ExperienceYears" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="LicenseNumber" class="form-label">License Number</label>
+                                    <input asp-for="LicenseNumber" class="form-control" placeholder="Enter license number" />
+                                    <span asp-validation-for="LicenseNumber" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-person-badge me-2"></i>
+                                Public Trainer Profile
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="trainer-profile-note">
+                                Complete this section only for trainer employees. The employee photo will be used on the public trainer card.
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="DisplayOrder" class="form-label">Trainer Display Order</label>
+                                    <input asp-for="DisplayOrder"
+                                           type="number"
+                                           min="0"
+                                           class="form-control"
+                                           placeholder="Example: 1" />
+                                    <span asp-validation-for="DisplayOrder" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label d-block">Public Website Visibility</label>
+
+                                    <div class="form-check mt-2">
+                                        <input asp-for="ShowOnLandingPage"
+                                               class="form-check-input"
+                                               type="checkbox" />
+
+                                        <label asp-for="ShowOnLandingPage" class="form-check-label fw-bold">
+                                            Feature this trainer on website
+                                        </label>
+                                    </div>
+
+                                    <span asp-validation-for="ShowOnLandingPage" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label asp-for="ShortBio" class="form-label">Short Bio</label>
+                                    <textarea asp-for="ShortBio"
+                                              class="form-control"
+                                              rows="3"
+                                              placeholder="Write a short trainer bio for the public trainer card"></textarea>
+                                    <span asp-validation-for="ShortBio" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employee-section-card">
+                        <div class="employee-section-header">
+                            <h6>
+                                <i class="bi bi-bank me-2"></i>
+                                Bank Information
+                            </h6>
+                        </div>
+
+                        <div class="employee-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="BankAccount" class="form-label">Bank Account</label>
+                                    <input asp-for="BankAccount" class="form-control" placeholder="Enter bank account number" />
+                                    <span asp-validation-for="BankAccount" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="employee-form-footer">
+                    <a asp-area="Admin"
+                       asp-controller="Employees"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        <i class="bi bi-x-circle me-1"></i>
+                        Cancel
+                    </a>
+
+                    <a asp-area="Admin"
+                       asp-controller="Employees"
+                       asp-action="Details"
+                       asp-route-id="@Model.Id"
+                       class="btn btn-info text-white">
+                        <i class="bi bi-eye me-1"></i>
+                        View Details
+                    </a>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle me-1"></i>
+                        Update Employee
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

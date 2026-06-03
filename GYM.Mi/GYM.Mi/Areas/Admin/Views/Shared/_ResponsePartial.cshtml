@@ -1,0 +1,11 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@using GYM.Infrastructure
+
+@if (TempData.Peek<ResponseModel>("ResponseMessage") != null)
+{
+    var response = TempData.Get<ResponseModel>("ResponseMessage");
+    <div class="callout callout-@(response.Type.ToString().ToLower())">
+        @response.Message
+    </div>
+}
+

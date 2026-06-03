@@ -1,0 +1,1331 @@
+﻿@using GYM.Domain.Entities
+@model GYM.Mi.Areas.Admin.Models.UserProfileForTrainerViewModel
+
+@{
+    ViewData["Title"] = "User Profile";
+
+    var user = Model.User;
+    var membership = Model.Membership;
+    var active = membership.ActiveMembership;
+    var pending = membership.PendingMembership;
+    var history = membership.MembershipHistory ?? new List<Membership>();
+
+    string Display(string? value)
+    {
+        return string.IsNullOrWhiteSpace(value) ? "N/A" : value;
+    }
+
+    string DisplayDate(DateTime value)
+    {
+        return value == default ? "N/A" : value.ToString("dd MMM yyyy");
+    }
+
+    string DisplayNullableDate(DateTime? value)
+    {
+        return value.HasValue ? value.Value.ToString("dd MMM yyyy") : "N/A";
+    }
+
+    string DisplayNumber(double? value)
+    {
+        return value.HasValue ? value.Value.ToString("N1") : "N/A";
+    }
+
+    string DisplayPercent(double? value)
+    {
+        return value.HasValue ? value.Value.ToString("N1") + "%" : "N/A";
+    }
+
+    string GetInitials(string? name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            return "U";
+        }
+
+        var parts = name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        if (parts.Length >= 2)
+        {
+            return $"{parts[0][0]}{parts[1][0]}".ToUpper();
+        }
+
+        return name.Substring(0, 1).ToUpper();
+    }
+
+    string GetApprovedByDisplay(string? approvedBy)
+    {
+        if (string.IsNullOrWhiteSpace(approvedBy))
+        {
+            return "Admin";
+        }
+
+        var value = approvedBy.Trim();
+        var lowerValue = value.ToLower();
+
+        if (lowerValue.Contains("admin"))
+        {
+            return "Admin";
+        }
+
+        if (lowerValue.Contains("manager"))
+        {
+            return "Manager";
+        }
+
+        if (lowerValue.Contains("trainer"))
+        {
+            return "Trainer";
+        }
+
+        if (value.Contains("@"))
+        {
+            return "Admin";
+        }
+
+        return value;
+    }
+
+    var initials = GetInitials(user.FullName);
+
+    var trainerInitial = Model.TrainerName == "No Trainer Assigned"
+        ? "NA"
+        : GetInitials(Model.TrainerName);
+
+    var statusText = membership.HasActiveMembership
+        ? "Active"
+        : membership.HasPendingMembership
+            ? "Pending"
+            : membership.IsMembershipExpired
+                ? "Expired"
+                : "Inactive";
+
+    var statusBadgeClass = membership.HasActiveMembership
+        ? "bg-success"
+        : membership.HasPendingMembership
+            ? "bg-warning text-dark"
+            : membership.IsMembershipExpired
+                ? "bg-danger"
+                : "bg-secondary";
+
+    var geminiLockText = membership.HasPendingMembership
+        ? "Waiting for approval"
+        : membership.HasActiveMembership
+            ? "Standard & Premium only"
+            : "Membership required";
+
+    var canManageUsers = User.IsInRole("Admin") || User.IsInRole("Manager");
+}
+
+@section Styles
+{
+    <style>
+        .profile-main-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-main-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 26px 24px;
+        }
+
+            .profile-main-header h5 {
+                color: white;
+                font-size: 25px;
+                font-weight: 800;
+                margin: 0;
+            }
+
+        .profile-header-subtitle {
+            color: rgba(255, 255, 255, 0.88);
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .profile-status-badge {
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .profile-summary-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #ffffff;
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .profile-avatar-box {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .profile-summary-name {
+            font-size: 25px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .profile-summary-meta {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        .profile-section-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 22px;
+            background: #ffffff;
+            height: 100%;
+        }
+
+        .profile-section-header {
+            background: #f8f9fa;
+            padding: 15px 18px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+            .profile-section-header h6 {
+                margin: 0;
+                font-size: 17px;
+                font-weight: 800;
+                color: #111827;
+            }
+
+        .profile-section-body {
+            padding: 20px;
+        }
+
+        .profile-info-table {
+            margin-bottom: 0;
+        }
+
+            .profile-info-table th {
+                width: 210px;
+                color: #374151;
+                font-weight: 700;
+                background: #fcfcfc;
+                vertical-align: middle;
+            }
+
+            .profile-info-table td {
+                color: #111827;
+                vertical-align: middle;
+                font-weight: 500;
+            }
+
+        .trainer-avatar-box {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#111827,#374151);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .membership-highlight-card {
+            border-radius: 10px;
+            padding: 20px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+        }
+
+        .membership-plan-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: #111827;
+        }
+
+        .membership-amount {
+            font-size: 20px;
+            font-weight: 900;
+            color: #667eea;
+        }
+
+        .membership-metric-box {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 15px;
+            background: #ffffff;
+            height: 100%;
+        }
+
+        .membership-metric-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: #111827;
+        }
+
+        .membership-metric-label {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 3px;
+        }
+
+        .membership-progress {
+            height: 9px;
+            background: #e5e7eb;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .membership-progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            border-radius: 999px;
+        }
+
+        .membership-progress-bar-pending {
+            height: 100%;
+            background: linear-gradient(135deg,#ffc107,#f59e0b);
+            border-radius: 999px;
+        }
+
+        .history-table {
+            margin-bottom: 0;
+        }
+
+            .history-table th {
+                font-size: 13px;
+                font-weight: 800;
+                color: #374151;
+                background: #f8f9fa;
+                white-space: nowrap;
+            }
+
+            .history-table td {
+                vertical-align: middle;
+                font-size: 14px;
+            }
+
+        .history-status-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .gemini-card {
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 18px 20px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.28);
+            text-align: left;
+        }
+
+            .gemini-card.locked {
+                background: linear-gradient(135deg,#6c757d,#495057);
+                cursor: not-allowed;
+            }
+
+            .gemini-card h6 {
+                color: white;
+                font-size: 18px;
+                font-weight: 800;
+                margin-bottom: 3px;
+            }
+
+        .chat-box {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 16px;
+            min-height: 230px;
+            max-height: 320px;
+            overflow-y: auto;
+            margin-bottom: 16px;
+        }
+
+        .user-message,
+        .ai-message,
+        .error-message {
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .user-message {
+            background: #e8f0ff;
+            color: #172554;
+        }
+
+        .ai-message {
+            background: #ffffff;
+            color: #111827;
+            border: 1px solid #e5e7eb;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .profile-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+            .profile-footer .btn {
+                border-radius: 6px;
+                font-weight: 700;
+                padding: 9px 18px;
+            }
+
+        @@media (max-width: 768px) {
+            .profile-main-header .d-flex,
+            .profile-summary-card .d-flex,
+            .profile-footer {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+                .profile-footer .btn {
+                    width: 100%;
+                }
+
+            .profile-info-table th {
+                width: 45%;
+            }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">User Profile</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+
+                    @if (canManageUsers)
+                    {
+                        <li class="breadcrumb-item">
+                            <a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>
+                    }
+
+                    <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card profile-main-card">
+
+            <div class="profile-main-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>
+                            <i class="bi bi-person-circle me-2"></i>
+                            @Display(user.FullName)
+                        </h5>
+
+                        <div class="profile-header-subtitle">
+                            Complete member profile, trainer, membership and fitness information
+                        </div>
+                    </div>
+
+                    <span class="badge profile-status-badge @statusBadgeClass">
+                        @statusText
+                    </span>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <partial name="_ResponsePartial" />
+
+                <div class="profile-summary-card">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="profile-avatar-box">
+                            @initials
+                        </div>
+
+                        <div>
+                            <div class="profile-summary-name">
+                                @Display(user.FullName)
+                            </div>
+
+                            <div class="profile-summary-meta">
+                                <span class="me-3">
+                                    <i class="bi bi-telephone me-1"></i>
+                                    @Display(user.PhoneNumber)
+                                </span>
+
+                                <span class="me-3">
+                                    <i class="bi bi-calendar-check me-1"></i>
+                                    Joined @DisplayDate(user.EntryDate)
+                                </span>
+
+                                <span>
+                                    <i class="bi bi-bullseye me-1"></i>
+                                    @Display(user.PrimaryGoal)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-lg-6">
+                        <div class="profile-section-card">
+                            <div class="profile-section-header">
+                                <h6>
+                                    <i class="bi bi-person me-2"></i>
+                                    Personal Information
+                                </h6>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered profile-info-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Full Name</th>
+                                            <td>@Display(user.FullName)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Age</th>
+                                            <td>@user.Age</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Gender</th>
+                                            <td>@Display(user.Gender)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Phone Number</th>
+                                            <td>@Display(user.PhoneNumber)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Entry Date</th>
+                                            <td>@DisplayDate(user.EntryDate)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="profile-section-card">
+                            <div class="profile-section-header">
+                                <h6>
+                                    <i class="bi bi-person-badge me-2"></i>
+                                    Assigned Trainer
+                                </h6>
+                            </div>
+
+                            <div class="profile-section-body">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="trainer-avatar-box">
+                                        @trainerInitial
+                                    </div>
+
+                                    <div>
+                                        <h5 class="fw-bold mb-1">@Display(Model.TrainerName)</h5>
+                                        <div class="text-muted">Trainer</div>
+                                    </div>
+                                </div>
+
+                                <table class="table table-bordered profile-info-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Trainer Name</th>
+                                            <td>@Display(Model.TrainerName)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Trainer Phone</th>
+                                            <td>@Display(Model.TrainerPhone)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="profile-section-card">
+                            <div class="profile-section-header">
+                                <h6>
+                                    <i class="bi bi-activity me-2"></i>
+                                    Body / Fitness Information
+                                </h6>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered profile-info-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Height</th>
+                                            <td>@user.HeightCm.ToString("N1") cm</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Weight</th>
+                                            <td>@user.WeightKg.ToString("N1") kg</td>
+                                        </tr>
+                                        <tr>
+                                            <th>BMI</th>
+                                            <td>@DisplayNumber(user.BMI)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Body Fat</th>
+                                            <td>@DisplayPercent(user.BodyFatPercent)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Primary Goal</th>
+                                            <td>@Display(user.PrimaryGoal)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Workout Preference</th>
+                                            <td>@Display(user.WorkoutPreference)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Time Preference</th>
+                                            <td>@Display(user.WorkoutTimePreference)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="profile-section-card">
+                            <div class="profile-section-header">
+                                <h6>
+                                    <i class="bi bi-heart-pulse me-2"></i>
+                                    Health Information
+                                </h6>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered profile-info-table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Medical Conditions</th>
+                                            <td>@Display(user.MedicalConditions)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Injury Notes</th>
+                                            <td>@Display(user.InjuryNotes)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            @if (!string.IsNullOrWhiteSpace(user.MedicalConditions) || !string.IsNullOrWhiteSpace(user.InjuryNotes))
+                            {
+                                <div class="alert alert-warning m-3">
+                                    <i class="bi bi-exclamation-triangle me-1"></i>
+                                    Please consider these health notes before suggesting workout intensity.
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="profile-section-card">
+                            <div class="profile-section-header">
+                                <h6>
+                                    <i class="bi bi-credit-card me-2"></i>
+                                    Current Membership
+                                </h6>
+                            </div>
+
+                            <div class="profile-section-body">
+
+                                @if (membership.HasActiveMembership && active != null)
+                                {
+                                    var amount = active.Amount.ToString("N0");
+                                    var startDate = DisplayNullableDate(active.StartDate);
+                                    var expiryDate = DisplayNullableDate(active.ExpiryDate);
+                                    var progress = active.ProgressPercent;
+                                    var approvedByDisplay = GetApprovedByDisplay(active.ApprovedBy);
+
+                                    <div class="membership-highlight-card mb-3">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <div>
+                                                <div class="membership-plan-title">@active.PlanName Plan</div>
+                                                <div class="membership-amount">৳@amount</div>
+                                            </div>
+
+                                            <span class="badge bg-success profile-status-badge">Active</span>
+                                        </div>
+
+                                        <div class="row g-3 mt-2">
+                                            <div class="col-md-4">
+                                                <div class="membership-metric-box">
+                                                    <div class="membership-metric-value">@active.DurationMonths</div>
+                                                    <div class="membership-metric-label">Months</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="membership-metric-box">
+                                                    <div class="membership-metric-value">@active.DaysRemaining</div>
+                                                    <div class="membership-metric-label">Days Left</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="membership-metric-box">
+                                                    <div class="membership-metric-value">@progress%</div>
+                                                    <div class="membership-metric-label">Used</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="membership-progress mt-3">
+                                            <div class="membership-progress-bar" style="width:@progress%;"></div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between small text-muted mt-2">
+                                            <span>@startDate</span>
+                                            <span>@expiryDate</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-success mb-0">
+                                        <i class="bi bi-check-circle me-1"></i>
+                                        Membership is active. Approved by @approvedByDisplay.
+                                    </div>
+                                }
+                                else if (membership.HasPendingMembership && pending != null)
+                                {
+                                    <div class="membership-highlight-card mb-3">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <div>
+                                                <div class="membership-plan-title">@pending.PlanName Plan</div>
+                                                <div class="membership-amount">৳@pending.Amount.ToString("N0")</div>
+                                            </div>
+
+                                            <span class="badge bg-warning text-dark profile-status-badge">Pending</span>
+                                        </div>
+
+                                        <div class="row g-3 mt-2">
+                                            <div class="col-md-6">
+                                                <div class="membership-metric-box">
+                                                    <div class="membership-metric-value">@pending.DurationMonths</div>
+                                                    <div class="membership-metric-label">Months</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="membership-metric-box">
+                                                    <div class="membership-metric-value">Pending</div>
+                                                    <div class="membership-metric-label">Payment Status</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="membership-progress mt-3">
+                                            <div class="membership-progress-bar-pending" style="width:100%;"></div>
+                                        </div>
+
+                                        <div class="small text-muted mt-2">
+                                            Requested on @pending.CreatedAt.ToString("dd MMM yyyy")
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-warning mb-0">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        Payment is pending. Admin needs to approve payment before activation.
+                                    </div>
+                                }
+                                else if (membership.IsMembershipExpired)
+                                {
+                                    <div class="alert alert-danger">
+                                        <i class="bi bi-x-circle me-1"></i>
+                                        Membership has expired.
+                                    </div>
+
+                                    @if (canManageUsers)
+                                    {
+                                        <a asp-area="Admin"
+                                           asp-controller="Users"
+                                           asp-action="Update"
+                                           asp-route-id="@user.Id"
+                                           class="btn btn-primary">
+                                            <i class="bi bi-arrow-repeat me-1"></i>
+                                            Renew / Select Plan
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <div class="alert alert-info mb-0">
+                                            Please contact gym admin to renew your membership.
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="alert alert-secondary">
+                                        <i class="bi bi-info-circle me-1"></i>
+                                        No membership found for this user.
+                                    </div>
+
+                                    @if (canManageUsers)
+                                    {
+                                        <a asp-area="Admin"
+                                           asp-controller="Users"
+                                           asp-action="Update"
+                                           asp-route-id="@user.Id"
+                                           class="btn btn-primary">
+                                            <i class="bi bi-plus-circle me-1"></i>
+                                            Select Membership Plan
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <div class="alert alert-info mb-0">
+                                            Please contact gym admin to activate a membership plan.
+                                        </div>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="profile-section-card">
+                            <div class="profile-section-header">
+                                <h6>
+                                    <i class="bi bi-clock-history me-2"></i>
+                                    Membership History
+                                </h6>
+                            </div>
+
+                            <div class="profile-section-body">
+                                @if (!history.Any())
+                                {
+                                    <div class="alert alert-info mb-0">
+                                        No membership history found.
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered history-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Plan</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach (var item in history.OrderByDescending(x => x.CreatedAt).Take(5))
+                                                {
+                                                    var isActive = item.PaymentStatus == "Active" &&
+                                                    item.ExpiryDate.HasValue &&
+                                                    item.ExpiryDate.Value >= DateTime.UtcNow;
+
+                                                    var isPending = item.PaymentStatus == "Pending";
+
+                                                    var displayStatus = isPending
+                                                    ? "Pending"
+                                                    : isActive
+                                                    ? "Active"
+                                                    : "Expired";
+
+                                                    var badgeClass = isPending
+                                                    ? "bg-warning text-dark"
+                                                    : isActive
+                                                    ? "bg-success"
+                                                    : "bg-danger";
+
+                                                    <tr>
+                                                        <td><strong>@item.PlanName</strong></td>
+                                                        <td>৳@item.Amount.ToString("N0")</td>
+                                                        <td>@item.DurationMonths months</td>
+                                                        <td>
+                                                            <span class="badge history-status-badge @badgeClass">
+                                                                @displayStatus
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        @if (membership.CanUseGemini)
+                        {
+                            <button type="button"
+                                    class="gemini-card"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#geminiModal">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <i class="bi bi-stars" style="font-size:34px;"></i>
+                                        <div>
+                                            <h6>Ask Gemini AI Coach</h6>
+                                            <div style="opacity:.88;">
+                                                Get personalized workout, nutrition and fitness advice.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <i class="bi bi-chevron-right fs-4"></i>
+                                </div>
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="button"
+                                    class="gemini-card locked"
+                                    disabled>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <i class="bi bi-lock-fill" style="font-size:30px;"></i>
+                                        <div>
+                                            <h6>Ask Gemini AI Coach</h6>
+                                            <div style="opacity:.88;">@geminiLockText</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+            @if (canManageUsers)
+            {
+                <div class="profile-footer">
+                    <a asp-area="Admin"
+                       asp-controller="Users"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Back to Users
+                    </a>
+
+                    <a asp-area="Admin"
+                       asp-controller="Users"
+                       asp-action="Update"
+                       asp-route-id="@user.Id"
+                       class="btn btn-primary">
+                        <i class="bi bi-pencil-square me-1"></i>
+                        Edit User
+                    </a>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="geminiModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border:0;border-radius:12px;overflow:hidden;">
+
+            <div class="modal-header text-white"
+                 style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                <h5 class="modal-title">
+                    <i class="bi bi-stars me-2"></i>
+                    Ask Gemini AI Coach
+                </h5>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+
+            <div class="modal-body p-4">
+                <div id="chat-messages" class="chat-box">
+                    <div class="text-center text-muted">
+                        How can I help you? Ask about workout, nutrition, recovery, injury-safe exercise, or fitness planning.
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <input type="text"
+                           id="chat-input"
+                           class="form-control"
+                           style="height:48px;border-radius:10px 0 0 10px;"
+                           placeholder="Ask your AI coach..."
+                           autocomplete="off" />
+
+                    <button class="btn btn-primary"
+                            id="send-chat"
+                            style="height:48px;border-radius:0 10px 10px 0;">
+                        <i class="bi bi-send me-1"></i>
+                        Send
+                    </button>
+                </div>
+
+                <div class="mt-3">
+                    <small class="text-muted">
+                        Try asking: “Create a workout plan for my goal”, “What should I eat before workout?”, or “How can I avoid injury?”
+                    </small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#send-chat').click(function () {
+                sendMessage();
+            });
+
+            $('#chat-input').keypress(function (e) {
+                if (e.which == 13) {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                var message = $('#chat-input').val().trim();
+
+                if (!message) {
+                    return;
+                }
+
+                addMessage('You: ' + message, 'user');
+                $('#chat-input').val('');
+
+                var loadingId = addMessage('Gemini: Thinking...', 'ai');
+
+                $.post('/Admin/Users/AskGemini', {
+                    userId: '@user.Id',
+                    message: message
+                })
+                .done(function (data) {
+                    $('#' + loadingId).remove();
+                    addMessage('Gemini: ' + data, 'ai');
+                })
+                .fail(function () {
+                    $('#' + loadingId).remove();
+                    addMessage('Gemini: Sorry, I encountered an error.', 'error');
+                });
+            }
+
+            function addMessage(text, type) {
+                var messageId = 'msg-' + Date.now();
+
+                var messageClass = type === 'user'
+                    ? 'user-message'
+                    : type === 'error'
+                        ? 'error-message'
+                        : 'ai-message';
+
+                var messageHtml = '<div id="' + messageId + '" class="' + messageClass + '">' + text + '</div>';
+
+                if ($('#chat-messages').text().includes('How can I help you')) {
+                    $('#chat-messages').empty();
+                }
+
+                $('#chat-messages').append(messageHtml);
+                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+
+                return messageId;
+            }
+        });
+    </script>
+}
+
+@* 
+@model GYM.Mi.Areas.Admin.Models.UserProfileForTrainerViewModel
+
+<!--begin::App Content Header-->
+<div class="app-content-header" style="background: #f8f9fa; padding: 20px 0; border-bottom: 1px solid #e0e0e0;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0" style="color: #1a2332;">Welcome, @Model.User.FullName!</h3>
+            </div>
+            <div class="col-sm-6 text-end">
+                <span style="font-size: 17px; color:#6c757d;">Profile Overview</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::App Content Header-->
+
+<!--begin::App Content-->
+<div class="app-content" style="background: #ffffff; padding: 40px 0;">
+    <div class="container-fluid">
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="card shadow-sm" style="border-radius: 12px; border: 1px solid #e0e0e0;">
+                    <div class="card-header text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 24px; border-radius: 12px 12px 0 0;">
+                        <h4 class="mb-1" style="font-weight: 600;">User Profile</h4>
+                        <p class="mb-0" style="font-size: 14px; opacity: 0.9;">
+                            Below are your profile details.
+                        </p>
+                    </div>
+                    <div class="card-body" style="padding: 40px;">
+
+                        <!-- Formal/Professional Profile Section : Subtle Colored Values -->
+                        <div class="profile-section p-4" style="background: #f9fbfe; border-radius: 18px; box-shadow:0 2px 18px #e7eefe;">
+                            <div class="mb-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-user-circle" style="font-size:2.4rem; color:#254dc7;"></i>
+                                    <h2 class="ms-2" style="font-weight: 700; color: #181921; letter-spacing:1px;">User Profile & Physical Metrics</h2>
+                                </div>
+                                <hr style="border: 1.5px solid #254dc7; opacity:0.14;">
+                            </div>
+                            <div class="row g-4 align-items-stretch">
+                                <!-- Left Column -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <span style="font-size:2rem; font-weight:700; color:#181921;">@Model.User.FullName</span>
+                                        <span class="badge bg-light text-secondary ms-2" style="vertical-align:top; font-size:1rem;">Member</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-birthday-cake me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Age:</span>
+                                        <span style="color:#254dc7; font-weight:600; font-size:1.15rem;">@Model.User.Age</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-venus-mars me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Gender:</span>
+                                        <span style="color:#232531; font-weight:600; font-size:1.1rem;">@Model.User.Gender</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-phone-alt me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Phone:</span>
+                                        <span style="color:#254dc7; font-weight:600; font-size:1.1rem;">@Model.User.PhoneNumber</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-calendar-day me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Entry Date:</span>
+                                        <span style="color:#232531; font-weight:600;">@Model.User.EntryDate.ToString("yyyy-MM-dd")</span>
+                                    </div>
+                                    <div class="mb-3 p-3"
+                                         style="background:#eef3ff;border-radius:10px;border:1px solid #d6e0ff;">
+
+                                        <div class="d-flex align-items-center mb-1">
+                                            <i class="fas fa-user-tie me-2" style="color:#254dc7;"></i>
+                                            <span class="fw-bold">Trainer</span>
+                                        </div>
+
+                                        <div>
+                                            <strong>Name:</strong> @Model.TrainerName
+                                        </div>
+
+                                        <div>
+                                            <strong>Phone:</strong> @Model.TrainerPhone
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Right Column -->
+                                <div class="col-md-6">
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-text-height me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Height:</span>
+                                        <span style="color:#254dc7; font-weight:700; font-size:1.15rem;">@Model.User.HeightCm cm</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-weight me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Weight:</span>
+                                        <span style="color:#254dc7; font-weight:700; font-size:1.15rem;">@Model.User.WeightKg kg</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-chart-line me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">BMI:</span>
+                                        <span style="color:#232531; font-weight:700;">@Model.User.BMI</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-percentage me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Body Fat %:</span>
+                                        <span style="color:#232531; font-weight:700;">@Model.User.BodyFatPercent</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-bullseye me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Primary Goal:</span>
+                                        <span style="color:#3447d4; font-weight:600;">@Model.User.PrimaryGoal</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-dumbbell me-2" style="color:#aaa;"></i>
+                                        <span class="fw-bold text-dark me-2">Workout Pref:</span>
+                                        <span style="color:#232531; font-weight:600;">@Model.User.WorkoutPreference</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-notes-medical me-2" style="color:#FFA600;"></i>
+                                        <span class="fw-bold text-dark me-2">Injury Notes:</span>
+                                        <span style="color:#FFA600; font-weight:600; font-size:1.1rem;">@Model.User.InjuryNotes</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-heartbeat me-2" style="color:#FFA600;"></i>
+                                        <span class="fw-bold text-dark me-2">Med. Condition:</span>
+                                        <span style="color:#FFA600; font-weight:600; font-size:1.1rem;">@Model.User.MedicalConditions</span>
+                                    </div>
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-clock me-2" style="color:#6337a3;"></i>
+                                        <span class="fw-bold text-dark me-2">Time Pref:</span>
+                                        <span style="color:#254dc7; font-weight:600;">@Model.User.WorkoutTimePreference</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                <!-- Chat Messages + Input (flex) -->
+                <div class="card mt-5" style="border-radius: 10px; border: 1px solid #ddd;">
+                    <div class="card-header text-white" style="background: #03C3EC; border-radius: 10px 10px 0 0;">
+                        <h5 class="mb-0">
+                            <i class="fas fa-robot"></i> Ask Gemini AI
+                        </h5>
+                        <small>Get help about our products</small>
+                    </div>
+                    <div class="card-body">
+                        <div id="chat-messages"
+                             style="background: #f3f3f3; border-radius: 6px; padding: 16px; min-height:160px; max-height:220px; overflow-y:auto; margin-bottom:18px;">
+                            <div class="text-center text-muted">
+                                How can I help you ? Ask me anything!
+                            </div>
+                        </div>
+                        <!-- Input-row flex just like screenshot -->
+                        <div style="display:flex; align-items:center;">
+                            <input type="text" id="chat-input" class="form-control"
+                                   style="height:48px; font-size:1.1rem; border-radius: 6px 0 0 6px; flex:1; margin-right:-1px; border-right: 0;"
+                                   placeholder="Ask me anything about the products..." autocomplete="off">
+                            <button class="btn btn-primary" id="send-chat" style="height:48px; font-size:1rem; border-radius:0 6px 6px 0;">
+                                <i class="fas fa-paper-plane"></i> Send
+                            </button>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                <strong>Try asking:</strong><br>
+                                • "General State (Affects workout intensity)"<br>
+                                • "Digestive / GI (Hydration and nutrition adjustment)"<br>
+                                • "Muscle / Joint Pain (AI will remove conflicting exercises)"<br>
+                                • "Sleep / Energy Level (Adjusts warm-up/cool-down duration)"<br>
+                                • "Food / Hydration (For pre-workout fuel recommendations)"<br>
+                                • "Female Health Context (AI adjusts intensity and focus)"
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::App Content-->
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#send-chat').click(function () {
+                sendMessage();
+            });
+
+            $('#chat-input').keypress(function (e) {
+                if (e.which == 13) {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                var message = $('#chat-input').val().trim();
+                if (!message) return;
+
+                // Add user message to chat
+                addMessage('You: ' + message, 'user');
+                $('#chat-input').val('');
+
+                // Show loading indicator
+                var loadingId = addMessage('Gemini: Thinking...', 'ai');
+
+                // Call Gemini AI
+                $.post('/Admin/Users/AskGemini', { userId: '@Model.User.Id', message: message })
+
+                    .done(function (data) {
+                        $('#' + loadingId).remove();
+                        addMessage('Gemini: ' + data, 'ai');
+                    })
+                    .fail(function () {
+                        $('#' + loadingId).remove();
+                        addMessage('Gemini: Sorry, I encountered an error.', 'error');
+                    });
+            }
+
+            function addMessage(text, type) {
+                var messageId = 'msg-' + Date.now();
+                var messageClass = type === 'user' ? 'user-message' :
+                                  type === 'error' ? 'error-message' : 'ai-message';
+                var messageHtml = '<div id="' + messageId + '" class="' + messageClass + '">' + text + '</div>';
+
+                if ($('#chat-messages').text().includes('How can I help you')) {
+                    $('#chat-messages').empty();
+                }
+
+                $('#chat-messages').append(messageHtml);
+                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+
+                return messageId;
+            }
+        });
+    </script>
+}
+ *@

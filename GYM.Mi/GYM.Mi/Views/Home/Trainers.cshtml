@@ -1,0 +1,97 @@
+﻿@model IList<GYM.Mi.Models.LandingTrainerModel>
+
+@{
+    ViewData["Title"] = "All Trainers";
+    Layout = "_LandingLayout";
+}
+
+<main>
+    <section id="trainers">
+        <div class="container">
+
+            <div class="section-header">
+                <p class="eyebrow">Our Trainers</p>
+                <h2>Meet all of our professional trainers.</h2>
+                <p>
+                    Explore our active trainers and choose the right guidance for your fitness journey.
+                </p>
+            </div>
+
+            @if (Model != null && Model.Any())
+            {
+                <div class="trainer-grid">
+                    @foreach (var trainer in Model)
+                    {
+                        var specialization = string.IsNullOrWhiteSpace(trainer.Specialization)
+                        ? "Fitness Trainer"
+                        : trainer.Specialization;
+
+                        var experienceText = trainer.ExperienceYears.HasValue && trainer.ExperienceYears.Value > 0
+                        ? $" · {trainer.ExperienceYears.Value} year(s) experience"
+                        : string.Empty;
+
+                        var shortBio = string.IsNullOrWhiteSpace(trainer.ShortBio)
+                        ? "Dedicated trainer focused on helping members improve strength, fitness, and confidence."
+                        : trainer.ShortBio;
+
+                        var trainerInitial = string.IsNullOrWhiteSpace(trainer.FullName)
+                        ? "T"
+                        : trainer.FullName.Substring(0, 1).ToUpper();
+
+                        <div class="trainer-card">
+                            @if (!string.IsNullOrWhiteSpace(trainer.ImageUrl))
+                            {
+                                <div class="trainer-photo"
+                                     style="background-image:url('@Url.Content(trainer.ImageUrl)');">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="trainer-photo"
+                                     style="background: linear-gradient(135deg,#667eea,#764ba2); display:flex; align-items:center; justify-content:center; color:white; font-size:42px; font-weight:800;">
+                                    @trainerInitial
+                                </div>
+                            }
+
+                            <small>@specialization@experienceText</small>
+
+                            <h3>@trainer.FullName</h3>
+
+                            <p>@shortBio</p>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="trainer-grid">
+                    <div class="trainer-card">
+                        <div class="trainer-photo"
+                             style="background: linear-gradient(135deg,#667eea,#764ba2); display:flex; align-items:center; justify-content:center; color:white; font-size:42px; font-weight:800;">
+                            T
+                        </div>
+
+                        <small>Fitness Trainer</small>
+
+                        <h3>No trainers available yet</h3>
+
+                        <p>
+                            Trainer profiles will appear here once admin enables public website visibility for active trainers.
+                        </p>
+                    </div>
+                </div>
+            }
+
+            <div style="text-align:center; margin-top: 42px;">
+                <a asp-controller="Home"
+                   asp-action="Index"
+                   asp-fragment="trainers"
+                   class="btn btn-outline">
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+</main>
+

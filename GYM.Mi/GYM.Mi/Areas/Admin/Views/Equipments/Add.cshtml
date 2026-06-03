@@ -1,0 +1,430 @@
+﻿@using GYM.Mi.Areas.Admin.Models
+@model AddEquipmentModel
+
+@{
+    ViewData["Title"] = "Add Equipment";
+}
+
+@section Styles
+{
+    <style>
+        .equipment-form-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .equipment-form-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 24px;
+        }
+
+            .equipment-form-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        .equipment-form-subtitle {
+            color: rgba(255, 255, 255, 0.88);
+            margin-top: 6px;
+            font-size: 15px;
+        }
+
+        .equipment-section-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .equipment-section-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 18px;
+        }
+
+            .equipment-section-header h6 {
+                margin: 0;
+                font-size: 17px;
+                font-weight: 800;
+                color: #111827;
+            }
+
+        .equipment-section-body {
+            padding: 22px;
+        }
+
+        .equipment-form-card .form-label {
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        .equipment-form-card .form-control,
+        .equipment-form-card .form-select {
+            border-radius: 7px;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+        }
+
+            .equipment-form-card .form-control:focus,
+            .equipment-form-card .form-select:focus {
+                border-color: #667eea;
+                box-shadow: 0 0 0 0.15rem rgba(102, 126, 234, 0.18);
+            }
+
+        .required-star {
+            color: #dc3545;
+            font-weight: 800;
+        }
+
+        .barcode-help-text {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 6px;
+        }
+
+        .equipment-form-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+            .equipment-form-footer .btn {
+                border-radius: 6px;
+                font-weight: 700;
+                padding: 9px 18px;
+            }
+
+        .validation-summary-errors {
+            border: 1px solid #f5c2c7;
+            background: #f8d7da;
+            color: #842029;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+            .validation-summary-errors ul {
+                margin-bottom: 0;
+            }
+
+        @@media (max-width: 768px) {
+            .equipment-form-header .d-flex,
+            .equipment-form-footer {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+                .equipment-form-footer .btn {
+                    width: 100%;
+                }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Add Equipment</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Equipments" asp-action="Index">Equipments</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Equipment</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card equipment-form-card">
+
+            <div class="equipment-form-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>
+                            <i class="bi bi-plus-circle me-2"></i>
+                            Add Equipment
+                        </h5>
+
+                        <div class="equipment-form-subtitle">
+                            Fill in the equipment information below. Fields marked with <strong>*</strong> are required.
+                        </div>
+                    </div>
+
+                    <a asp-area="Admin"
+                       asp-controller="Equipments"
+                       asp-action="Index"
+                       class="btn btn-light btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Back to Equipments
+                    </a>
+                </div>
+            </div>
+
+            <form asp-area="Admin"
+                  asp-controller="Equipments"
+                  asp-action="Add"
+                  method="post"
+                  asp-antiforgery="true">
+
+                <div class="card-body">
+
+                    <partial name="_ResponsePartial" />
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="equipment-section-card">
+                        <div class="equipment-section-header">
+                            <h6>
+                                <i class="bi bi-info-circle me-2"></i>
+                                Basic Information
+                            </h6>
+                        </div>
+
+                        <div class="equipment-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Name" class="form-label">
+                                        Equipment Name <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Name" class="form-control" placeholder="Enter equipment name" />
+                                    <span asp-validation-for="Name" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="CategoryName" class="form-label">
+                                        Category <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="CategoryName" class="form-select" id="CategoryName">
+                                        <option value="">Select Category</option>
+                                        <option value="Cardio">Cardio</option>
+                                        <option value="Strength">Strength</option>
+                                        <option value="Flexibility">Flexibility</option>
+                                        <option value="Balance">Balance</option>
+                                        <option value="Endurance">Endurance</option>
+                                    </select>
+                                    <span asp-validation-for="CategoryName" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="SerialNumber" class="form-label">
+                                        Serial Number <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="SerialNumber" class="form-control" id="SerialNumber" placeholder="Enter serial number" />
+                                    <span asp-validation-for="SerialNumber" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Barcode" class="form-label">
+                                        Barcode <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Barcode" class="form-control" id="Barcode" placeholder="Auto-generated barcode" readonly />
+                                    <div class="barcode-help-text">
+                                        Barcode will be generated from category and serial number.
+                                    </div>
+                                    <span asp-validation-for="Barcode" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Price" class="form-label">
+                                        Price <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Price" type="number" step="0.01" min="0.01" class="form-control" placeholder="Enter price" />
+                                    <span asp-validation-for="Price" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="AvailabilityStatus" class="form-label">Availability</label>
+                                    <select asp-for="AvailabilityStatus" class="form-select">
+                                        <option value="Available">Available</option>
+                                        <option value="Unavailable">Unavailable</option>
+                                        <option value="Under Maintenance">Under Maintenance</option>
+                                    </select>
+                                    <span asp-validation-for="AvailabilityStatus" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Condition" class="form-label">
+                                        Condition <span class="required-star">*</span>
+                                    </label>
+                                    <select asp-for="Condition" class="form-select">
+                                        <option value="">Select Condition</option>
+                                        <option value="New">New</option>
+                                        <option value="Excellent">Excellent</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Fair">Fair</option>
+                                        <option value="Poor">Poor</option>
+                                        <option value="Damaged">Damaged</option>
+                                    </select>
+                                    <span asp-validation-for="Condition" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equipment-section-card">
+                        <div class="equipment-section-header">
+                            <h6>
+                                <i class="bi bi-calendar-check me-2"></i>
+                                Purchase / Warranty Information
+                            </h6>
+                        </div>
+
+                        <div class="equipment-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="PurchaseDate" class="form-label">
+                                        Purchase Date <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="PurchaseDate" type="date" class="form-control" />
+                                    <span asp-validation-for="PurchaseDate" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="WarrantyExpiryDate" class="form-label">
+                                        Warranty Expiry Date <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="WarrantyExpiryDate" type="date" class="form-control" />
+                                    <span asp-validation-for="WarrantyExpiryDate" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equipment-section-card">
+                        <div class="equipment-section-header">
+                            <h6>
+                                <i class="bi bi-gear me-2"></i>
+                                Maintenance Information
+                            </h6>
+                        </div>
+
+                        <div class="equipment-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="LastMaintenanceDate" class="form-label">Last Maintenance Date</label>
+                                    <input asp-for="LastMaintenanceDate" type="date" class="form-control" />
+                                    <span asp-validation-for="LastMaintenanceDate" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="MaintenanceIntervalDays" class="form-label">Maintenance Interval Days</label>
+                                    <input asp-for="MaintenanceIntervalDays" type="number" min="1" class="form-control" placeholder="Enter interval in days" />
+                                    <span asp-validation-for="MaintenanceIntervalDays" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="NextMaintenanceDate" class="form-label">Next Maintenance Date</label>
+                                    <input asp-for="NextMaintenanceDate" type="date" class="form-control" />
+                                    <span asp-validation-for="NextMaintenanceDate" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equipment-section-card">
+                        <div class="equipment-section-header">
+                            <h6>
+                                <i class="bi bi-geo-alt me-2"></i>
+                                Location / Description
+                            </h6>
+                        </div>
+
+                        <div class="equipment-section-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Location" class="form-label">
+                                        Location <span class="required-star">*</span>
+                                    </label>
+                                    <input asp-for="Location" class="form-control" placeholder="Enter equipment location" />
+                                    <span asp-validation-for="Location" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label asp-for="Description" class="form-label">
+                                        Description <span class="required-star">*</span>
+                                    </label>
+                                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter equipment description"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger small"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="equipment-form-footer">
+                    <a asp-area="Admin"
+                       asp-controller="Equipments"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        <i class="bi bi-x-circle me-1"></i>
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle me-1"></i>
+                        Save Equipment
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function () {
+
+            function generateBarcode() {
+                const category = $('#CategoryName').val();
+                const serial = $('#SerialNumber').val();
+
+                if (category && serial) {
+                    const cleanCategory = category.toUpperCase().replace(/\s+/g, '');
+                    const cleanSerial = serial.toUpperCase().replace(/\s+/g, '');
+                    const barcode = cleanCategory + '-' + cleanSerial;
+
+                    $('#Barcode').val(barcode);
+                } else {
+                    $('#Barcode').val('');
+                }
+            }
+
+            $('#CategoryName, #SerialNumber').on('input change', function () {
+                generateBarcode();
+            });
+
+            generateBarcode();
+        });
+    </script>
+}

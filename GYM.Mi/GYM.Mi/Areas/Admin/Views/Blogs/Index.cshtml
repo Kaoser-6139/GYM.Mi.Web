@@ -1,0 +1,230 @@
+﻿@model List<GYM.Mi.Areas.Admin.Models.BlogListItemModel>
+
+@{
+    ViewData["Title"] = "Blogs";
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Blogs</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Blogs</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header text-white py-3"
+                 style="background:linear-gradient(135deg,#667eea,#764ba2);">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="bi bi-journal-text me-2"></i>
+                        Blog Posts
+                    </h5>
+
+                    <a asp-area="Admin"
+                       asp-controller="Blogs"
+                       asp-action="Add"
+                       class="btn btn-light btn-sm">
+                        <i class="bi bi-plus-circle me-1"></i>
+                        Add Blog
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                @if (Model == null || !Model.Any())
+                {
+                    <div class="alert alert-info mb-0">
+                        <i class="bi bi-info-circle me-2"></i>
+                        No blog posts found.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var blog in Model)
+                                {
+                                    var modalId = "deleteBlogModal_" + blog.Id.ToString("N");
+
+                                    <tr>
+                                        <td>
+                                            <strong>@blog.Title</strong>
+                                        </td>
+
+                                        <td>
+                                            @blog.AuthorName
+                                        </td>
+
+                                        <td>
+                                            @if (blog.IsPublished)
+                                            {
+                                                <span class="badge bg-success">Public</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-warning text-dark">Draft</span>
+                                            }
+                                        </td>
+
+                                        <td>
+                                            @blog.CreatedAt.ToString("dd MMM yyyy")
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a asp-area="Admin"
+                                               asp-controller="Blogs"
+                                               asp-action="Details"
+                                               asp-route-id="@blog.Id"
+                                               class="btn btn-info btn-sm me-1">
+                                                <i class="bi bi-eye me-1"></i>
+                                                Details
+                                            </a>
+
+                                            <a asp-area="Admin"
+                                               asp-controller="Blogs"
+                                               asp-action="Update"
+                                               asp-route-id="@blog.Id"
+                                               class="btn btn-warning btn-sm me-1">
+                                                <i class="bi bi-pencil-square me-1"></i>
+                                                Edit
+                                            </a>
+
+                                            <button type="button"
+                                                    class="btn btn-danger btn-sm"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#@modalId">
+                                                <i class="bi bi-trash me-1"></i>
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @foreach (var blog in Model)
+                    {
+                        var modalId = "deleteBlogModal_" + blog.Id.ToString("N");
+
+                        <div class="modal fade" id="@modalId" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="border-radius:14px; border:0; overflow:hidden;">
+
+                                    <div class="modal-header text-white"
+                                         style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                                        <h5 class="modal-title">
+                                            <i class="bi bi-trash me-2"></i>
+                                            Delete Blog Post
+                                        </h5>
+
+                                        <button type="button"
+                                                class="btn-close btn-close-white"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                        </button>
+                                    </div>
+
+                                    <form asp-area="Admin"
+                                          asp-controller="Blogs"
+                                          asp-action="Delete"
+                                          method="post">
+
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="modal-body p-4">
+
+                                            <input type="hidden" name="id" value="@blog.Id" />
+
+                                            <div class="mb-3">
+                                                <p class="text-muted mb-1">Blog Title</p>
+                                                <h5 class="mb-0">@blog.Title</h5>
+                                            </div>
+
+                                            <div class="row g-3 mb-3">
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Author</p>
+                                                    <strong>@blog.AuthorName</strong>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Created Date</p>
+                                                    <strong>@blog.CreatedAt.ToString("dd MMM yyyy")</strong>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Status</p>
+
+                                                    @if (blog.IsPublished)
+                                                    {
+                                                        <span class="badge bg-success">Public</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-warning text-dark">Draft</span>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div class="alert alert-danger mb-0">
+                                                <i class="bi bi-exclamation-triangle me-1"></i>
+                                                This blog post will be permanently deleted.
+                                                <br />
+                                                This action cannot be undone.
+                                            </div>
+
+                                        </div>
+
+                                        <div class="modal-footer bg-light">
+                                            <button type="button"
+                                                    class="btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">
+                                                Cancel
+                                            </button>
+
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="bi bi-trash me-1"></i>
+                                                Confirm Delete
+                                            </button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>

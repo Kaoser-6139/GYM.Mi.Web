@@ -1,0 +1,569 @@
+﻿@{
+    ViewData["Title"] = "Equipments";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.min.css">
+
+    <style>
+        .equipment-page-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .equipment-page-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 22px 24px;
+        }
+
+            .equipment-page-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0;
+            }
+
+        .equipment-add-btn {
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        #equipments th {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        #equipments td {
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .equipment-name-text {
+            font-weight: 700;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .equipment-muted-text {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .equipment-price-text {
+            font-weight: 700;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .equipment-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 90px;
+            display: inline-block;
+        }
+
+        .category-badge {
+            background: linear-gradient(135deg,#667eea,#764ba2) !important;
+            color: #ffffff !important;
+        }
+
+        .availability-available {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .availability-unavailable {
+            background-color: #dc3545 !important;
+            color: #ffffff !important;
+        }
+
+        .availability-maintenance {
+            background-color: #ffc107 !important;
+            color: #111827 !important;
+        }
+
+        .availability-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .condition-excellent,
+        .condition-good,
+        .condition-new {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .condition-fair {
+            background-color: #0dcaf0 !important;
+            color: #111827 !important;
+        }
+
+        .condition-poor,
+        .condition-damaged {
+            background-color: #dc3545 !important;
+            color: #ffffff !important;
+        }
+
+        .condition-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .equipment-action-column {
+            min-width: 285px;
+            width: 285px;
+        }
+
+        .equipment-action-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .equipment-action-btn {
+            border-radius: 6px;
+            font-weight: 700;
+            padding: 7px 12px;
+            font-size: 13px;
+            min-width: 86px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+        }
+
+            .equipment-action-btn i {
+                font-size: 13px;
+            }
+
+        .equipment-details-btn,
+        .equipment-delete-btn {
+            color: #ffffff !important;
+        }
+
+        .equipment-edit-btn {
+            color: #111827 !important;
+        }
+
+        div.dt-container .dt-search {
+            margin-bottom: 14px;
+        }
+
+            div.dt-container .dt-search input {
+                border-radius: 6px;
+                padding: 8px 12px;
+                border: 1px solid #ced4da;
+            }
+
+        div.dt-container .dt-buttons .dt-button {
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background: #ffffff;
+            color: #111827;
+            font-weight: 600;
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        @@media (max-width: 768px) {
+            .equipment-page-header .d-flex {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+            .equipment-action-column {
+                min-width: 260px;
+                width: 260px;
+            }
+
+            .equipment-action-wrapper {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .equipment-action-btn {
+                min-width: 90px;
+            }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Equipments</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Equipments</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card equipment-page-card">
+
+                    <div class="equipment-page-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>
+                                <i class="bi bi-tools me-2"></i>
+                                Equipment List
+                            </h5>
+
+                            <a href="/admin/equipments/add"
+                               class="btn btn-light btn-sm equipment-add-btn">
+                                <i class="fas fa-plus-circle me-1"></i>
+                                Add Equipment
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <partial name="_ResponsePartial" />
+                        <partial name="_ModalPartial" />
+
+                        <div class="table-responsive">
+                            <table id="equipments" class="table table-bordered table-hover align-middle w-100">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Serial No</th>
+                                        <th>Price</th>
+                                        <th>Availability</th>
+                                        <th>Condition</th>
+                                        <th>Location</th>
+                                        <th class="text-center equipment-action-column">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Serial No</th>
+                                        <th>Price</th>
+                                        <th>Availability</th>
+                                        <th>Condition</th>
+                                        <th>Location</th>
+                                        <th class="text-center equipment-action-column">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+    <script>
+        $(function () {
+
+            function formatPrice(value) {
+                const amount = Number(value);
+
+                if (isNaN(amount)) {
+                    return value || "0.00";
+                }
+
+                return amount.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            }
+
+            function getAvailabilityBadgeClass(value) {
+                const status = (value || "").toLowerCase();
+
+                if (status.includes("unavailable") || status.includes("not available")) {
+                    return "availability-unavailable";
+                }
+
+                if (status.includes("maintenance")) {
+                    return "availability-maintenance";
+                }
+
+                if (status.includes("available")) {
+                    return "availability-available";
+                }
+
+                return "availability-default";
+            }
+
+            function getConditionBadgeClass(value) {
+                const condition = (value || "").toLowerCase();
+
+                if (condition.includes("excellent")) {
+                    return "condition-excellent";
+                }
+
+                if (condition.includes("new")) {
+                    return "condition-new";
+                }
+
+                if (condition.includes("good")) {
+                    return "condition-good";
+                }
+
+                if (condition.includes("fair")) {
+                    return "condition-fair";
+                }
+
+                if (condition.includes("poor")) {
+                    return "condition-poor";
+                }
+
+                if (condition.includes("damaged")) {
+                    return "condition-damaged";
+                }
+
+                return "condition-default";
+            }
+
+            $("#equipments").DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                lengthChange: true,
+                scrollX: false,
+                autoWidth: false,
+
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All']
+                ],
+
+                layout: {
+                    topStart: 'buttons',
+                    topEnd: 'search',
+                },
+
+                buttons: [
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ],
+
+                ajax: {
+                    url: "/Admin/Equipments/GetEquipmentsJsonData",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: function (d) {
+                        d.SearchItem = {};
+                        return JSON.stringify(d);
+                    }
+                },
+
+                columns: [
+                    {
+                        data: 0,
+                        render: function (data) {
+                            return `
+                                <span class="equipment-name-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 1,
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <span class="badge equipment-badge category-badge">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 2,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 3,
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <span class="equipment-price-text">
+                                    ৳ ${formatPrice(data)}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 4,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getAvailabilityBadgeClass(data);
+
+                            return `
+                                <span class="badge equipment-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 5,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getConditionBadgeClass(data);
+
+                            return `
+                                <span class="badge equipment-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 6,
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <span class="equipment-muted-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 7,
+                        orderable: false,
+                        searchable: false,
+                        className: "text-center equipment-action-column",
+                        render: function (data) {
+                            return `
+                                <div class="equipment-action-wrapper">
+                                    <a href="/Admin/Equipments/Details/${data}"
+                                       class="btn btn-info btn-sm equipment-action-btn equipment-details-btn"
+                                       title="Equipment Details">
+                                        <i class="bi bi-eye"></i>
+                                        Details
+                                    </a>
+
+                                    <a href="/Admin/Equipments/Update/${data}"
+                                       class="btn btn-warning btn-sm equipment-action-btn equipment-edit-btn"
+                                       title="Edit Equipment">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Edit
+                                    </a>
+
+                                    <button type="button"
+                                            class="btn btn-danger btn-sm show-bs-modal equipment-action-btn equipment-delete-btn"
+                                            data-id="${data}"
+                                            title="Delete Equipment">
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ]
+            });
+
+            $('#equipments').on('click', '.show-bs-modal', function () {
+                let id = $(this).data("id");
+                let deleteModalElement = document.getElementById("modal-delete");
+                let deleteModal = $("#modal-delete");
+
+                deleteModal.find('.modal-body p').text('Are you sure you want to delete this equipment?');
+                $('#delete-id').val(id);
+                $('#delete-form').attr('action', '/admin/equipments/delete');
+
+                if (deleteModalElement && typeof bootstrap !== "undefined") {
+                    const modal = bootstrap.Modal.getOrCreateInstance(deleteModalElement);
+                    modal.show();
+                } else {
+                    deleteModal.modal('show');
+                }
+            });
+
+            $('#delete-button').click(function () {
+                $('#delete-form').submit();
+            });
+        });
+    </script>
+}

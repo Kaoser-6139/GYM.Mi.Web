@@ -1,0 +1,223 @@
+﻿@model IList<GYM.Domain.Entities.Membership>
+
+@{
+    ViewData["Title"] = "Pending Memberships";
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Pending Memberships</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Users" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Pending Memberships</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+
+        <div class="card shadow-sm border-0">
+            <div class="card-header text-white py-3"
+                 style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history me-2"></i>
+                    Pending Cash Payments
+                </h5>
+            </div>
+
+            <div class="card-body">
+
+                @if (Model == null || !Model.Any())
+                {
+                    <div class="alert alert-info mb-0">
+                        <i class="bi bi-info-circle me-2"></i>
+                        No pending membership payment found.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Member Name</th>
+                                    <th>Phone</th>
+                                    <th>Plan</th>
+                                    <th>Duration</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Requested At</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var modalId = "approveModal_" + item.Id.ToString("N");
+
+                                    <tr>
+                                        <td>
+                                            <strong>@(item.User?.FullName ?? "N/A")</strong>
+                                        </td>
+
+                                        <td>
+                                            @(item.User?.PhoneNumber ?? "N/A")
+                                        </td>
+
+                                        <td>
+                                            @if (item.PlanName == "Premium")
+                                            {
+                                                <span class="badge bg-dark">Premium</span>
+                                            }
+                                            else if (item.PlanName == "Standard")
+                                            {
+                                                <span class="badge" style="background:#667eea;">Standard</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">Basic</span>
+                                            }
+                                        </td>
+
+                                        <td>
+                                            @item.DurationMonths Month(s)
+                                        </td>
+
+                                        <td>
+                                            ৳@item.Amount.ToString("N0")
+                                        </td>
+
+                                        <td>
+                                            <span class="badge bg-warning text-dark">
+                                                @item.PaymentStatus
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            @item.CreatedAt.ToString("dd MMM yyyy")
+                                        </td>
+
+                                        <td class="text-center">
+                                            <button type="button"
+                                                    class="btn btn-success btn-sm"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#@modalId">
+                                                <i class="bi bi-check-circle me-1"></i>
+                                                Approve
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @foreach (var item in Model)
+                    {
+                        var modalId = "approveModal_" + item.Id.ToString("N");
+                        var expiryDate = DateTime.Today.AddMonths(item.DurationMonths);
+
+                        <div class="modal fade" id="@modalId" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="border-radius:14px; border:0; overflow:hidden;">
+
+                                    <div class="modal-header text-white"
+                                         style="background:linear-gradient(135deg,#667eea,#764ba2);">
+                                        <h5 class="modal-title">
+                                            <i class="bi bi-check-circle me-2"></i>
+                                            Approve Membership
+                                        </h5>
+                                        <button type="button"
+                                                class="btn-close btn-close-white"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                        </button>
+                                    </div>
+
+                                    <form asp-area="Admin"
+                                          asp-controller="Memberships"
+                                          asp-action="Approve"
+                                          method="post">
+
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="modal-body p-4">
+
+                                            <input type="hidden" name="id" value="@item.Id" />
+
+                                            <div class="mb-3">
+                                                <p class="text-muted mb-1">Member</p>
+                                                <h5 class="mb-0">@(item.User?.FullName ?? "N/A")</h5>
+                                            </div>
+
+                                            <div class="row g-3 mb-3">
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Plan</p>
+                                                    <strong>@item.PlanName</strong>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Amount</p>
+                                                    <strong>৳@item.Amount.ToString("N0")</strong>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Duration</p>
+                                                    <strong>@item.DurationMonths Month(s)</strong>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <p class="text-muted mb-1">Status</p>
+                                                    <span class="badge bg-warning text-dark">
+                                                        @item.PaymentStatus
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="alert alert-info mb-0">
+                                                <i class="bi bi-info-circle me-1"></i>
+                                                Membership will start from today:
+                                                <strong>@DateTime.Today.ToString("dd MMM yyyy")</strong>
+                                                <br />
+                                                Expiry date will be:
+                                                <strong>@expiryDate.ToString("dd MMM yyyy")</strong>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="modal-footer bg-light">
+                                            <button type="button"
+                                                    class="btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">
+                                                Cancel
+                                            </button>
+
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="bi bi-check-circle me-1"></i>
+                                                Confirm Approve
+                                            </button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>

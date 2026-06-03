@@ -1,0 +1,1514 @@
+﻿@{
+    ViewData["Title"] = "Users";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.min.css">
+
+    <style>
+        .user-page-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .user-page-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 22px 24px;
+        }
+
+            .user-page-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0;
+            }
+
+        .user-filter-box {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 18px;
+        }
+
+            .user-filter-box .form-label {
+                color: #374151;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            .user-filter-box .form-select,
+            .user-filter-box .form-control {
+                border-radius: 7px;
+                border: 1px solid #d1d5db;
+                padding: 9px 12px;
+                font-size: 14px;
+            }
+
+        .advanced-filter-panel {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #ffffff;
+            padding: 16px;
+        }
+
+        .filter-action-btn {
+            border-radius: 7px;
+            font-weight: 700;
+            padding: 9px 14px;
+        }
+
+        #users th {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        #users td {
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .user-name-text {
+            font-weight: 700;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .user-muted-text {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .user-goal-badge,
+        .user-gender-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 78px;
+            display: inline-block;
+        }
+
+        .user-membership-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 125px;
+            display: inline-block;
+        }
+
+        .gender-male {
+            background-color: #0d6efd !important;
+            color: #ffffff !important;
+        }
+
+        .gender-female {
+            background-color: #d63384 !important;
+            color: #ffffff !important;
+        }
+
+        .gender-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .goal-weight-loss {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .goal-muscle-gain {
+            background: linear-gradient(135deg,#667eea,#764ba2) !important;
+            color: #ffffff !important;
+        }
+
+        .goal-fitness {
+            background-color: #0dcaf0 !important;
+            color: #111827 !important;
+        }
+
+        .goal-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .membership-premium {
+            background-color: #111827 !important;
+            color: #ffffff !important;
+        }
+
+        .membership-standard {
+            background: linear-gradient(135deg,#667eea,#764ba2) !important;
+            color: #ffffff !important;
+        }
+
+        .membership-active {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .membership-pending {
+            background-color: #ffc107 !important;
+            color: #111827 !important;
+        }
+
+        .membership-expired {
+            background-color: #dc3545 !important;
+            color: #ffffff !important;
+        }
+
+        .membership-none {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .user-action-column {
+            min-width: 285px;
+            width: 285px;
+        }
+
+        .user-action-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .user-action-btn {
+            border-radius: 6px;
+            font-weight: 700;
+            padding: 7px 12px;
+            font-size: 13px;
+            min-width: 86px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+        }
+
+            .user-action-btn i {
+                font-size: 13px;
+            }
+
+        .user-profile-btn,
+        .user-delete-btn {
+            color: #ffffff !important;
+        }
+
+        .user-edit-btn {
+            color: #111827 !important;
+        }
+
+        div.dt-container .dt-search {
+            margin-bottom: 14px;
+        }
+
+            div.dt-container .dt-search input {
+                border-radius: 6px;
+                padding: 8px 12px;
+                border: 1px solid #ced4da;
+            }
+
+        div.dt-container .dt-buttons .dt-button {
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background: #ffffff;
+            color: #111827;
+            font-weight: 600;
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        @@media (max-width: 768px) {
+            .user-page-header .d-flex {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+            .user-action-column {
+                min-width: 260px;
+                width: 260px;
+            }
+
+            .user-action-wrapper {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .user-action-btn {
+                min-width: 90px;
+            }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Users</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Users</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card user-page-card">
+
+                    <div class="user-page-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>
+                                <i class="bi bi-people me-2"></i>
+                                User List
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <partial name="_ResponsePartial" />
+                        <partial name="_ModalPartial" />
+
+                        <div class="user-filter-box">
+
+                            <div class="row g-3 align-items-end">
+
+                                <div class="col-lg-2 col-md-4">
+                                    <label for="membershipStatus" class="form-label mb-1">
+                                        Membership Status
+                                    </label>
+
+                                    <select id="membershipStatus" class="form-select">
+                                        <option value="">All Status</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Expired">Expired</option>
+                                        <option value="NoMembership">No Membership</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-2 col-md-4">
+                                    <label for="membershipPlan" class="form-label mb-1">
+                                        Membership Plan
+                                    </label>
+
+                                    <select id="membershipPlan" class="form-select">
+                                        <option value="">All Plans</option>
+                                        <option value="Basic">Basic</option>
+                                        <option value="Standard">Standard</option>
+                                        <option value="Premium">Premium</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-2 col-md-4">
+                                    <label for="genderFilter" class="form-label mb-1">
+                                        Gender
+                                    </label>
+
+                                    <select id="genderFilter" class="form-select">
+                                        <option value="">All Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-2 col-md-4">
+                                    <label for="goalFilter" class="form-label mb-1">
+                                        Goal
+                                    </label>
+
+                                    <select id="goalFilter" class="form-select">
+                                        <option value="">All Goals</option>
+                                        <option value="Weight Loss">Weight Loss</option>
+                                        <option value="Muscle Gain">Muscle Gain</option>
+                                        <option value="General Fitness">General Fitness</option>
+                                        <option value="Endurance">Endurance</option>
+                                        <option value="Strength">Strength</option>
+                                        <option value="Flexibility">Flexibility</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-2 col-md-4">
+                                    <button type="button"
+                                            id="userFilterSearch"
+                                            class="btn btn-primary w-100 filter-action-btn">
+                                        <i class="bi bi-search me-1"></i>
+                                        Search
+                                    </button>
+                                </div>
+
+                                <div class="col-lg-2 col-md-4">
+                                    <button type="button"
+                                            class="btn btn-outline-secondary w-100 filter-action-btn"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#advancedUserFilters"
+                                            aria-expanded="false"
+                                            aria-controls="advancedUserFilters">
+                                        <i class="bi bi-sliders me-1"></i>
+                                        Advanced
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <div class="collapse mt-3" id="advancedUserFilters">
+                                <div class="advanced-filter-panel">
+
+                                    <div class="row g-3">
+
+                                        <div class="col-lg-2 col-md-4">
+                                            <label for="ageFrom" class="form-label mb-1">
+                                                Age From
+                                            </label>
+                                            <input type="number"
+                                                   id="ageFrom"
+                                                   class="form-control"
+                                                   min="0"
+                                                   placeholder="Min age" />
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-4">
+                                            <label for="ageTo" class="form-label mb-1">
+                                                Age To
+                                            </label>
+                                            <input type="number"
+                                                   id="ageTo"
+                                                   class="form-control"
+                                                   min="0"
+                                                   placeholder="Max age" />
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-4">
+                                            <label for="entryDateFrom" class="form-label mb-1">
+                                                Entry From
+                                            </label>
+                                            <input type="date"
+                                                   id="entryDateFrom"
+                                                   class="form-control" />
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-4">
+                                            <label for="entryDateTo" class="form-label mb-1">
+                                                Entry To
+                                            </label>
+                                            <input type="date"
+                                                   id="entryDateTo"
+                                                   class="form-control" />
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-4">
+                                            <label for="expiryFrom" class="form-label mb-1">
+                                                Expiry From
+                                            </label>
+                                            <input type="date"
+                                                   id="expiryFrom"
+                                                   class="form-control" />
+                                        </div>
+
+                                        <div class="col-lg-2 col-md-4">
+                                            <label for="expiryTo" class="form-label mb-1">
+                                                Expiry To
+                                            </label>
+                                            <input type="date"
+                                                   id="expiryTo"
+                                                   class="form-control" />
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-6">
+                                            <label for="paymentRequestedFrom" class="form-label mb-1">
+                                                Payment Request From
+                                            </label>
+                                            <input type="date"
+                                                   id="paymentRequestedFrom"
+                                                   class="form-control" />
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-6">
+                                            <label for="paymentRequestedTo" class="form-label mb-1">
+                                                Payment Request To
+                                            </label>
+                                            <input type="date"
+                                                   id="paymentRequestedTo"
+                                                   class="form-control" />
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-6">
+                                            <label for="trainerStatus" class="form-label mb-1">
+                                                Trainer Status
+                                            </label>
+
+                                            <select id="trainerStatus" class="form-select">
+                                                <option value="">All</option>
+                                                <option value="Assigned">Assigned</option>
+                                                <option value="NotAssigned">Not Assigned</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-6 d-flex align-items-end">
+                                            <button type="button"
+                                                    id="userFilterReset"
+                                                    class="btn btn-outline-danger w-100 filter-action-btn">
+                                                <i class="bi bi-arrow-counterclockwise me-1"></i>
+                                                Reset Filters
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table id="users" class="table table-bordered table-hover align-middle w-100">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Full Name</th>
+                                        <th>Phone</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Goal</th>
+                                        <th>Membership</th>
+                                        <th>Entry Date</th>
+                                        <th class="text-center user-action-column">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Full Name</th>
+                                        <th>Phone</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Goal</th>
+                                        <th>Membership</th>
+                                        <th>Entry Date</th>
+                                        <th class="text-center user-action-column">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+    <script>
+        $(function () {
+
+            let currentUsersAjaxUrl = "/Admin/Users/GetUsersJsonData";
+
+            const normalUsersAjaxUrl = "/Admin/Users/GetUsersJsonData";
+            const advancedUsersAjaxUrl = "/Admin/Users/GetUsersAdvancedJsonData";
+
+            function getGenderBadgeClass(value) {
+                const gender = (value || "").toLowerCase();
+
+                if (gender === "male") {
+                    return "gender-male";
+                }
+
+                if (gender === "female") {
+                    return "gender-female";
+                }
+
+                return "gender-default";
+            }
+
+            function getGoalBadgeClass(value) {
+                const goal = (value || "").toLowerCase();
+
+                if (goal.includes("weight") || goal.includes("loss") || goal.includes("fat")) {
+                    return "goal-weight-loss";
+                }
+
+                if (goal.includes("muscle") || goal.includes("gain") || goal.includes("strength")) {
+                    return "goal-muscle-gain";
+                }
+
+                if (goal.includes("fitness") || goal.includes("fit") || goal.includes("endurance")) {
+                    return "goal-fitness";
+                }
+
+                return "goal-default";
+            }
+
+            function getMembershipBadgeClass(value) {
+                const membership = (value || "").toLowerCase();
+
+                if (membership.includes("premium") && membership.includes("active")) {
+                    return "membership-premium";
+                }
+
+                if (membership.includes("standard") && membership.includes("active")) {
+                    return "membership-standard";
+                }
+
+                if (membership.includes("active")) {
+                    return "membership-active";
+                }
+
+                if (membership.includes("pending")) {
+                    return "membership-pending";
+                }
+
+                if (membership.includes("expired")) {
+                    return "membership-expired";
+                }
+
+                return "membership-none";
+            }
+
+            function getSearchItem() {
+                return {
+                    MembershipStatus: $('#membershipStatus').val(),
+                    MembershipPlan: $('#membershipPlan').val(),
+
+                    Gender: $('#genderFilter').val(),
+                    PrimaryGoal: $('#goalFilter').val(),
+
+                    AgeFrom: $('#ageFrom').val() || null,
+                    AgeTo: $('#ageTo').val() || null,
+
+                    EntryDateFrom: $('#entryDateFrom').val() || null,
+                    EntryDateTo: $('#entryDateTo').val() || null,
+
+                    MembershipExpiryFrom: $('#expiryFrom').val() || null,
+                    MembershipExpiryTo: $('#expiryTo').val() || null,
+
+                    PaymentRequestedFrom: $('#paymentRequestedFrom').val() || null,
+                    PaymentRequestedTo: $('#paymentRequestedTo').val() || null,
+
+                    TrainerStatus: $('#trainerStatus').val()
+                };
+            }
+
+            function clearAdvancedFilters() {
+                $('#membershipStatus').val('');
+                $('#membershipPlan').val('');
+                $('#genderFilter').val('');
+                $('#goalFilter').val('');
+
+                $('#ageFrom').val('');
+                $('#ageTo').val('');
+
+                $('#entryDateFrom').val('');
+                $('#entryDateTo').val('');
+
+                $('#expiryFrom').val('');
+                $('#expiryTo').val('');
+
+                $('#paymentRequestedFrom').val('');
+                $('#paymentRequestedTo').val('');
+
+                $('#trainerStatus').val('');
+            }
+
+            const usersTable = $("#users").DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                lengthChange: true,
+                scrollX: false,
+                autoWidth: false,
+
+                lengthMenu: [
+                    [10, 25, 50],
+                    [10, 25, 50]
+                ],
+
+                layout: {
+                    topStart: 'buttons',
+                    topEnd: 'search',
+                },
+
+                buttons: [
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ],
+
+                ajax: {
+                    url: currentUsersAjaxUrl,
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: function (d) {
+                        d.SearchItem = getSearchItem();
+
+                        return JSON.stringify(d);
+                    }
+                },
+
+                columns: [
+                    {
+                        data: 0,
+                        render: function (data) {
+                            return `
+                                <span class="user-name-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 1,
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <span class="user-muted-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 2,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 3,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getGenderBadgeClass(data);
+
+                            return `
+                                <span class="badge user-gender-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 4,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getGoalBadgeClass(data);
+
+                            return `
+                                <span class="badge user-goal-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 5,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getMembershipBadgeClass(data);
+
+                            return `
+                                <span class="badge user-membership-badge ${badgeClass}">
+                                    ${data || "No Membership"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 6,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 7,
+                        orderable: false,
+                        searchable: false,
+                        className: "text-center user-action-column",
+                        render: function (data) {
+                            return `
+                                <div class="user-action-wrapper">
+                                    <a href="/Admin/Users/Profile/${data}"
+                                       class="btn btn-primary btn-sm user-action-btn user-profile-btn"
+                                       title="View Profile">
+                                        <i class="bi bi-person"></i>
+                                        Profile
+                                    </a>
+
+                                    <a href="/Admin/Users/Update/${data}"
+                                       class="btn btn-warning btn-sm user-action-btn user-edit-btn"
+                                       title="Edit User">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Edit
+                                    </a>
+
+                                    <button type="button"
+                                            class="btn btn-danger btn-sm show-bs-modal user-action-btn user-delete-btn"
+                                            data-id="${data}"
+                                            title="Delete User">
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ]
+            });
+
+            $('#userFilterSearch').on('click', function () {
+                currentUsersAjaxUrl = advancedUsersAjaxUrl;
+
+                usersTable
+                    .ajax
+                    .url(currentUsersAjaxUrl)
+                    .load();
+            });
+
+            $('#userFilterReset').on('click', function () {
+                clearAdvancedFilters();
+
+                currentUsersAjaxUrl = normalUsersAjaxUrl;
+
+                usersTable.search('');
+
+                usersTable
+                    .ajax
+                    .url(currentUsersAjaxUrl)
+                    .load();
+            });
+
+            $('#users').on('click', '.show-bs-modal', function () {
+                let id = $(this).data("id");
+                let deleteModalElement = document.getElementById("modal-delete");
+                let deleteModal = $("#modal-delete");
+
+                deleteModal.find('.modal-body p').text('Are you sure you want to delete this user?');
+                $('#delete-id').val(id);
+                $('#delete-form').attr('action', '/admin/users/delete');
+
+                if (deleteModalElement && typeof bootstrap !== "undefined") {
+                    const modal = bootstrap.Modal.getOrCreateInstance(deleteModalElement);
+                    modal.show();
+                } else {
+                    deleteModal.modal('show');
+                }
+            });
+
+            $('#delete-button').click(function () {
+                $('#delete-form').submit();
+            });
+        });
+    </script>
+}
+
+
+@* @{
+    ViewData["Title"] = "Users";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.min.css">
+
+    <style>
+        .user-page-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .user-page-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 22px 24px;
+        }
+
+            .user-page-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0;
+            }
+
+        .user-filter-box {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 18px;
+        }
+
+            .user-filter-box .form-label {
+                color: #374151;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            .user-filter-box .form-select {
+                border-radius: 7px;
+                border: 1px solid #d1d5db;
+                padding: 9px 12px;
+                font-size: 14px;
+            }
+
+        #users th {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        #users td {
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .user-name-text {
+            font-weight: 700;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .user-muted-text {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .user-goal-badge,
+        .user-gender-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 78px;
+            display: inline-block;
+        }
+
+        .user-membership-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 125px;
+            display: inline-block;
+        }
+
+        .gender-male {
+            background-color: #0d6efd !important;
+            color: #ffffff !important;
+        }
+
+        .gender-female {
+            background-color: #d63384 !important;
+            color: #ffffff !important;
+        }
+
+        .gender-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .goal-weight-loss {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .goal-muscle-gain {
+            background: linear-gradient(135deg,#667eea,#764ba2) !important;
+            color: #ffffff !important;
+        }
+
+        .goal-fitness {
+            background-color: #0dcaf0 !important;
+            color: #111827 !important;
+        }
+
+        .goal-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .membership-premium {
+            background-color: #111827 !important;
+            color: #ffffff !important;
+        }
+
+        .membership-standard {
+            background: linear-gradient(135deg,#667eea,#764ba2) !important;
+            color: #ffffff !important;
+        }
+
+        .membership-active {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .membership-pending {
+            background-color: #ffc107 !important;
+            color: #111827 !important;
+        }
+
+        .membership-expired {
+            background-color: #dc3545 !important;
+            color: #ffffff !important;
+        }
+
+        .membership-none {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .user-action-column {
+            min-width: 285px;
+            width: 285px;
+        }
+
+        .user-action-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .user-action-btn {
+            border-radius: 6px;
+            font-weight: 700;
+            padding: 7px 12px;
+            font-size: 13px;
+            min-width: 86px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+        }
+
+            .user-action-btn i {
+                font-size: 13px;
+            }
+
+        .user-profile-btn,
+        .user-delete-btn {
+            color: #ffffff !important;
+        }
+
+        .user-edit-btn {
+            color: #111827 !important;
+        }
+
+        div.dt-container .dt-search {
+            margin-bottom: 14px;
+        }
+
+            div.dt-container .dt-search input {
+                border-radius: 6px;
+                padding: 8px 12px;
+                border: 1px solid #ced4da;
+            }
+
+        div.dt-container .dt-buttons .dt-button {
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background: #ffffff;
+            color: #111827;
+            font-weight: 600;
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        @@media (max-width: 768px) {
+            .user-page-header .d-flex {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+            .user-filter-box .d-flex {
+                flex-direction: column;
+                align-items: stretch !important;
+            }
+
+            .user-action-column {
+                min-width: 260px;
+                width: 260px;
+            }
+
+            .user-action-wrapper {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .user-action-btn {
+                min-width: 90px;
+            }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Users</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Users</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card user-page-card">
+
+                    <div class="user-page-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>
+                                <i class="bi bi-people me-2"></i>
+                                User List
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <partial name="_ResponsePartial" />
+                        <partial name="_ModalPartial" />
+
+                        <div class="user-filter-box">
+                            <div class="d-flex justify-content-end align-items-center gap-3">
+
+                                <div style="min-width: 230px;">
+                                    <label for="membershipFilter" class="form-label mb-1">
+                                        Membership Status
+                                    </label>
+
+                                    <select id="membershipFilter" class="form-select">
+                                        <option value="">All Status</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Expired">Expired</option>
+                                        <option value="NoMembership">No Membership</option>
+                                    </select>
+                                </div>
+
+                                <div style="min-width: 230px;">
+                                    <label for="membershipPlanFilter" class="form-label mb-1">
+                                        Membership Plan
+                                    </label>
+
+                                    <select id="membershipPlanFilter" class="form-select">
+                                        <option value="">All Plans</option>
+                                        <option value="Basic">Basic</option>
+                                        <option value="Standard">Standard</option>
+                                        <option value="Premium">Premium</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table id="users" class="table table-bordered table-hover align-middle w-100">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Full Name</th>
+                                        <th>Phone</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Goal</th>
+                                        <th>Membership</th>
+                                        <th>Entry Date</th>
+                                        <th class="text-center user-action-column">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Full Name</th>
+                                        <th>Phone</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Goal</th>
+                                        <th>Membership</th>
+                                        <th>Entry Date</th>
+                                        <th class="text-center user-action-column">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+    <script>
+        $(function () {
+
+            function getGenderBadgeClass(value) {
+                const gender = (value || "").toLowerCase();
+
+                if (gender === "male") {
+                    return "gender-male";
+                }
+
+                if (gender === "female") {
+                    return "gender-female";
+                }
+
+                return "gender-default";
+            }
+
+            function getGoalBadgeClass(value) {
+                const goal = (value || "").toLowerCase();
+
+                if (goal.includes("weight") || goal.includes("loss") || goal.includes("fat")) {
+                    return "goal-weight-loss";
+                }
+
+                if (goal.includes("muscle") || goal.includes("gain") || goal.includes("strength")) {
+                    return "goal-muscle-gain";
+                }
+
+                if (goal.includes("fitness") || goal.includes("fit") || goal.includes("endurance")) {
+                    return "goal-fitness";
+                }
+
+                return "goal-default";
+            }
+
+            function getMembershipBadgeClass(value) {
+                const membership = (value || "").toLowerCase();
+
+                if (membership.includes("premium") && membership.includes("active")) {
+                    return "membership-premium";
+                }
+
+                if (membership.includes("standard") && membership.includes("active")) {
+                    return "membership-standard";
+                }
+
+                if (membership.includes("active")) {
+                    return "membership-active";
+                }
+
+                if (membership.includes("pending")) {
+                    return "membership-pending";
+                }
+
+                if (membership.includes("expired")) {
+                    return "membership-expired";
+                }
+
+                return "membership-none";
+            }
+
+            const usersTable = $("#users").DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                lengthChange: true,
+                scrollX: false,
+                autoWidth: false,
+
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All']
+                ],
+
+                layout: {
+                    topStart: 'buttons',
+                    topEnd: 'search',
+                },
+
+                buttons: [
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ],
+
+                ajax: {
+                    url: "/Admin/Users/GetUsersJsonData",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: function (d) {
+                        d.SearchItem = {};
+                        d.MembershipFilter = $('#membershipFilter').val();
+                        d.MembershipPlanFilter = $('#membershipPlanFilter').val();
+
+                        return JSON.stringify(d);
+                    }
+                },
+
+                columns: [
+                    {
+                        data: 0,
+                        render: function (data) {
+                            return `
+                                <span class="user-name-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 1,
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <span class="user-muted-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 2,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 3,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getGenderBadgeClass(data);
+
+                            return `
+                                <span class="badge user-gender-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 4,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getGoalBadgeClass(data);
+
+                            return `
+                                <span class="badge user-goal-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 5,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getMembershipBadgeClass(data);
+
+                            return `
+                                <span class="badge user-membership-badge ${badgeClass}">
+                                    ${data || "No Membership"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 6,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 7,
+                        orderable: false,
+                        searchable: false,
+                        className: "text-center user-action-column",
+                        render: function (data) {
+                            return `
+                                <div class="user-action-wrapper">
+                                    <a href="/Admin/Users/Profile/${data}"
+                                       class="btn btn-primary btn-sm user-action-btn user-profile-btn"
+                                       title="View Profile">
+                                        <i class="bi bi-person"></i>
+                                        Profile
+                                    </a>
+
+                                    <a href="/Admin/Users/Update/${data}"
+                                       class="btn btn-warning btn-sm user-action-btn user-edit-btn"
+                                       title="Edit User">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Edit
+                                    </a>
+
+                                    <button type="button"
+                                            class="btn btn-danger btn-sm show-bs-modal user-action-btn user-delete-btn"
+                                            data-id="${data}"
+                                            title="Delete User">
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ]
+            });
+
+            $('#membershipFilter, #membershipPlanFilter').on('change', function () {
+                usersTable.ajax.reload();
+            });
+
+            $('#users').on('click', '.show-bs-modal', function () {
+                let id = $(this).data("id");
+                let deleteModalElement = document.getElementById("modal-delete");
+                let deleteModal = $("#modal-delete");
+
+                deleteModal.find('.modal-body p').text('Are you sure you want to delete this user?');
+                $('#delete-id').val(id);
+                $('#delete-form').attr('action', '/admin/users/delete');
+
+                if (deleteModalElement && typeof bootstrap !== "undefined") {
+                    const modal = bootstrap.Modal.getOrCreateInstance(deleteModalElement);
+                    modal.show();
+                } else {
+                    deleteModal.modal('show');
+                }
+            });
+
+            $('#delete-button').click(function () {
+                $('#delete-form').submit();
+            });
+        });
+    </script>
+} *@

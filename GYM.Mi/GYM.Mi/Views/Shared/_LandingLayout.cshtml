@@ -1,0 +1,84 @@
+﻿<
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - GYM.Mi</title>
+
+    <link rel="stylesheet" href="~/css/landing.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                Gym<span>Mi</span>
+            </a>
+
+            <nav class="nav-links">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+                <a href="/#features">Features</a>
+                <a href="/#membership">Membership</a>
+                <a href="/#trainers">Trainers</a>
+                <a href="/#blog">Blog</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-outline">Login</a>
+                <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a asp-controller="Home" asp-action="Index" class="logo">
+                        Gym<span>Mi</span>
+                    </a>
+
+                    <p style="margin-top: 14px; max-width: 430px;">
+                        A smart gym management system designed to simplify memberships,
+                        trainer coordination, attendance, payments, and fitness progress tracking.
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                        <a href="/#features">Features</a>
+                        <a href="/#membership">Membership</a>
+                        <a href="/#trainers">Trainers</a>
+                    </div>
+                </div>
+
+                <div id="contact">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="mailto:gymmi@gmail.com">gymmi@gmail.com</a>
+                        <a href="tel:+8801571255182">+880 1571 244 182</a>
+                        <a href="#">Dhaka, Bangladesh</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2026 GymMi. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

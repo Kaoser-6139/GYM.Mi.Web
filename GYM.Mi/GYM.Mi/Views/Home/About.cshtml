@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "About";
+    Layout = "_LandingLayout";
+}
+
+<main>
+    <section class="hero" style="min-height: 70vh;" id="about">
+        <div class="container hero-content">
+            <div>
+                <div class="hero-badge">
+                    <span class="dot"></span> About Gym Mi
+                </div>
+
+                <h1>Smart Gym Management for Modern Fitness Centers.</h1>
+
+                <p>
+                    GymFlow helps gym owners manage memberships, trainers, attendance,
+                    payments, schedules, and member progress from one clean and secure platform.
+                </p>
+
+                <div class="hero-buttons">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to Home</a>
+                    <a href="/#features" class="btn btn-outline">Explore Features</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <div class="dashboard-card">
+                    <div class="dashboard-top">
+                        <div>
+                            <p class="mini-title">System Purpose</p>
+                            <h3>Built for Better Gym Operations</h3>
+                        </div>
+
+                        <span class="status">Modern</span>
+                    </div>
+
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div>
+                                <strong>Member Management</strong>
+                                <small>Registration, plan, status and renewals</small>
+                            </div>
+                            <span class="tag">Core</span>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <strong>Trainer Coordination</strong>
+                                <small>Assign trainers and manage sessions</small>
+                            </div>
+                            <span class="tag">Smart</span>
+                        </div>
+
+                        <div class="schedule-item">
+                            <div>
+                                <strong>Progress Tracking</strong>
+                                <small>Fitness goals, attendance and payment history</small>
+                            </div>
+                            <span class="tag">Useful</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

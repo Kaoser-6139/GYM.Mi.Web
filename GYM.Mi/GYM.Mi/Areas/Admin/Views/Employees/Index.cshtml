@@ -1,0 +1,572 @@
+﻿@{
+    ViewData["Title"] = "Employees";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.min.css">
+
+    <style>
+        .employee-page-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .employee-page-header {
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            color: white;
+            padding: 22px 24px;
+        }
+
+            .employee-page-header h5 {
+                color: white;
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0;
+            }
+
+        .employee-add-btn {
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        #employees th {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        #employees td {
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .employee-name-text {
+            font-weight: 700;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .employee-status-badge,
+        .employee-department-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 76px;
+            display: inline-block;
+        }
+
+        .department-admin {
+            background-color: #111827 !important;
+            color: #ffffff !important;
+        }
+
+        .department-manager {
+            background: linear-gradient(135deg,#667eea,#764ba2) !important;
+            color: #ffffff !important;
+        }
+
+        .department-trainer {
+            background-color: #198754 !important;
+            color: #ffffff !important;
+        }
+
+        .department-cleaner {
+            background-color: #0dcaf0 !important;
+            color: #111827 !important;
+        }
+
+        .department-electrician {
+            background-color: #ffc107 !important;
+            color: #111827 !important;
+        }
+
+        .department-default {
+            background-color: #6c757d !important;
+            color: #ffffff !important;
+        }
+
+        .employee-salary-text {
+            font-weight: 700;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .employee-action-column {
+            min-width: 410px;
+            width: 410px;
+        }
+
+        .employee-action-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .employee-action-btn {
+            border-radius: 6px;
+            font-weight: 700;
+            padding: 7px 12px;
+            font-size: 13px;
+            min-width: 86px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.14);
+        }
+
+            .employee-action-btn i {
+                font-size: 13px;
+            }
+
+        .employee-details-btn {
+            color: #ffffff !important;
+        }
+
+        .employee-edit-btn {
+            color: #111827 !important;
+        }
+
+        .employee-delete-btn {
+            color: #ffffff !important;
+        }
+
+        .employee-activate-btn {
+            color: #ffffff !important;
+        }
+
+        .employee-deactivate-btn {
+            color: #ffffff !important;
+        }
+
+        div.dt-container .dt-search {
+            margin-bottom: 14px;
+        }
+
+            div.dt-container .dt-search input {
+                border-radius: 6px;
+                padding: 8px 12px;
+                border: 1px solid #ced4da;
+            }
+
+        div.dt-container .dt-buttons .dt-button {
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            background: #ffffff;
+            color: #111827;
+            font-weight: 600;
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        @@media (max-width: 768px) {
+            .employee-page-header .d-flex {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 14px;
+            }
+
+            .employee-action-column {
+                min-width: 280px;
+                width: 280px;
+            }
+
+            .employee-action-wrapper {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .employee-action-btn {
+                min-width: 90px;
+            }
+        }
+    </style>
+}
+
+<div class="app-content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="mb-0">Employees</h3>
+            </div>
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item">
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Employees</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card employee-page-card">
+
+                    <div class="employee-page-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>
+                                <i class="bi bi-person-badge me-2"></i>
+                                Employee List
+                            </h5>
+
+                            <a href="/admin/employees/add"
+                               class="btn btn-light btn-sm employee-add-btn">
+                                <i class="fas fa-plus-circle me-1"></i>
+                                Add Employee
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <partial name="_ResponsePartial" />
+                        <partial name="_ModalPartial" />
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="table-responsive">
+                            <table id="employees" class="table table-bordered table-hover align-middle w-100">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Department</th>
+                                        <th>Shift</th>
+                                        <th>Salary</th>
+                                        <th>Status</th>
+                                        <th class="text-center employee-action-column">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Department</th>
+                                        <th>Shift</th>
+                                        <th>Salary</th>
+                                        <th>Status</th>
+                                        <th class="text-center employee-action-column">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+    <script>
+        $(function () {
+
+            function getDepartmentBadgeClass(department) {
+                const value = (department || "").toLowerCase();
+
+                if (value === "admin") {
+                    return "department-admin";
+                }
+
+                if (value === "manager") {
+                    return "department-manager";
+                }
+
+                if (value === "trainer") {
+                    return "department-trainer";
+                }
+
+                if (value === "cleaner") {
+                    return "department-cleaner";
+                }
+
+                if (value === "electrician") {
+                    return "department-electrician";
+                }
+
+                return "department-default";
+            }
+
+            function formatSalary(value) {
+                const amount = Number(value);
+
+                if (isNaN(amount)) {
+                    return value || "0.00";
+                }
+
+                return amount.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            }
+
+            const table = $("#employees").DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                lengthChange: true,
+                scrollX: false,
+                autoWidth: false,
+
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All']
+                ],
+
+                layout: {
+                    topStart: 'buttons',
+                    topEnd: 'search',
+                },
+
+                buttons: [
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ],
+
+                ajax: {
+                    url: "/Admin/Employees/GetEmployeesJsonData",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: function (d) {
+                        d.SearchItem = {};
+                        return JSON.stringify(d);
+                    }
+                },
+
+                columns: [
+                    {
+                        data: 0,
+                        render: function (data) {
+                            return `
+                                <span class="employee-name-text">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 1,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 2,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 3,
+                        orderable: false,
+                        render: function (data) {
+                            const badgeClass = getDepartmentBadgeClass(data);
+
+                            return `
+                                <span class="badge employee-department-badge ${badgeClass}">
+                                    ${data || "N/A"}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 4,
+                        orderable: false,
+                        render: function (data) {
+                            return data || "N/A";
+                        }
+                    },
+                    {
+                        data: 5,
+                        orderable: false,
+                        render: function (data) {
+                            return `
+                                <span class="employee-salary-text">
+                                    ৳ ${formatSalary(data)}
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 6,
+                        orderable: false,
+                        render: function (data) {
+                            if (data === "Yes") {
+                                return `
+                                    <span class="badge bg-success employee-status-badge">
+                                        Active
+                                    </span>
+                                `;
+                            }
+
+                            return `
+                                <span class="badge bg-danger employee-status-badge">
+                                    Inactive
+                                </span>
+                            `;
+                        }
+                    },
+                    {
+                        data: 7,
+                        orderable: false,
+                        searchable: false,
+                        className: "text-center employee-action-column",
+                        render: function (data, type, row) {
+                            const isActive = row[6] === "Yes";
+                            const token = $('input[name="__RequestVerificationToken"]').val();
+
+                            const statusButton = isActive
+                                ? `
+                                    <form action="/Admin/Employees/Deactivate"
+                                          method="post"
+                                          class="d-inline">
+                                        <input name="__RequestVerificationToken" type="hidden" value="${token}" />
+                                        <input type="hidden" name="id" value="${data}" />
+
+                                        <button type="submit"
+                                                class="btn btn-secondary btn-sm employee-action-btn employee-deactivate-btn"
+                                                title="Deactivate Employee">
+                                            <i class="bi bi-person-dash"></i>
+                                            Deactivate
+                                        </button>
+                                    </form>
+                                `
+                                : `
+                                    <form action="/Admin/Employees/Activate"
+                                          method="post"
+                                          class="d-inline">
+                                        <input name="__RequestVerificationToken" type="hidden" value="${token}" />
+                                        <input type="hidden" name="id" value="${data}" />
+
+                                        <button type="submit"
+                                                class="btn btn-success btn-sm employee-action-btn employee-activate-btn"
+                                                title="Activate Employee">
+                                            <i class="bi bi-person-check"></i>
+                                            Activate
+                                        </button>
+                                    </form>
+                                `;
+
+                            return `
+                                <div class="employee-action-wrapper">
+                                    <a href="/Admin/Employees/Details/${data}"
+                                       class="btn btn-info btn-sm employee-action-btn employee-details-btn"
+                                       title="Employee Details">
+                                        <i class="bi bi-eye"></i>
+                                        Details
+                                    </a>
+
+                                    <a href="/Admin/Employees/Update/${data}"
+                                       class="btn btn-warning btn-sm employee-action-btn employee-edit-btn"
+                                       title="Edit Employee">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Edit
+                                    </a>
+
+                                    ${statusButton}
+
+                                    <button type="button"
+                                            class="btn btn-danger btn-sm show-bs-modal employee-action-btn employee-delete-btn"
+                                            data-id="${data}"
+                                            title="Delete Employee">
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ]
+            });
+
+            $('#employees').on('click', '.show-bs-modal', function () {
+                let id = $(this).data("id");
+                let deleteModalElement = document.getElementById("modal-delete");
+                let deleteModal = $("#modal-delete");
+
+                deleteModal.find('.modal-body p').text('Are you sure you want to delete this employee?');
+                $('#delete-id').val(id);
+                $('#delete-form').attr('action', '/admin/employees/delete');
+
+                if (deleteModalElement && typeof bootstrap !== "undefined") {
+                    const modal = bootstrap.Modal.getOrCreateInstance(deleteModalElement);
+                    modal.show();
+                } else {
+                    deleteModal.modal('show');
+                }
+            });
+
+            $('#delete-button').click(function () {
+                $('#delete-form').submit();
+            });
+        });
+    </script>
+}
