@@ -9,6 +9,7 @@ namespace GYM.Mi.Areas.Admin.Models
         public string TrainerName { get; set; } = "No Trainer Assigned";
 
         public string TrainerPhone { get; set; } = "N/A";
+        public string? TrainerImageUrl { get; set; }
 
         public MembershipViewModel Membership { get; set; } = new MembershipViewModel();
     }

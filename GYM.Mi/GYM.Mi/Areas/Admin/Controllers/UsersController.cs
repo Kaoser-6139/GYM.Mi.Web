@@ -347,6 +347,7 @@ namespace GYM.Mi.Areas.Admin.Controllers
                     : "No Trainer Assigned",
 
                 TrainerPhone = trainer?.PhoneNumber ?? "N/A",
+                TrainerImageUrl = trainer?.ImageUrl,
 
                 Membership = new MembershipViewModel
                 {

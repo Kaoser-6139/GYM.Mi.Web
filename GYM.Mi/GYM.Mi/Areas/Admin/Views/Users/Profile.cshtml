@@ -242,6 +242,16 @@
             font-weight: 900;
         }
 
+        .trainer-profile-image {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e5e7eb;
+            background: #f8f9fa;
+            flex-shrink: 0;
+        }
+
         .membership-highlight-card {
             border-radius: 10px;
             padding: 20px;
@@ -767,9 +777,18 @@
 
                             <div class="profile-section-body">
                                 <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="trainer-avatar-box">
-                                        @trainerInitial
-                                    </div>
+                                    @if (!string.IsNullOrWhiteSpace(Model.TrainerImageUrl))
+                                    {
+                                        <img src="@Model.TrainerImageUrl"
+                                             alt="Trainer Image"
+                                             class="trainer-profile-image" />
+                                    }
+                                    else
+                                    {
+                                        <div class="trainer-avatar-box">
+                                            @trainerInitial
+                                        </div>
+                                    }
 
                                     <div>
                                         <h5 class="fw-bold mb-1">@Display(Model.TrainerName)</h5>
@@ -1210,13 +1229,13 @@
 
                     <button type="button"
                             class="chat-suggestion"
-                            data-message="Ami ajke osustho feel korchi, exercise korbo?">
+                            data-message="I am feeling unwell today. Should I exercise ?">
                         Feeling unwell
                     </button>
 
                     <button type="button"
                             class="chat-suggestion"
-                            data-message="Push-up kivabe dibo step by step bolo">
+                            data-message="Tell me step by step. how to do  push-up ?">
                         Push-up guide
                     </button>
 
