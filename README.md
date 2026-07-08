@@ -8,6 +8,17 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 
 ---
 
+## Quick Navigation
+
+|  |  |  |
+|---|---|---|
+| [Key Features](#key-features) | [Technology Stack](#technology-stack) | [Project Architecture](#project-architecture) |
+| [Screenshots](#screenshots) | [How to Run Locally](#how-to-run-locally) | [Configuration](#configuration) |
+| [Database Setup](#database-setup) | [Demo Login Credentials](#demo-login-credentials) | [AI Fitness Coach](#ai-fitness-coach-integration) |
+| [Project Status](#project-status) | [Author](#author) |  |
+
+---
+
 ## Key Features
 
 ### Admin & Management
@@ -87,6 +98,11 @@ GYM.Mi.Web
 
 ## Screenshots
 
+Since the project is not currently deployed live, screenshots are included to demonstrate the working interface and major features of the system.
+
+<details>
+<summary><strong>View All Screenshots</strong></summary>
+
 ### Landing Page
 ![Landing Page](screenshots/01-landing-page.png)
 
@@ -110,6 +126,8 @@ GYM.Mi.Web
 
 ### Smart AI Fitness Coach
 ![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
+
+</details>
 
 ---
 
@@ -235,7 +253,7 @@ The AI coach can provide general fitness guidance such as:
 - Exercise technique support
 - Safety-aware recommendations based on health information
 
-The API key is not included in the repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
+The API key is not included in this repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
 
 ---
 
