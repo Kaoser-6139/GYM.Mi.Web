@@ -37,7 +37,7 @@ namespace GYM.Mi
             builder.RegisterType<UserService>().As<IUserService>()
                .InstancePerLifetimeScope();
 
-            builder.RegisterType<GeminiService>().As<IGeminiService>()
+            builder.RegisterType<AIService>().As<IAiService>()
                 .InstancePerLifetimeScope();
 
             //Equipments

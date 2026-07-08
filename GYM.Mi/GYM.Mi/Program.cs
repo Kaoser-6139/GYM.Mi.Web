@@ -47,7 +47,7 @@ try
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     #endregion
     #region Gemeni Configuration
-    builder.Services.AddHttpClient<IGeminiService,GeminiService>();
+    builder.Services.AddHttpClient<IAiService,AIService>();
     #endregion
     #region Identity Configuration
     builder.Services.AddIdentity();

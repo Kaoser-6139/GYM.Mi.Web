@@ -22,12 +22,12 @@ namespace GYM.Mi.Areas.Admin.Controllers
         private readonly IUserService _userService;
         private readonly IEmployeeService _employeeService;
         private readonly IMapper _mapper;
-        private readonly IGeminiService _gemini;
+        private readonly IAiService _gemini;
         private readonly IMembershipService _membershipService;
         public UsersController(ILogger<UsersController> logger,
             IUserService userService,
             IMapper mapper,
-            IGeminiService service,
+            IAiService service,
             IEmployeeService employeeService,
             IMembershipService membershipService)
         {
