@@ -40,6 +40,9 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
   <a href="#ai-fitness-coach-integration">
     <img src="https://img.shields.io/badge/AI%20Fitness%20Coach-%E2%86%92-FF69B4?style=for-the-badge" />
   </a>
+  <a href="#project-status">
+    <img src="https://img.shields.io/badge/Project%20Status-%E2%86%92-6C757D?style=for-the-badge" />
+  </a>
   <a href="#author">
     <img src="https://img.shields.io/badge/Author-%E2%86%92-343A40?style=for-the-badge" />
   </a>
@@ -145,6 +148,12 @@ GYM.Mi.Web
 ## Screenshots
 
 Since the project is not currently deployed live, screenshots are included to demonstrate the working interface and major features of the system.
+
+### Landing Page
+![Landing Page](screenshots/01-landing-page.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/02-admin-dashboard.png)
 
 <details>
 <summary><strong>View All Screenshots</strong></summary>
@@ -329,7 +338,7 @@ The AI coach can provide general fitness guidance such as:
 - Exercise technique support
 - Safety-aware recommendations based on health information
 
-The API key is not included in the repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
+The API key is not included in this repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
 
 <p align="right">
   <a href="#quick-navigation">
