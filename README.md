@@ -1,16 +1,16 @@
 # Gym Management System with Smart Fitness Coach
 
-A web-based Gym Management System built with **ASP.NET Core MVC**, **.NET 9**, and **SQL Server**.
+A web-based **Gym Management System** built with **ASP.NET Core MVC**, **.NET 9**, **Entity Framework Core**, and **SQL Server**.
 
-The system is designed to manage gym members, trainers, employees, memberships, equipment, pending payments, blogs, and role-based administration from a single platform.
+This project is designed to manage gym members, trainers, employees, memberships, equipment, pending payments, blogs, and role-based administration from a single platform. It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API** to provide personalized fitness guidance based on member profile information.
 
-It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API** to provide personalized workout, nutrition, recovery, and safety-related fitness guidance based on member profile information.
+**Tech Stack:** ASP.NET Core MVC, .NET 9, Entity Framework Core, SQL Server, Bootstrap, JavaScript, OpenRouter API
 
 ---
 
 ## Key Features
 
-### Admin & Management
+### Management Modules
 - Admin dashboard with summary cards
 - User/member management
 - Employee management
@@ -36,26 +36,28 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 - Personalized workout guidance
 - Food and recovery suggestions
 - Safety-aware fitness advice based on health notes
-- Supports user queries related to workout plans, exercise guidance, and fitness improvement
+- Support for workout plans, exercise guidance, and general fitness improvement queries
 
 ---
 
 ## Technology Stack
 
-- **Language:** C#
-- **Framework:** ASP.NET Core MVC / .NET 9
-- **Database:** SQL Server
-- **ORM:** Entity Framework Core
-- **Frontend:** HTML, CSS, Bootstrap, JavaScript
-- **AI Integration:** OpenRouter API
-- **IDE:** Visual Studio
-- **Version Control:** Git & GitHub
+| Area | Technology |
+|---|---|
+| Language | C# |
+| Framework | ASP.NET Core MVC / .NET 9 |
+| Database | SQL Server |
+| ORM | Entity Framework Core |
+| Frontend | HTML, CSS, Bootstrap, JavaScript |
+| AI Integration | OpenRouter API |
+| IDE | Visual Studio |
+| Version Control | Git & GitHub |
 
 ---
 
 ## Project Architecture
 
-The project follows a layered structure to separate concerns and keep the application organized.
+The project follows a layered structure to keep the application organized and maintainable.
 
 ```text
 GYM.Mi.Web
@@ -78,7 +80,7 @@ GYM.Mi.Web
   Contains application services and business logic.
 
 - **GYM.Infrastructure**  
-  Handles data access, database-related implementation, and external service integration.
+  Handles data access, database implementation, and external service integration.
 
 - **GYM.Mi**  
   Main ASP.NET Core MVC web application containing controllers, views, and UI-related logic.
@@ -88,28 +90,52 @@ GYM.Mi.Web
 ## Screenshots
 
 ### Landing Page
-![Landing Page](screenshots/01-landing-page.png)
+
+<p align="center">
+  <img src="screenshots/01-landing-page.png" alt="Landing Page" width="850">
+</p>
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/02-admin-dashboard.png)
+
+<p align="center">
+  <img src="screenshots/02-admin-dashboard.png" alt="Admin Dashboard" width="850">
+</p>
 
 ### User Management
-![User Management](screenshots/03-user-management.png)
+
+<p align="center">
+  <img src="screenshots/03-user-management.png" alt="User Management" width="850">
+</p>
 
 ### Member Profile
-![Member Profile](screenshots/04-member-profile.png)
+
+<p align="center">
+  <img src="screenshots/04-member-profile.png" alt="Member Profile" width="850">
+</p>
 
 ### Pending Payments
-![Pending Payments](screenshots/05-pending-payments.png)
+
+<p align="center">
+  <img src="screenshots/05-pending-payments.png" alt="Pending Payments" width="850">
+</p>
 
 ### Equipment Management
-![Equipment Management](screenshots/06-equipment-management.png)
+
+<p align="center">
+  <img src="screenshots/06-equipment-management.png" alt="Equipment Management" width="850">
+</p>
 
 ### Trainer Assignment
-![Trainer Assignment](screenshots/07-trainer-assignment.png)
+
+<p align="center">
+  <img src="screenshots/07-trainer-assignment.png" alt="Trainer Assignment" width="850">
+</p>
 
 ### Smart AI Fitness Coach
-![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
+
+<p align="center">
+  <img src="screenshots/08-ai-fitness-coach.png" alt="Smart AI Fitness Coach" width="850">
+</p>
 
 ---
 
@@ -225,7 +251,7 @@ Do not use these credentials for production or live deployment.
 
 ## AI Fitness Coach Integration
 
-The Smart AI Fitness Coach is integrated using **OpenRouter API**.
+The **Smart AI Fitness Coach** is integrated using **OpenRouter API**.
 
 The AI coach can provide general fitness guidance such as:
 
@@ -235,7 +261,7 @@ The AI coach can provide general fitness guidance such as:
 - Exercise technique support
 - Safety-aware recommendations based on health information
 
-The API key is not included in the repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
+The API key is not included in this repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
 
 ---
 
