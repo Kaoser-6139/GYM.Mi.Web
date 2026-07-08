@@ -12,42 +12,75 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 
 ## Quick Navigation
 
-<p align="center">
-  <a href="#key-features">
-    <img src="https://img.shields.io/badge/Key%20Features-%E2%86%92-0D6EFD?style=for-the-badge" />
-  </a>
-  <a href="#technology-stack">
-    <img src="https://img.shields.io/badge/Technology%20Stack-%E2%86%92-198754?style=for-the-badge" />
-  </a>
-  <a href="#project-architecture">
-    <img src="https://img.shields.io/badge/Architecture-%E2%86%92-6F42C1?style=for-the-badge" />
-  </a>
-  <a href="#screenshots">
-    <img src="https://img.shields.io/badge/Screenshots-%E2%86%92-FD7E14?style=for-the-badge" />
-  </a>
-  <a href="#how-to-run-locally">
-    <img src="https://img.shields.io/badge/Run%20Locally-%E2%86%92-DC3545?style=for-the-badge" />
-  </a>
-  <a href="#configuration">
-    <img src="https://img.shields.io/badge/Configuration-%E2%86%92-20C997?style=for-the-badge" />
-  </a>
-  <a href="#database-setup">
-    <img src="https://img.shields.io/badge/Database%20Setup-%E2%86%92-0DCAF0?style=for-the-badge" />
-  </a>
-  <a href="#demo-login-credentials">
-    <img src="https://img.shields.io/badge/Demo%20Login-%E2%86%92-6610F2?style=for-the-badge" />
-  </a>
-  <a href="#ai-fitness-coach-integration">
-    <img src="https://img.shields.io/badge/AI%20Fitness%20Coach-%E2%86%92-FF69B4?style=for-the-badge" />
-  </a>
-  <a href="#project-status">
-    <img src="https://img.shields.io/badge/Project%20Status-%E2%86%92-6C757D?style=for-the-badge" />
-  </a>
-  <a href="#author">
-    <img src="https://img.shields.io/badge/Author-%E2%86%92-343A40?style=for-the-badge" />
-  </a>
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="#key-features">
+        <img src="https://img.shields.io/badge/Key%20Features-%E2%86%92-0D6EFD?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="#technology-stack">
+        <img src="https://img.shields.io/badge/Technology%20Stack-%E2%86%92-198754?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="#project-architecture">
+        <img src="https://img.shields.io/badge/Architecture-%E2%86%92-6F42C1?style=for-the-badge" />
+      </a>
+    </td>
+  </tr>
 
+  <tr>
+    <td align="center">
+      <a href="#screenshots">
+        <img src="https://img.shields.io/badge/Screenshots-%E2%86%92-FD7E14?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="#how-to-run-locally">
+        <img src="https://img.shields.io/badge/Run%20Locally-%E2%86%92-DC3545?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="#configuration">
+        <img src="https://img.shields.io/badge/Configuration-%E2%86%92-20C997?style=for-the-badge" />
+      </a>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <a href="#database-setup">
+        <img src="https://img.shields.io/badge/Database%20Setup-%E2%86%92-0DCAF0?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="#demo-login-credentials">
+        <img src="https://img.shields.io/badge/Demo%20Login-%E2%86%92-6610F2?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="#ai-fitness-coach-integration">
+        <img src="https://img.shields.io/badge/AI%20Fitness%20Coach-%E2%86%92-FF69B4?style=for-the-badge" />
+      </a>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center"></td>
+    <td align="center">
+      <a href="#project-status">
+        <img src="https://img.shields.io/badge/Project%20Status-%E2%86%92-6C757D?style=for-the-badge" />
+      </a>
+      <br><br>
+      <a href="#author">
+        <img src="https://img.shields.io/badge/Author-%E2%86%92-343A40?style=for-the-badge" />
+      </a>
+    </td>
+    <td align="center"></td>
+  </tr>
+</table>
 ---
 
 ## Key Features
