@@ -152,14 +152,11 @@ Since the project is not currently deployed live, screenshots are included to de
 ### Landing Page
 ![Landing Page](screenshots/01-landing-page.png)
 
-### Admin Dashboard
-![Admin Dashboard](screenshots/02-admin-dashboard.png)
+### Smart AI Fitness Coach
+![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
 
 <details>
 <summary><strong>View All Screenshots</strong></summary>
-
-### Landing Page
-![Landing Page](screenshots/01-landing-page.png)
 
 ### Admin Dashboard
 ![Admin Dashboard](screenshots/02-admin-dashboard.png)
@@ -178,9 +175,6 @@ Since the project is not currently deployed live, screenshots are included to de
 
 ### Trainer Assignment
 ![Trainer Assignment](screenshots/07-trainer-assignment.png)
-
-### Smart AI Fitness Coach
-![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
 
 </details>
 
