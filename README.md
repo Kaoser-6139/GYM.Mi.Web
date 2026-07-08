@@ -2,60 +2,47 @@
 
 A web-based **Gym Management System** built with **ASP.NET Core MVC**, **.NET 9**, **Entity Framework Core**, and **SQL Server**.
 
-This project is designed to manage gym members, trainers, employees, memberships, equipment, pending payments, blogs, and role-based administration from a single platform. It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API** to provide personalized fitness guidance based on member profile information.
+This project helps manage gym members, trainers, employees, memberships, equipment, pending payments, blogs, and role-based administration from one platform. It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API** for personalized workout, nutrition, recovery, and safety-related fitness guidance.
 
-**Tech Stack:** ASP.NET Core MVC, .NET 9, Entity Framework Core, SQL Server, Bootstrap, JavaScript, OpenRouter API
+---
+
+## Project at a Glance
+
+| Item | Details |
+|---|---|
+| Project Type | Web-based Gym Management System |
+| Framework | ASP.NET Core MVC / .NET 9 |
+| Language | C# |
+| Database | SQL Server |
+| ORM | Entity Framework Core |
+| Frontend | HTML, CSS, Bootstrap, JavaScript |
+| AI Integration | OpenRouter API |
+| Status | Core features completed and ready for demonstration |
 
 ---
 
 ## Key Features
 
-### Management Modules
-- Admin dashboard with summary cards
-- User/member management
-- Employee management
-- Trainer management
-- Equipment management
-- Blog management
-- Role-based user management
-
-### Membership & Payment
-- Membership plan tracking
-- Active, pending, and expired membership status
-- Pending cash payment approval
-- Membership history tracking
-
-### Trainer & Member Features
-- Dedicated member profile
-- Trainer assignment
-- Assigned student management for trainers
-- Member fitness, health, trainer, and membership information display
-
-### Smart AI Fitness Coach
-- AI-powered fitness assistant using OpenRouter API
-- Personalized workout guidance
-- Food and recovery suggestions
-- Safety-aware fitness advice based on health notes
-- Support for workout plans, exercise guidance, and general fitness improvement queries
-
----
-
-## Technology Stack
-
-| Area | Technology |
+| Module | Features |
 |---|---|
-| Language | C# |
-| Framework | ASP.NET Core MVC / .NET 9 |
-| Database | SQL Server |
-| ORM | Entity Framework Core |
-| Frontend | HTML, CSS, Bootstrap, JavaScript |
-| AI Integration | OpenRouter API |
-| IDE | Visual Studio |
-| Version Control | Git & GitHub |
+| Admin & Management | Dashboard, user management, employee management, trainer management, equipment management, blog management |
+| Membership & Payment | Membership tracking, active/pending/expired status, pending cash payment approval, membership history |
+| Trainer & Member | Dedicated member profile, trainer assignment, assigned student management, fitness and health information |
+| AI Fitness Coach | Workout guidance, food advice, recovery suggestions, safety-aware fitness recommendations |
+| Security & Configuration | Local `appsettings.json`, protected API key and connection string setup |
 
 ---
 
 ## Project Architecture
+
+```mermaid
+flowchart TD
+    A[GYM.Mi Web Application] --> B[GYM.Application]
+    B --> C[GYM.Domain]
+    A --> D[GYM.Infrastructure]
+    D --> E[(SQL Server)]
+    D --> F[OpenRouter API]
+```
 
 The project follows a layered structure to keep the application organized and maintainable.
 
@@ -73,21 +60,16 @@ GYM.Mi.Web
 
 ### Layer Overview
 
-- **GYM.Domain**  
-  Contains domain models and core entities.
-
-- **GYM.Application**  
-  Contains application services and business logic.
-
-- **GYM.Infrastructure**  
-  Handles data access, database implementation, and external service integration.
-
-- **GYM.Mi**  
-  Main ASP.NET Core MVC web application containing controllers, views, and UI-related logic.
+| Layer | Purpose |
+|---|---|
+| `GYM.Domain` | Contains domain models and core entities |
+| `GYM.Application` | Contains application services and business logic |
+| `GYM.Infrastructure` | Handles data access, database implementation, and external service integration |
+| `GYM.Mi` | Main ASP.NET Core MVC web application with controllers, views, and UI logic |
 
 ---
 
-## Screenshots
+## Main Screenshots
 
 ### Landing Page
 
@@ -101,16 +83,27 @@ GYM.Mi.Web
   <img src="screenshots/02-admin-dashboard.png" alt="Admin Dashboard" width="850">
 </p>
 
-### User Management
-
-<p align="center">
-  <img src="screenshots/03-user-management.png" alt="User Management" width="850">
-</p>
-
 ### Member Profile
 
 <p align="center">
   <img src="screenshots/04-member-profile.png" alt="Member Profile" width="850">
+</p>
+
+### Smart AI Fitness Coach
+
+<p align="center">
+  <img src="screenshots/08-ai-fitness-coach.png" alt="Smart AI Fitness Coach" width="850">
+</p>
+
+---
+
+<details>
+<summary><strong>View More Screenshots</strong></summary>
+
+### User Management
+
+<p align="center">
+  <img src="screenshots/03-user-management.png" alt="User Management" width="850">
 </p>
 
 ### Pending Payments
@@ -131,27 +124,24 @@ GYM.Mi.Web
   <img src="screenshots/07-trainer-assignment.png" alt="Trainer Assignment" width="850">
 </p>
 
-### Smart AI Fitness Coach
-
-<p align="center">
-  <img src="screenshots/08-ai-fitness-coach.png" alt="Smart AI Fitness Coach" width="850">
-</p>
+</details>
 
 ---
 
 ## How to Run Locally
 
+<details open>
+<summary><strong>Local Setup Instructions</strong></summary>
+
 ### Prerequisites
 
-Make sure the following tools are installed on your machine:
+Make sure the following tools are installed:
 
 - Visual Studio
 - .NET 9 SDK
 - SQL Server
 - SQL Server Management Studio
 - Git
-
----
 
 ### Run Steps
 
@@ -195,15 +185,18 @@ Update-Database
 
 10. Login using the demo admin credential.
 
+</details>
+
 ---
 
 ## Configuration
 
+<details>
+<summary><strong>appsettings.json Example</strong></summary>
+
 For security reasons, `appsettings.json` is not included in this repository.
 
-You need to create your own `appsettings.json` file locally before running the project.
-
-### Example `appsettings.json`
+Create your own `appsettings.json` file locally and configure the connection string and OpenRouter credentials.
 
 ```json
 {
@@ -220,13 +213,15 @@ You need to create your own `appsettings.json` file locally before running the p
 
 Replace the placeholder values with your own local configuration.
 
+</details>
+
 ---
 
 ## Database Setup
 
 This project uses **Entity Framework Core migrations**.
 
-After configuring the SQL Server connection string, run the following command from **Package Manager Console**:
+After configuring the SQL Server connection string, run:
 
 ```powershell
 Update-Database
@@ -238,7 +233,7 @@ This will create or update the SQL Server database using the existing migrations
 
 ## Demo Login Credentials
 
-The following credential is for local demo/testing purposes only.
+The following credential is for **local demo/testing purposes only**.
 
 ```text
 Admin Email: admin@gmail.com
@@ -253,7 +248,7 @@ Do not use these credentials for production or live deployment.
 
 The **Smart AI Fitness Coach** is integrated using **OpenRouter API**.
 
-The AI coach can provide general fitness guidance such as:
+It can provide general fitness guidance such as:
 
 - Workout plan suggestions
 - Food advice
