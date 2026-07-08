@@ -103,7 +103,7 @@ namespace GYM.Infrastructure
                 return "Sorry, there was a problem connecting to your AI coach. Please try again later.";
             }
         }
-
+        //
         public async Task<string> ChatAsync(string userMessage)
         {
             if (string.IsNullOrWhiteSpace(_apiKey))
