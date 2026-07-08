@@ -6,6 +6,33 @@ This project helps manage gym members, trainers, employees, memberships, equipme
 
 ---
 
+## Quick Navigation
+
+- [Project Overview](#project-overview)
+- [Project at a Glance](#project-at-a-glance)
+- [Key Features](#key-features)
+- [Project Architecture](#project-architecture)
+- [Main Screenshots](#main-screenshots)
+- [How to Run Locally](#how-to-run-locally)
+- [Configuration](#configuration)
+- [Database Setup](#database-setup)
+- [Demo Login Credentials](#demo-login-credentials)
+- [AI Fitness Coach Integration](#ai-fitness-coach-integration)
+- [Project Status](#project-status)
+- [Author](#author)
+
+---
+
+## Project Overview
+
+This is a complete ASP.NET Core MVC based gym management web application designed to handle daily gym operations such as member management, trainer assignment, membership tracking, equipment management, pending payment approval, and AI-based fitness guidance.
+
+The project is built with a layered architecture using separate **Domain**, **Application**, **Infrastructure**, and **MVC Web Application** layers to keep the codebase organized, maintainable, and easier to extend.
+
+Since the project is not currently deployed live, screenshots are included below to demonstrate the working interface and major features of the system.
+
+---
+
 ## Project at a Glance
 
 | Item | Details |
@@ -17,6 +44,7 @@ This project helps manage gym members, trainers, employees, memberships, equipme
 | ORM | Entity Framework Core |
 | Frontend | HTML, CSS, Bootstrap, JavaScript |
 | AI Integration | OpenRouter API |
+| Architecture | Layered Architecture |
 | Status | Core features completed and ready for demonstration |
 
 ---
@@ -25,11 +53,11 @@ This project helps manage gym members, trainers, employees, memberships, equipme
 
 | Module | Features |
 |---|---|
-| Admin & Management | Dashboard, user management, employee management, trainer management, equipment management, blog management |
+| Admin & Management | Admin dashboard, user management, employee management, trainer management, equipment management, blog management |
 | Membership & Payment | Membership tracking, active/pending/expired status, pending cash payment approval, membership history |
 | Trainer & Member | Dedicated member profile, trainer assignment, assigned student management, fitness and health information |
 | AI Fitness Coach | Workout guidance, food advice, recovery suggestions, safety-aware fitness recommendations |
-| Security & Configuration | Local `appsettings.json`, protected API key and connection string setup |
+| Security & Configuration | Local `appsettings.json`, protected API key, and connection string setup |
 
 ---
 
@@ -44,7 +72,7 @@ flowchart TD
     D --> F[OpenRouter API]
 ```
 
-The project follows a layered structure to keep the application organized and maintainable.
+The project follows a layered structure to separate responsibilities and keep the application organized.
 
 ```text
 GYM.Mi.Web
@@ -196,7 +224,7 @@ Update-Database
 
 For security reasons, `appsettings.json` is not included in this repository.
 
-Create your own `appsettings.json` file locally and configure the connection string and OpenRouter credentials.
+Create your own `appsettings.json` file locally and configure the SQL Server connection string and OpenRouter credentials.
 
 ```json
 {
@@ -221,7 +249,7 @@ Replace the placeholder values with your own local configuration.
 
 This project uses **Entity Framework Core migrations**.
 
-After configuring the SQL Server connection string, run:
+After configuring the SQL Server connection string, run the following command from **Package Manager Console**:
 
 ```powershell
 Update-Database
