@@ -8,14 +8,42 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 
 ---
 
+<a id="quick-navigation"></a>
+
 ## Quick Navigation
 
-|  |  |  |
-|---|---|---|
-| [Key Features](#key-features) | [Technology Stack](#technology-stack) | [Project Architecture](#project-architecture) |
-| [Screenshots](#screenshots) | [How to Run Locally](#how-to-run-locally) | [Configuration](#configuration) |
-| [Database Setup](#database-setup) | [Demo Login Credentials](#demo-login-credentials) | [AI Fitness Coach](#ai-fitness-coach-integration) |
-| [Project Status](#project-status) | [Author](#author) |  |
+<p align="center">
+  <a href="#key-features">
+    <img src="https://img.shields.io/badge/Key%20Features-%E2%86%92-0D6EFD?style=for-the-badge" />
+  </a>
+  <a href="#technology-stack">
+    <img src="https://img.shields.io/badge/Technology%20Stack-%E2%86%92-198754?style=for-the-badge" />
+  </a>
+  <a href="#project-architecture">
+    <img src="https://img.shields.io/badge/Architecture-%E2%86%92-6F42C1?style=for-the-badge" />
+  </a>
+  <a href="#screenshots">
+    <img src="https://img.shields.io/badge/Screenshots-%E2%86%92-FD7E14?style=for-the-badge" />
+  </a>
+  <a href="#how-to-run-locally">
+    <img src="https://img.shields.io/badge/Run%20Locally-%E2%86%92-DC3545?style=for-the-badge" />
+  </a>
+  <a href="#configuration">
+    <img src="https://img.shields.io/badge/Configuration-%E2%86%92-20C997?style=for-the-badge" />
+  </a>
+  <a href="#database-setup">
+    <img src="https://img.shields.io/badge/Database%20Setup-%E2%86%92-0DCAF0?style=for-the-badge" />
+  </a>
+  <a href="#demo-login-credentials">
+    <img src="https://img.shields.io/badge/Demo%20Login-%E2%86%92-6610F2?style=for-the-badge" />
+  </a>
+  <a href="#ai-fitness-coach-integration">
+    <img src="https://img.shields.io/badge/AI%20Fitness%20Coach-%E2%86%92-FF69B4?style=for-the-badge" />
+  </a>
+  <a href="#author">
+    <img src="https://img.shields.io/badge/Author-%E2%86%92-343A40?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
@@ -49,6 +77,12 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 - Safety-aware fitness advice based on health notes
 - Supports user queries related to workout plans, exercise guidance, and fitness improvement
 
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
 ---
 
 ## Technology Stack
@@ -61,6 +95,12 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 - **AI Integration:** OpenRouter API
 - **IDE:** Visual Studio
 - **Version Control:** Git & GitHub
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
@@ -93,6 +133,12 @@ GYM.Mi.Web
 
 - **GYM.Mi**  
   Main ASP.NET Core MVC web application containing controllers, views, and UI-related logic.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
@@ -128,6 +174,12 @@ Since the project is not currently deployed live, screenshots are included to de
 ![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
 
 </details>
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
@@ -187,6 +239,12 @@ Update-Database
 
 10. Login using the demo admin credential.
 
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
 ---
 
 ## Configuration
@@ -212,6 +270,12 @@ You need to create your own `appsettings.json` file locally before running the p
 
 Replace the placeholder values with your own local configuration.
 
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
 ---
 
 ## Database Setup
@@ -226,6 +290,12 @@ Update-Database
 
 This will create or update the SQL Server database using the existing migrations.
 
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
 ---
 
 ## Demo Login Credentials
@@ -238,6 +308,12 @@ Password: 123456789
 ```
 
 Do not use these credentials for production or live deployment.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
@@ -253,13 +329,25 @@ The AI coach can provide general fitness guidance such as:
 - Exercise technique support
 - Safety-aware recommendations based on health information
 
-The API key is not included in this repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
+The API key is not included in the repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
 ## Project Status
 
 **Core features completed and ready for demonstration.**
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
@@ -269,3 +357,9 @@ The API key is not included in this repository. Developers must add their own Op
 ASP.NET Core Intern | Junior .NET Developer | C# | SQL Server
 
 - GitHub: [Kaoser-6139](https://github.com/Kaoser-6139)
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
