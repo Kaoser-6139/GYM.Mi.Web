@@ -51,6 +51,7 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
   </a>
 </p>
 ---
+ 
 ## Key Features
  
 ### Admin & Management
@@ -143,31 +144,23 @@ GYM.Mi.Web
 Since the project is not currently deployed live, screenshots are included to demonstrate the working interface and major features of the system.
  
 ### Landing Page
-![Landing Page](screenshots/01-landing-page.png)
- 
+<p align="center"><img src="screenshots/01-landing-page.png" alt="Landing Page" width="800"/></p>
 ### Smart AI Fitness Coach
-![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
- 
+<p align="center"><img src="screenshots/08-ai-fitness-coach.png" alt="Smart AI Fitness Coach" width="800"/></p>
 <details>
 <summary><strong>View All Screenshots</strong></summary>
 ### Admin Dashboard
-![Admin Dashboard](screenshots/02-admin-dashboard.png)
- 
+<p align="center"><img src="screenshots/02-admin-dashboard.png" alt="Admin Dashboard" width="800"/></p>
 ### User Management
-![User Management](screenshots/03-user-management.png)
- 
+<p align="center"><img src="screenshots/03-user-management.png" alt="User Management" width="800"/></p>
 ### Member Profile
-![Member Profile](screenshots/04-member-profile.png)
- 
+<p align="center"><img src="screenshots/04-member-profile.png" alt="Member Profile" width="800"/></p>
 ### Pending Payments
-![Pending Payments](screenshots/05-pending-payments.png)
- 
+<p align="center"><img src="screenshots/05-pending-payments.png" alt="Pending Payments" width="800"/></p>
 ### Equipment Management
-![Equipment Management](screenshots/06-equipment-management.png)
- 
+<p align="center"><img src="screenshots/06-equipment-management.png" alt="Equipment Management" width="800"/></p>
 ### Trainer Assignment
-![Trainer Assignment](screenshots/07-trainer-assignment.png)
- 
+<p align="center"><img src="screenshots/07-trainer-assignment.png" alt="Trainer Assignment" width="800"/></p>
 </details>
 <p align="right">
   <a href="#quick-navigation">
