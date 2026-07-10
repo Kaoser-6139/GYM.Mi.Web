@@ -132,3 +132,288 @@ GYM.Mi.Web
 │   └── GYM.Mi.sln
 ├── screenshots
 └── README.md
+```
+
+### Layer Overview
+
+- **GYM.Domain**  
+  Contains domain models and core entities.
+
+- **GYM.Application**  
+  Contains application services and business logic.
+
+- **GYM.Infrastructure**  
+  Handles data access, database-related implementation, and external service integration.
+
+- **GYM.Mi**  
+  Main ASP.NET Core MVC web application containing controllers, views, and UI-related logic.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## Screenshots
+
+Since the project is not currently deployed live, screenshots are included to demonstrate the working interface and major features of the system.
+
+### Landing Page
+
+<p align="center">
+  <img src="screenshots/01-landing-page.png" alt="Landing Page" width="800"/>
+</p>
+
+### Smart AI Fitness Coach
+
+<p align="center">
+  <img src="screenshots/08-ai-fitness-coach.png" alt="Smart AI Fitness Coach" width="800"/>
+</p>
+
+<details>
+<summary><strong>View All Screenshots</strong></summary>
+
+### Admin Dashboard
+
+<p align="center">
+  <img src="screenshots/02-admin-dashboard.png" alt="Admin Dashboard" width="800"/>
+</p>
+
+### User Management
+
+<p align="center">
+  <img src="screenshots/03-user-management.png" alt="User Management" width="800"/>
+</p>
+
+### Member Profile
+
+<p align="center">
+  <img src="screenshots/04-member-profile.png" alt="Member Profile" width="800"/>
+</p>
+
+### Pending Payments
+
+<p align="center">
+  <img src="screenshots/05-pending-payments.png" alt="Pending Payments" width="800"/>
+</p>
+
+### Equipment Management
+
+<p align="center">
+  <img src="screenshots/06-equipment-management.png" alt="Equipment Management" width="800"/>
+</p>
+
+### Trainer Assignment
+
+<p align="center">
+  <img src="screenshots/07-trainer-assignment.png" alt="Trainer Assignment" width="800"/>
+</p>
+
+</details>
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## How to Run Locally
+
+### Prerequisites
+
+Make sure the following tools are installed on your machine:
+
+- Visual Studio
+- .NET 9 SDK
+- SQL Server
+- SQL Server Management Studio
+- Git
+
+---
+
+### Run Steps
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Kaoser-6139/GYM.Mi.Web.git
+```
+
+2. Open the solution file in Visual Studio:
+
+```text
+GYM.Mi/GYM.Mi.sln
+```
+
+3. Set the main MVC project as the startup project:
+
+```text
+GYM.Mi
+```
+
+4. Restore NuGet packages.
+
+5. Create a local `appsettings.json` file inside the main web project:
+
+```text
+GYM.Mi/GYM.Mi/appsettings.json
+```
+
+6. Configure the SQL Server connection string and OpenRouter API credentials.
+
+7. Open **Package Manager Console** in Visual Studio.
+
+8. Run the following command:
+
+```powershell
+Update-Database
+```
+
+9. Run the application from Visual Studio.
+
+10. Login using the demo admin credential.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## Configuration
+
+For security reasons, `appsettings.json` is not included in this repository.
+
+You need to create your own `appsettings.json` file locally before running the project.
+
+### Example `appsettings.json`
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=GymManagementDb;Trusted_Connection=True;TrustServerCertificate=True;"
+  },
+  "OpenRouter": {
+    "ApiKey": "YOUR_OPENROUTER_API_KEY",
+    "ModelId": "YOUR_MODEL_ID",
+    "BaseUrl": "YOUR_OPENROUTER_BASE_URL"
+  }
+}
+```
+
+Replace the placeholder values with your own local configuration.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## Database Setup
+
+This project uses **Entity Framework Core migrations**.
+
+After configuring the SQL Server connection string, run the following command from **Package Manager Console**:
+
+```powershell
+Update-Database
+```
+
+This will create or update the SQL Server database using the existing migrations.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## Demo Login Credentials
+
+The following credential is for local demo/testing purposes only.
+
+```text
+Admin Email: admin@gmail.com
+Password: 123456789
+```
+
+Do not use these credentials for production or live deployment.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## AI Fitness Coach Integration
+
+The Smart AI Fitness Coach is integrated using **OpenRouter API**.
+
+The AI coach can provide general fitness guidance such as:
+
+- Workout plan suggestions
+- Food advice
+- Recovery guidance
+- Exercise technique support
+- Safety-aware recommendations based on health information
+
+The API key is not included in this repository. Developers must add their own OpenRouter API key in the local `appsettings.json` file.
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## Project Status
+
+**Core features completed and ready for demonstration.**
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+<a id="future-improvements"></a>
+
+## Future Improvements
+
+- [ ] QR + GPS-based attendance system for members
+- [ ] Online payment gateway integration
+- [ ] Email/SMS notification system (membership renewal, payment confirmation, etc.)
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+## Author
+
+**Md. Imrul Kaoser**  
+ASP.NET Core Intern | Junior .NET Developer | C# | SQL Server
+
+- GitHub: [Kaoser-6139](https://github.com/Kaoser-6139)
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
