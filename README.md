@@ -43,15 +43,20 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
   <a href="#project-status">
     <img src="https://img.shields.io/badge/Project%20Status-%E2%86%92-6C757D?style=for-the-badge" />
   </a>
+  <a href="#future-improvements">
+    <img src="https://img.shields.io/badge/Future%20Improvements-%E2%86%92-17A2B8?style=for-the-badge" />
+  </a>
   <a href="#author">
     <img src="https://img.shields.io/badge/Author-%E2%86%92-343A40?style=for-the-badge" />
   </a>
 </p>
+
 ---
 
 ## Key Features
 
 ### Admin & Management
+
 - Admin dashboard with summary cards
 - User/member management
 - Employee management
@@ -61,18 +66,21 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 - Role-based user management
 
 ### Membership & Payment
+
 - Membership plan tracking
 - Active, pending, and expired membership status
 - Pending cash payment approval
 - Membership history tracking
 
 ### Trainer & Member Features
+
 - Dedicated member profile
 - Trainer assignment
 - Assigned student management for trainers
 - Member fitness, health, trainer, and membership information display
 
 ### Smart AI Fitness Coach
+
 - AI-powered fitness assistant using OpenRouter API
 - Personalized workout guidance
 - Food and recovery suggestions
@@ -93,6 +101,10 @@ It also includes a **Smart AI Fitness Coach** integrated with **OpenRouter API**
 - **Framework:** ASP.NET Core MVC / .NET 9
 - **Database:** SQL Server
 - **ORM:** Entity Framework Core
+- **Architecture:** Clean Architecture, Repository Pattern, Unit of Work
+- **Dependency Injection:** Autofac
+- **Object Mapping:** AutoMapper
+- **Logging:** Serilog
 - **Frontend:** HTML, CSS, Bootstrap, JavaScript
 - **AI Integration:** OpenRouter API
 - **IDE:** Visual Studio
@@ -149,31 +161,55 @@ GYM.Mi.Web
 Since the project is not currently deployed live, screenshots are included to demonstrate the working interface and major features of the system.
 
 ### Landing Page
-![Landing Page](screenshots/01-landing-page.png)
+
+<p align="center">
+  <img src="screenshots/01-landing-page.png" alt="Landing Page" width="800"/>
+</p>
 
 ### Smart AI Fitness Coach
-![Smart AI Fitness Coach](screenshots/08-ai-fitness-coach.png)
+
+<p align="center">
+  <img src="screenshots/08-ai-fitness-coach.png" alt="Smart AI Fitness Coach" width="800"/>
+</p>
 
 <details>
 <summary><strong>View All Screenshots</strong></summary>
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/02-admin-dashboard.png)
+
+<p align="center">
+  <img src="screenshots/02-admin-dashboard.png" alt="Admin Dashboard" width="800"/>
+</p>
 
 ### User Management
-![User Management](screenshots/03-user-management.png)
+
+<p align="center">
+  <img src="screenshots/03-user-management.png" alt="User Management" width="800"/>
+</p>
 
 ### Member Profile
-![Member Profile](screenshots/04-member-profile.png)
+
+<p align="center">
+  <img src="screenshots/04-member-profile.png" alt="Member Profile" width="800"/>
+</p>
 
 ### Pending Payments
-![Pending Payments](screenshots/05-pending-payments.png)
+
+<p align="center">
+  <img src="screenshots/05-pending-payments.png" alt="Pending Payments" width="800"/>
+</p>
 
 ### Equipment Management
-![Equipment Management](screenshots/06-equipment-management.png)
+
+<p align="center">
+  <img src="screenshots/06-equipment-management.png" alt="Equipment Management" width="800"/>
+</p>
 
 ### Trainer Assignment
-![Trainer Assignment](screenshots/07-trainer-assignment.png)
+
+<p align="center">
+  <img src="screenshots/07-trainer-assignment.png" alt="Trainer Assignment" width="800"/>
+</p>
 
 </details>
 
@@ -344,6 +380,22 @@ The API key is not included in this repository. Developers must add their own Op
 ## Project Status
 
 **Core features completed and ready for demonstration.**
+
+<p align="right">
+  <a href="#quick-navigation">
+    <img src="https://img.shields.io/badge/Back%20to%20Top-%E2%86%91-555555?style=for-the-badge" />
+  </a>
+</p>
+
+---
+
+<a id="future-improvements"></a>
+
+## Future Improvements
+
+- [ ] QR + GPS-based attendance system for members
+- [ ] Online payment gateway integration
+- [ ] Email/SMS notification system (membership renewal, payment confirmation, etc.)
 
 <p align="right">
   <a href="#quick-navigation">
